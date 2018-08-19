@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EF584987-9C37-48F1-91F9-B4DB96AB1EBF}</ProjectGuid>
-    <RootNamespace>Sabertooth</RootNamespace>
+    <ProjectGuid>{9939D82B-A437-42A5-9951-3A2513538EB1}</ProjectGuid>
+    <RootNamespace>ScreenSaver</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -124,8 +124,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="Shaders\Core\core.frag" />
-    <None Include="Shaders\Core\core.vert" />
+    <None Include="shaders\core\core.frag" />
+    <None Include="shaders\core\core.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\AssetManager.h" />
@@ -134,7 +134,7 @@
     <ClInclude Include="headers\Texture.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main\main.cpp" />
+    <ClCompile Include="main\ScreenSaverMain.cpp" />
     <ClCompile Include="sources\Shader.cpp" />
     <ClCompile Include="sources\System.cpp" />
     <ClCompile Include="sources\Texture.cpp" />

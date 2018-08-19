@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComputacaoGrafica", "ComputacaoGrafica\ComputacaoGrafica.vcxproj", "{EF584987-9C37-48F1-91F9-B4DB96AB1EBF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScreenSaver", "ScreenSaver\ScreenSaver.vcxproj", "{9939D82B-A437-42A5-9951-3A2513538EB1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exemplo1", "Exemplo1\Exemplo1.vcxproj", "{0EBCA802-6523-48CF-9117-51A650CD44B7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sabertooth", "Sabertooth\Sabertooth.vcxproj", "{EF584987-9C37-48F1-91F9-B4DB96AB1EBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,22 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9939D82B-A437-42A5-9951-3A2513538EB1}.Debug|x64.ActiveCfg = Debug|x64
+		{9939D82B-A437-42A5-9951-3A2513538EB1}.Debug|x64.Build.0 = Debug|x64
+		{9939D82B-A437-42A5-9951-3A2513538EB1}.Debug|x86.ActiveCfg = Debug|Win32
+		{9939D82B-A437-42A5-9951-3A2513538EB1}.Debug|x86.Build.0 = Debug|Win32
+		{9939D82B-A437-42A5-9951-3A2513538EB1}.Release|x64.ActiveCfg = Release|x64
+		{9939D82B-A437-42A5-9951-3A2513538EB1}.Release|x64.Build.0 = Release|x64
+		{9939D82B-A437-42A5-9951-3A2513538EB1}.Release|x86.ActiveCfg = Release|Win32
+		{9939D82B-A437-42A5-9951-3A2513538EB1}.Release|x86.Build.0 = Release|Win32
+		{0EBCA802-6523-48CF-9117-51A650CD44B7}.Debug|x64.ActiveCfg = Debug|x64
+		{0EBCA802-6523-48CF-9117-51A650CD44B7}.Debug|x64.Build.0 = Debug|x64
+		{0EBCA802-6523-48CF-9117-51A650CD44B7}.Debug|x86.ActiveCfg = Debug|Win32
+		{0EBCA802-6523-48CF-9117-51A650CD44B7}.Debug|x86.Build.0 = Debug|Win32
+		{0EBCA802-6523-48CF-9117-51A650CD44B7}.Release|x64.ActiveCfg = Release|x64
+		{0EBCA802-6523-48CF-9117-51A650CD44B7}.Release|x64.Build.0 = Release|x64
+		{0EBCA802-6523-48CF-9117-51A650CD44B7}.Release|x86.ActiveCfg = Release|Win32
+		{0EBCA802-6523-48CF-9117-51A650CD44B7}.Release|x86.Build.0 = Release|Win32
 		{EF584987-9C37-48F1-91F9-B4DB96AB1EBF}.Debug|x64.ActiveCfg = Debug|x64
 		{EF584987-9C37-48F1-91F9-B4DB96AB1EBF}.Debug|x64.Build.0 = Debug|x64
 		{EF584987-9C37-48F1-91F9-B4DB96AB1EBF}.Debug|x86.ActiveCfg = Debug|Win32
@@ -24,5 +44,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8DF74B1-2C44-48A4-9FA1-5B089881BABE}
 	EndGlobalSection
 EndGlobal

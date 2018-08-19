@@ -42,6 +42,12 @@ int System::GLFWInit()
 		return EXIT_FAILURE;
 	}
 
+	// obtenção de versão suportada da OpenGL e renderizador
+	const GLubyte* renderer = glGetString (GL_RENDERER);   
+	const GLubyte* version = glGetString (GL_VERSION);   
+	printf ("Renderer: %s\n", renderer);  
+	printf("OpenGL (versão suportada) %s\n", version);
+
 	glViewport( 0, 0, screenWidth, screenHeight );
 
 	return EXIT_SUCCESS;
