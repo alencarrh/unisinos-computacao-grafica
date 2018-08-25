@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main\main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0EBCA802-6523-48CF-9117-51A650CD44B7}</ProjectGuid>
     <RootNamespace>ScreenSaver</RootNamespace>
@@ -123,17 +126,6 @@
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <None Include="shaders\core\core.frag" />
-    <None Include="shaders\core\core.vert" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main\main.cpp" />
-    <ClCompile Include="sources\System.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="headers\System.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

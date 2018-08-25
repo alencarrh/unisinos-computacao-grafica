@@ -56,7 +56,7 @@ int main() {
 	/* these are the strings of code for the shaders
 	the vertex shader positions each vertex point */
 	const char* vertex_shader =
-		"#version 410\n"
+		"#version 460\n"
 		"layout(location=0) in vec3 vp;"
 		"layout(location=1) in vec3 vc;"
 		"uniform mat4 matrix;"
@@ -69,7 +69,7 @@ int main() {
 	/* the fragment shader colours each fragment (pixel-sized area of the
 	triangle) */
 	const char* fragment_shader =
-		"#version 410\n"
+		"#version 460\n"
 		"in vec3 color;"
 		"out vec4 frag_color;"
 		"void main () {"
@@ -86,9 +86,8 @@ int main() {
 		return 1;
 	}
 
-	/* change to 3.2 if on Apple OS X */
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 

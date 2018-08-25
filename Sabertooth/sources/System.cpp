@@ -58,6 +58,9 @@ int System::OpenGLSetup()
 	glCullFace( GL_BACK );
 	glFrontFace( GL_CW );
 
+
+	
+
 	return EXIT_SUCCESS;
 }
 
