@@ -27,5 +27,22 @@
     <ClCompile Include="main\main.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="sources\System.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\HelloTringle.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\System.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Runnable.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\HelloTriangle.h">
+      <Filter>header files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

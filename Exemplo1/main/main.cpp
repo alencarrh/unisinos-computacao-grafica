@@ -7,7 +7,7 @@ using namespace std;
 
 /*
 
-Este cÛdigo È baseado no tutorial learnopengl.com
+Este c√≥digo √© baseado no tutorial learnopengl.com 
 
 */
 
@@ -41,9 +41,9 @@ int main() {
 	glewExperimental = GL_TRUE;
 	glewInit();
 
-    // callback para quando a janela È redimensionada
+    // callback para quando a janela √© redimensionada
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    // Pode ser desabilito o redimensionamento com o cÛdigo abaixo
+    // Pode ser desabilito o redimensionamento com o c√≥digo abaixo
     // glfwWindowHint( GLFW_RESIZABLE, GL_FALSE );
 
 
@@ -155,7 +155,7 @@ void initVAOs() {
 	glLinkProgram(shaderProgram);
 
 
-	//Depois de fazer o link, n„o precisamos mais destes objetos
+	//Depois de fazer o link, n√£o precisamos mais destes objetos
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 

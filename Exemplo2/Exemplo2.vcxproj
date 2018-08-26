@@ -20,9 +20,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main\main.cpp" />
+    <ClCompile Include="sources\HelloTringle.cpp" />
+    <ClCompile Include="sources\System.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\HelloTriangle.h" />
+    <ClInclude Include="headers\Runnable.h" />
+    <ClInclude Include="headers\System.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0EBCA802-6523-48CF-9117-51A650CD44B7}</ProjectGuid>
+    <ProjectGuid>{282FB98B-531A-445D-ABA2-F61355ED9A58}</ProjectGuid>
     <RootNamespace>Exemplo2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
