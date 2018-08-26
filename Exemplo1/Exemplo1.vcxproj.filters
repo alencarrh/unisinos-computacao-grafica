@@ -24,24 +24,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\core\core.frag">
-      <Filter>shaders\core</Filter>
-    </None>
-    <None Include="shaders\Core\core.vert">
-      <Filter>shaders\core</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="main\main.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="sources\System.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="headers\System.h">
-      <Filter>header files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
