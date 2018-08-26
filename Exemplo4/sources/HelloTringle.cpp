@@ -2,21 +2,21 @@
 
 
 const char* vertexShaderSource =
-    "#version 330 core\n"
-    "layout (location = 0) in vec3 aPos;\n"
-    "void main()\n"
-    "{\n"
-    "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-    "}\0";
+        "#version 330 core\n"
+        "layout (location = 0) in vec3 aPos;\n"
+        "void main()\n"
+        "{\n"
+        "   gl_Position = vec4(aPos, 1.0);\n"
+        "}\0";
 
 const char* fragmentShaderSource =
-    "#version 330 core\n"
-    "out vec4 FragColor;\n"
-    "void main()\n"
-    "{\n"
-    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-    "}\n\0";
-
+        "#version 330 core\n"
+        "out vec4 FragColor;\n"
+        "uniform vec4 ourColor;"
+        "void main()\n"
+        "{\n"
+        "   FragColor = ourColor;\n"
+        "}\n\0";
 
 HelloTriangle::HelloTriangle(int width, int height, char* screenTitle) {
     this->WIDTH = width;
@@ -84,12 +84,13 @@ void HelloTriangle::init(GLFWwindow* window) {
         0.5f, 0.5f, 0.0f, // top right
         0.5f, -0.5f, 0.0f, // bottom right
         -0.5f, -0.5f, 0.0f, // bottom left
-        -0.5f, 0.5f, 0.0f // top left 
+        -0.5f, 0.5f, 0.0f, // top left 
+        0.0f, 0.5f, 0.0f, // top center
     };
     unsigned int indices[] = {
         // note that we start from 0!
-        0, 1, 3, // first triangle
-        1, 2, 3 // second triangle
+        4, 1, 2 // first triangle
+        //1, 2, 3 // second triangle
     };
 
     glGenVertexArrays(1, &VAO);
@@ -127,6 +128,15 @@ void HelloTriangle::run(GLFWwindow* window) {
     glClear(GL_COLOR_BUFFER_BIT);
 
     glUseProgram(shaderProgram);
+
+
+	// update the uniform color
+	float timeValue = glfwGetTime();
+	float greenValue = sin(timeValue) / 2.0f + 0.5f;
+	int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+	glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
+
 	glBindVertexArray(VAO);
     //glDrawArrays(GL_TRIANGLES, 0, 6);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
