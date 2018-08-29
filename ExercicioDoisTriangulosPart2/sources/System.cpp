@@ -20,7 +20,7 @@ int System::GLFWInit() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    this->window = glfwCreateWindow(runnable->width(), runnable->height(), runnable->screenTitle(), NULL, NULL);
+    this->window = glfwCreateWindow(runnable->width(), runnable->height(), runnable->screenTitle().c_str(), NULL, NULL);
 
 
     if (!window) {

@@ -30,11 +30,10 @@ int System::GLFWInit() {
     }
 
     glfwMakeContextCurrent(window);
-
     glewExperimental = GL_TRUE;
     glewInit();
 
-    if (runnable->init(window) != 0) {
+    if (runnable->init(window) != EXIT_SUCCESS) {
         return EXIT_FAILURE;
     }
 

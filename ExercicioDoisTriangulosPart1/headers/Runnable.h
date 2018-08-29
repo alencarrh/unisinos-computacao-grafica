@@ -3,6 +3,7 @@
 
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
+#include <string>
 
 class Runnable {
 
@@ -51,7 +52,7 @@ public:
     /*
      * Retorna o título da janela
      */
-    virtual char* screenTitle() = 0;
+    virtual std::string screenTitle() = 0;
 
 };
 #endif

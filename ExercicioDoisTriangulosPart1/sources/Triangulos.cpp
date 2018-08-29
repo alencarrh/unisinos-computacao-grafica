@@ -1,6 +1,6 @@
 #include "../headers/Triangulos.h"
 
-Triangulos::Triangulos(int width, int height, char* screenTitle) {
+Triangulos::Triangulos(int width, int height, std::string screenTitle) {
     this->WIDTH = width;
     this->HEIGHT = height;
     this->SCREEN_TITLE = screenTitle;
@@ -37,8 +37,8 @@ int Triangulos::init(GLFWwindow* window) {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     // position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
@@ -74,6 +74,19 @@ void Triangulos::run(GLFWwindow* window) {
     //glDrawArrays(GL_TRIANGLES, 0, 3);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     //glBindVertexArray(0);
+
+    static double previousSeconds = glfwGetTime();
+    double currentSeconds = glfwGetTime();
+    double elapsedSeconds = currentSeconds - previousSeconds;
+
+    if (elapsedSeconds > 1) {
+        previousSeconds = currentSeconds;
+        fps = screenTitle() + " @ " + std::to_string(count_fps);
+        glfwSetWindowTitle(window, fps.c_str());
+        count_fps = 0;
+    } else {
+        count_fps++;
+    }
 }
 
 bool Triangulos::keepRunning(GLFWwindow* window) {
@@ -95,7 +108,7 @@ int Triangulos::height() {
     return this->HEIGHT;
 }
 
-char* Triangulos::screenTitle() {
+std::string Triangulos::screenTitle() {
     return this->SCREEN_TITLE;
 }
 

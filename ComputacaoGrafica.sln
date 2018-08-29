@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExercicioDoisTriangulosPart
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExercicioDoisTriangulosPart2", "ExercicioDoisTriangulosPart2\ExercicioDoisTriangulosPart2.vcxproj", "{E712A155-A0F6-43E9-B880-319CF7617137}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScreenSaver", "ScreenSaver\ScreenSaver.vcxproj", "{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{E712A155-A0F6-43E9-B880-319CF7617137}.Release|x64.Build.0 = Release|x64
 		{E712A155-A0F6-43E9-B880-319CF7617137}.Release|x86.ActiveCfg = Release|Win32
 		{E712A155-A0F6-43E9-B880-319CF7617137}.Release|x86.Build.0 = Release|Win32
+		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Debug|x64.ActiveCfg = Debug|x64
+		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Debug|x64.Build.0 = Debug|x64
+		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Debug|x86.ActiveCfg = Debug|Win32
+		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Debug|x86.Build.0 = Debug|Win32
+		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Release|x64.ActiveCfg = Release|x64
+		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Release|x64.Build.0 = Release|x64
+		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Release|x86.ActiveCfg = Release|Win32
+		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

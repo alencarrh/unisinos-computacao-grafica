@@ -4,32 +4,25 @@
 #include "Shader.h"
 #include <ostream>
 #include <iostream>
-#include <string>
 
 
-class Triangulos : public Runnable {
+class ScreenSaver : public Runnable {
 private:
     GLint WIDTH, HEIGHT;
-    std::string SCREEN_TITLE;
-	int count_fps = 0;
-	std::string fps;
+    char* SCREEN_TITLE;
 
     //dados que o init() cria e o run() utiliza
     Shader* shader;
-    unsigned int VAO;
-    unsigned int VBO;
-	unsigned int colorsVBO;
-    unsigned int EBO;
-
-
+    GLuint VBO, VAO, colorVBO;
 
     //callback and eventHandlers
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
     static void processInput(GLFWwindow* window);
 
+
 public:
-	Triangulos(int width, int height, std::string screenTitle);
-    ~Triangulos();
+    ScreenSaver(int width, int height, char* screenTitle);
+    ~ScreenSaver();
 
     int init(GLFWwindow* window) override;
     void run(GLFWwindow* window) override;

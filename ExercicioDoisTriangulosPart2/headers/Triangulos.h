@@ -10,6 +10,8 @@ class Triangulos : public Runnable {
 private:
     GLint WIDTH, HEIGHT;
     char* SCREEN_TITLE;
+	int count_fps = 0;
+	std::string fps;
 
     //dados que o init() cria e o run() utiliza
     Shader* shader;
@@ -18,7 +20,7 @@ private:
     unsigned int VBO;
 	unsigned int colorsVBO;
     unsigned int EBO;
-
+    
     //callback and eventHandlers
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
     static void processInput(GLFWwindow* window);
@@ -33,7 +35,7 @@ public:
     void finish() override;
     int width() override;
     int height() override;
-    char* screenTitle() override;
+	std::string screenTitle() override;
 };
 
 #endif
