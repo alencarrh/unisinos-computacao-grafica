@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExercicioDoisTriangulosPart
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScreenSaver", "ScreenSaver\ScreenSaver.vcxproj", "{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cubo", "Cubo\Cubo.vcxproj", "{AA501AB0-9CA7-4191-8AEE-47E23C77A35F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +93,14 @@ Global
 		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Release|x64.Build.0 = Release|x64
 		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Release|x86.ActiveCfg = Release|Win32
 		{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}.Release|x86.Build.0 = Release|Win32
+		{AA501AB0-9CA7-4191-8AEE-47E23C77A35F}.Debug|x64.ActiveCfg = Debug|x64
+		{AA501AB0-9CA7-4191-8AEE-47E23C77A35F}.Debug|x64.Build.0 = Debug|x64
+		{AA501AB0-9CA7-4191-8AEE-47E23C77A35F}.Debug|x86.ActiveCfg = Debug|Win32
+		{AA501AB0-9CA7-4191-8AEE-47E23C77A35F}.Debug|x86.Build.0 = Debug|Win32
+		{AA501AB0-9CA7-4191-8AEE-47E23C77A35F}.Release|x64.ActiveCfg = Release|x64
+		{AA501AB0-9CA7-4191-8AEE-47E23C77A35F}.Release|x64.Build.0 = Release|x64
+		{AA501AB0-9CA7-4191-8AEE-47E23C77A35F}.Release|x86.ActiveCfg = Release|Win32
+		{AA501AB0-9CA7-4191-8AEE-47E23C77A35F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,9 +4,7 @@
 
 /*
 
-Este código é baseado no tutorial learnopengl.com
-
-Continuação do exemplo4
+Screen Saver
 
 */
 

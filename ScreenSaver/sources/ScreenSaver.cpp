@@ -74,6 +74,15 @@ void ScreenSaver::run(GLFWwindow* window) {
 		}
 		matrix[12] = elapsedSeconds * speed + lastPosition;
 		lastPosition = matrix[12];
+
+
+        // N = normal
+        // . = Produto Escalar - v1.x * v2.x + v1.y * v2.y
+        // 2*N*(N.R)-R
+        //  
+        // N = (0, -1)
+        //
+        //
 	}
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
