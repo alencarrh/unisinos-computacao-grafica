@@ -36,6 +36,15 @@
     <ClCompile Include="sources\Cubo.cpp">
       <Filter>source files</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Face.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Group.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Mesh.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\System.h">

@@ -27,13 +27,17 @@ public:
     glm::vec3* normal(int id);
     glm::vec2* texture(int id);
 
-	void setName(string name);
-	void setMaterial(string material);
-    
-	void addGroup(Group* group);
+    void setName(string name);
+    void setMaterial(string material);
+
+    int addGroup(Group* group);
     int addVertice(glm::vec3* vertice);
     int addNormal(glm::vec3* normal);
     int addTexture(glm::vec2* texture);
+
+    vector<Group*>& getGroups() {
+        return groups;
+    };
 };
 
 #endif

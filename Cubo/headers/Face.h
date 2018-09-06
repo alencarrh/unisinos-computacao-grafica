@@ -10,19 +10,30 @@ using namespace std;
 class Face {
 
 private:
-	vector<int> vertices;
-	vector<int> normais;
-	vector<int> textures;
+    vector<int> vertices;
+    vector<int> normais;
+    vector<int> textures;
 
 public:
 
-	Face();
-	~Face();
+    Face();
+    ~Face();
 
-	void addVerticeId(int idVertice);
-	void addNormalId(int idNormal);
-	void addTextureId(int idTexture);
+    void addVerticeId(int idVertice);
+    void addNormalId(int idNormal);
+    void addTextureId(int idTexture);
 
 
+    vector<int>& getVertices() {
+        return vertices;
+    }
+
+    vector<int>& getNormais() {
+        return normais;
+    }
+
+    vector<int>& getTextures() {
+        return textures;
+    }
 };
 #endif

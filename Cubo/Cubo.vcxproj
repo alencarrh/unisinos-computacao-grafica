@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="main\main.cpp" />
     <ClCompile Include="sources\Cubo.cpp" />
+    <ClCompile Include="sources\Face.cpp" />
+    <ClCompile Include="sources\Group.cpp" />
+    <ClCompile Include="sources\Mesh.cpp" />
     <ClCompile Include="sources\Shader.cpp" />
     <ClCompile Include="sources\System.cpp" />
   </ItemGroup>

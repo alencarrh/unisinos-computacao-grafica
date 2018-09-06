@@ -1,6 +1,7 @@
 #ifndef CUBO_H
 #define CUBO_H
 #include "../headers/Runnable.h"
+#include "Mesh.h"
 
 
 class Cubo : public Runnable {
@@ -8,6 +9,8 @@ class Cubo : public Runnable {
 private:
 	GLint WIDTH, HEIGHT;
     std::string SCREEN_TITLE;
+
+	Mesh* mesh;
 
 public:
 	Cubo(int width, int height, std::string screenTitle);

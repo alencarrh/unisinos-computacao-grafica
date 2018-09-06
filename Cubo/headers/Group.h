@@ -13,11 +13,15 @@ private:
 
 public:
 
-	Group();
-	~Group();
+    Group();
+    ~Group();
 
-	Face* face(int id);
-	int addFace(Face* face);
+    Face* face(int id);
+    int addFace(Face* face);
+
+    vector<Face*>& getFaces() {
+        return faces;
+    };
 };
 
 #endif
