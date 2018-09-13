@@ -80,6 +80,10 @@ void Shader::setMatrix4fv(const std::string& name, float matrix[]) const {
     glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, matrix);
 }
 
+void Shader::setMatrix4fv(const std::string& name, glm::mat4& matrix) const {
+	glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(matrix));
+}
+
 void Shader::checkCompileErrors(unsigned int shader, std::string type) {
     int success;
     char infoLog[1024];

@@ -8,7 +8,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <GLM/glm.hpp>
+
 
 class Shader {
 

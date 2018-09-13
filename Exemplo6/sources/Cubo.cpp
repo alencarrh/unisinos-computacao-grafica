@@ -34,12 +34,30 @@ int Cubo::init(GLFWwindow* window) {
     // this->mesh->addVertice(new glm::vec3()); //H
 
     Group* group = new Group();
-
     group->addFace(createFace(A, B, C, D, 4));
-
     this->mesh->addGroup(group);
+	
     this->mesh->setShader(new Shader("./shaders/core/vertex.vert", "./shaders/core/fragment.frag"));
+	this->mesh->getShader()->use();
 
+	float _width = (float)this->WIDTH;
+	float _height = (float)this->HEIGHT;
+
+	glm::mat4 model(1.0f);
+	model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+	glm::mat4 view(1.0f);
+	// note that we're translating the scene in the reverse direction of where we want to move
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+	
+    glm::mat4 projection(1.0f);
+	projection = glm::perspective(glm::radians(45.0f), _width / _height, 0.1f, 100.0f);
+
+	this->mesh->getShader()->setMatrix4fv("model", model);
+	this->mesh->getShader()->setMatrix4fv("view", view);
+	this->mesh->getShader()->setMatrix4fv("projection", projection);
+
+	
     for (Group* group : this->mesh->getGroups()) {
         vector<float> vertices;
         
@@ -70,7 +88,7 @@ int Cubo::init(GLFWwindow* window) {
         group->setVAO(&VAO);
     }
 
-    glClearColor(0.2f, 0.3f, 0.4f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
     return EXIT_SUCCESS;
 }

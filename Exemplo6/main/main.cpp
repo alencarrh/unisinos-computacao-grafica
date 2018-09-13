@@ -5,13 +5,17 @@
 
 /*
 
-    Continuação da estrutura do Cubo.
+    Este código é baseado no tutorial learnopengl.com
+    
+
+    Continuação do exemplo5 - Estudando sistema de coordenadas
+
 
 */
 
 int main() {
 
-    Cubo* cubo = new Cubo(800, 800, "Cubo!");
+    Cubo* cubo = new Cubo(600, 600, "Exemplo6 - Coordinate Systems - Part1");
     
     System* system = new System(cubo);
     
