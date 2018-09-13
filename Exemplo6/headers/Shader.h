@@ -8,7 +8,6 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <GLM/glm.hpp>
 
 class Shader {
 
@@ -25,7 +24,6 @@ public:
     void setInt(const std::string& name, int value) const;
     void setFloat(const std::string& name, float value) const;
     void setMatrix4fv(const std::string& name, float matrix[]) const;
-    void setMat4(const std::string& name, glm::mat4& mat) const;
 
 
 private:

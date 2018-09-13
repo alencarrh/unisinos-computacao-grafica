@@ -58,7 +58,7 @@ int Cubo::init(GLFWwindow* window) {
 
     this->mesh->addGroup(group);
     this->mesh->setShader(new Shader("./shaders/core/vertex.vert", "./shaders/core/fragment.frag"));
-    this->mesh->setShaderWhite(new Shader("./shaders/core/vertex.vert", "./shaders/core/fragment_white.frag"));
+    // this->mesh->setShaderWhite(new Shader("./shaders/core/vertex.vert", "./shaders/core/fragment_white.frag"));
 
 
     float _width = (float)this->WIDTH;
@@ -138,24 +138,27 @@ int Cubo::init(GLFWwindow* window) {
 
 
 void Cubo::run(GLFWwindow* window) {
-    glm::mat4 view;
-    view = glm::lookAt(glm::vec3(1.0f, 1.0f, 2.0f),
+	glm::mat4 view;
+    view = glm::lookAt(glm::vec3(0.0f, 0.0f, -3.0f),
                        glm::vec3(0.0f, 0.0f, 0.0f),
                        glm::vec3(0.0f, 1.0f, 0.0f));
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    // this->mesh->getShader()->use();
-    // this->mesh->getShader()->setMatrix4fv("view", glm::value_ptr(view));
-    // for (Group* group : this->mesh->getGroups()) {
-    //     glBindVertexArray(group->getVAO());
-    //     glDrawArrays(GL_TRIANGLES, 0, val);
-    // }
 
-    this->mesh->getShaderWhite()->use();
-    this->mesh->getShaderWhite()->setMatrix4fv("view", glm::value_ptr(view));
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    this->mesh->getShader()->use();
+    this->mesh->getShader()->setMat4("view", view);
     for (Group* group : this->mesh->getGroups()) {
         glBindVertexArray(group->getVAO());
-        glDrawArrays(GL_LINES, 0, val);
+        glDrawArrays(GL_TRIANGLES, 0, val);
     }
+
+    // this->mesh->getShaderWhite()->use();
+    // this->mesh->getShaderWhite()->setMat4("view", view);
+    // for (Group* group : this->mesh->getGroups()) {
+        // glBindVertexArray(group->getVAO());
+        // glDrawArrays(GL_LINES, 0, val);
+    // }
+
 
 }
 
