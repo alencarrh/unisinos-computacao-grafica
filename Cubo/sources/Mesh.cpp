@@ -55,3 +55,15 @@ int Mesh::addTexture(glm::vec2* texture) {
     this->textures.push_back(texture);
     return this->textures.size() - 1;
 }
+
+void Mesh::setVAO(GLuint* vao) {
+	this->VAO = vao;
+}
+
+void Mesh::setShader(Shader* shader) {
+	this->shader = shader;
+}
+
+void Mesh::setShaderWhite(Shader* shaderWhite) {
+	this->shaderWhite = shaderWhite;
+}

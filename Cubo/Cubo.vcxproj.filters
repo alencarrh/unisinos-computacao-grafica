@@ -79,5 +79,8 @@
     <None Include="shaders\core\fragment.frag">
       <Filter>shaders\core</Filter>
     </None>
+    <None Include="shaders\core\fragment_white.frag">
+      <Filter>shaders\core</Filter>
+    </None>
   </ItemGroup>
 </Project>

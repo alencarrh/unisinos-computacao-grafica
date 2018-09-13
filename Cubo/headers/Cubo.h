@@ -2,6 +2,8 @@
 #define CUBO_H
 #include "../headers/Runnable.h"
 #include "Mesh.h"
+#include <GLM/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 
 class Cubo : public Runnable {

@@ -10,6 +10,7 @@ class Group {
 
 private:
     vector<Face*> faces;
+	GLuint VAO;
 
 public:
 
@@ -22,6 +23,15 @@ public:
     vector<Face*>& getFaces() {
         return faces;
     };
+    
+    void setVAO(GLuint* VAO) {
+		this->VAO = *VAO;
+    }
+    
+    GLuint& getVAO() {
+		return this->VAO;
+    }
+
 };
 
 #endif

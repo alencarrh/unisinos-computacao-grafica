@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\core\fragment.frag" />
+    <None Include="shaders\core\fragment_white.frag" />
     <None Include="shaders\core\vertex.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

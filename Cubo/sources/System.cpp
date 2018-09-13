@@ -22,7 +22,6 @@ int System::GLFWInit() {
 
     this->window = glfwCreateWindow(runnable->width(), runnable->height(), runnable->screenTitle().c_str(), NULL, NULL);
 
-
     if (!window) {
         std::cout << "ERROR: Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -31,6 +30,7 @@ int System::GLFWInit() {
 
     glfwMakeContextCurrent(window);
     glewExperimental = GL_TRUE;
+	glEnable(GL_DEPTH_TEST);
     glewInit();
 
     if (runnable->init(window) != EXIT_SUCCESS) {
