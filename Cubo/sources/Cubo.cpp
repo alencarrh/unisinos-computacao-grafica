@@ -55,7 +55,16 @@ int Cubo::init(GLFWwindow* window) {
     group->addFace(createFace(B, F, G, C, 1));
     group->addFace(createFace(C, G, H, D, 3));
     group->addFace(createFace(E, F, G, H, 5));
-
+    /*
+   a-------d
+  /|      /|
+ / |     / |
+b--|----c  |
+|  e----|--h
+| /     | /
+f-------g
+*/
+	
     this->mesh->addGroup(group);
     this->mesh->setShader(new Shader("./shaders/core/vertex.vert", "./shaders/core/fragment.frag"));
     // this->mesh->setShaderWhite(new Shader("./shaders/core/vertex.vert", "./shaders/core/fragment_white.frag"));
