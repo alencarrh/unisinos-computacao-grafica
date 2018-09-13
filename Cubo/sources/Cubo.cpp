@@ -56,13 +56,16 @@ int Cubo::init(GLFWwindow* window) {
     group->addFace(createFace(C, G, H, D, 3));
     group->addFace(createFace(E, F, G, H, 5));
     /*
-   a-------d
-  /|      /|
- / |     / |
-b--|----c  |
-|  e----|--h
-| /     | /
-f-------g
+   A--------D
+  /|       /|
+ / |      / |
+B--------C  |
+|  |     |  |
+|  E-----|--H
+| /      | /
+|/       |/
+F--------G
+
 */
 	
     this->mesh->addGroup(group);
