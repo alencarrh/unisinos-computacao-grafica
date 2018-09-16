@@ -21,6 +21,11 @@ Face* createFace(int v0, int v1, int v2, int v3, int normal) {
 }
 
 int Cubo::init(GLFWwindow* window) {
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetCursorPosCallback(window, mouse_callback);
+	glfwSetScrollCallback(window, scroll_callback);
+
     this->mesh = new Mesh();
     int A = 0, B = 1, C = 2, D = 3, E = 4, F = 5, G = 6, H = 7;
     float escale = 2;
@@ -67,24 +72,20 @@ int Cubo::init(GLFWwindow* window) {
     this->mesh->setShaderWhite(new Shader("./shaders/core/vertex.vert", "./shaders/core/fragment_color.frag"));
 
 
-    float _width = (float)this->WIDTH;
-    float _height = (float)this->HEIGHT;
 
     glm::ortho(0.0f, 600.0f, 0.0f, 600.0f, 0.1f, 100.0f);
 
     // glm::mat4 view(1.0f);
     // view = glm::translate(view, glm::vec3(0.0f, 0.0f, -5.0f));
 
-    glm::mat4 projection(1.0f);
-    projection = glm::perspective(glm::radians(45.0f), _width / _height, 0.1f, 100.0f);
-
+    
     this->mesh->getShader()->use();
     // this->mesh->getShader()->setMatrix4fv("view", view);
-    this->mesh->getShader()->setMatrix4fv("projection", projection);
+    // this->mesh->getShader()->setMatrix4fv("projection", projection);
 
     this->mesh->getShaderWhite()->use();
     // this->mesh->getShaderWhite()->setMatrix4fv("view", view);
-    this->mesh->getShaderWhite()->setMatrix4fv("projection", projection);
+    // this->mesh->getShaderWhite()->setMatrix4fv("projection", projection);
 
 
     this->cubePositions.push_back(new glm::vec3(0.0f, 0.0f, 0.0f));
@@ -129,24 +130,40 @@ int Cubo::init(GLFWwindow* window) {
         group->setVAO(&VAO);
     }
 
-    glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
     return EXIT_SUCCESS;
 }
 
+glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
+float deltaTime = 0.0f; // Time between current frame and last frame
+float lastFrame = 0.0f; // Time of last frame
+float lastX = 600.0f / 2.0f;
+float lastY = 600.0f / 2.0f;
+float pitch = 0.0f, yaw = -90.0f;
+bool firstMouse = true;
+float fov = 45.0f;
 
 void Cubo::run(GLFWwindow* window) {
+	float currentFrame = glfwGetTime();
+	deltaTime = currentFrame - lastFrame;
+	lastFrame = currentFrame;
+
+    processInput(window);
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+	glm::mat4 projection(1.0f);
+	projection = glm::perspective(glm::radians(fov), (float)this->WIDTH / (float)this->HEIGHT, 0.1f, 100.0f);
+
 
     glm::mat4 view(1.0f);
-    double time = glfwGetTime();
-    float radius = 10.0f;
-    float camX = glm::cos(time) * radius;
-    float camZ = glm::sin(time) * radius;
-
-    view = glm::lookAt(glm::vec3(camX, 0.0f, camZ),
-                       glm::vec3(0.0f, 0.0f, 0.0f),
-                       glm::vec3(0.0f, 1.0f, 0.0f));
+    view = glm::lookAt(cameraPos,
+                       cameraPos + cameraFront,
+                       cameraUp);
 
 
     for (int i = 0; i < cubePositions.size(); i++) {
@@ -154,12 +171,13 @@ void Cubo::run(GLFWwindow* window) {
         glm::mat4 model(1.0f);
         model = glm::translate(model, cubePosition);
         float angle = 20.0f * (i + 1);
-        model = glm::rotate(model, (float)glfwGetTime() * glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+        model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
 
         this->mesh->getShader()->use();
         for (Group* group : this->mesh->getGroups()) {
             this->mesh->getShader()->setMatrix4fv("model", model);
             this->mesh->getShader()->setMatrix4fv("view", view);
+			this->mesh->getShader()->setMatrix4fv("projection", projection);
             glBindVertexArray(group->getVAO());
             glDrawArrays(GL_TRIANGLES, 0, group->getNumVertices());
         }
@@ -168,17 +186,80 @@ void Cubo::run(GLFWwindow* window) {
         for (Group* group : this->mesh->getGroups()) {
             this->mesh->getShaderWhite()->setMatrix4fv("model", model);
             this->mesh->getShaderWhite()->setMatrix4fv("view", view);
+			this->mesh->getShaderWhite()->setMatrix4fv("projection", projection);
             glBindVertexArray(group->getVAO());
             glDrawArrays(GL_LINE_LOOP, 0, group->getNumVertices());
         }
 
     }
 
-}
 
+}
 
 bool Cubo::keepRunning(GLFWwindow* window) {
     return !glfwWindowShouldClose(window);
+}
+
+void Cubo::processInput(GLFWwindow* window) {
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window, true);
+    }
+
+    float cameraSpeed = 5.0f * deltaTime;
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        cameraPos += cameraSpeed * cameraFront;
+    }
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+        cameraPos -= cameraSpeed * cameraFront;
+    }
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+    }
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+    }
+}
+
+
+void Cubo::mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+    if (firstMouse) {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    float xoffset = xpos - lastX;
+    float yoffset = lastY - ypos;
+    lastX = xpos;
+    lastY = ypos;
+
+    float sensitivity = 0.05;
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
+
+    yaw += xoffset;
+    pitch += yoffset;
+
+    if (pitch > 89.0f)
+        pitch = 89.0f;
+    if (pitch < -89.0f)
+        pitch = -89.0f;
+
+    glm::vec3 front;
+    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    front.y = sin(glm::radians(pitch));
+    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    cameraFront = glm::normalize(front);
+}
+
+
+void Cubo::scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
+	if (fov >= 1.0f && fov <= 45.0f)
+		fov -= yoffset;
+	if (fov <= 1.0f)
+		fov = 1.0f;
+	if (fov >= 45.0f)
+		fov = 45.0f;
 }
 
 void Cubo::finish() {

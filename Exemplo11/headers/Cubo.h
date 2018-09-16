@@ -15,6 +15,9 @@ private:
 
 	Mesh* mesh;
 
+	static void processInput(GLFWwindow* window);
+	static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+	static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 public:
 	Cubo(int width, int height, std::string screenTitle);
     ~Cubo() override;

@@ -8,6 +8,8 @@ Group::~Group() {
 	this->faces.clear();
     //Reduz o tamanho do meu vector
     this->faces.shrink_to_fit();
+
+	glDeleteVertexArrays(1, &VAO);
 }
 
 Face* Group::face(int id) {

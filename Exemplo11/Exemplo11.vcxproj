@@ -43,7 +43,7 @@
     <None Include="shaders\core\vertex.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{946D4AC2-A02C-41C9-BDC2-ECE9AF6BFE5B}</ProjectGuid>
+    <ProjectGuid>{774BCF45-6397-4EFF-9B62-CBD1F0432DEC}</ProjectGuid>
     <RootNamespace>Exemplo11</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
     <ProjectName>Exemplo11</ProjectName>

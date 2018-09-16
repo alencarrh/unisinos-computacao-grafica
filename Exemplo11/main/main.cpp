@@ -8,14 +8,14 @@
     Este código é baseado no tutorial learnopengl.com
     
 
-    Continuação do exemplo9 - Estudando sistema de coordenadas e câmera
+    Continuação do exemplo10 - Estudando sistema de coordenadas e câmera - movimentando com teclado e mouse
 
 
 */
 
 int main() {
 
-    Cubo* cubo = new Cubo(600, 600, "Exemplo10 - Coordinate Systems and Camera");
+    Cubo* cubo = new Cubo(600, 600, "Exemplo11 - Coordinate Systems and Camera");
     
     System* system = new System(cubo);
     
