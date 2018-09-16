@@ -39,13 +39,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\core\fragment.frag" />
+    <None Include="shaders\core\fragment_color.frag" />
     <None Include="shaders\core\vertex.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{782EB4DE-17BB-403C-892E-16E566722E48}</ProjectGuid>
-    <RootNamespace>Exemplo6</RootNamespace>
+    <ProjectGuid>{DB14990A-C01A-4FC1-9DDC-9B3085B41D9B}</ProjectGuid>
+    <RootNamespace>Exemplo09</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
-    <ProjectName>Exemplo6</ProjectName>
+    <ProjectName>Exemplo09</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
