@@ -70,10 +70,10 @@ int Cubo::init(GLFWwindow* window) {
     float _width = (float)this->WIDTH;
     float _height = (float)this->HEIGHT;
 
-    glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
+    glm::ortho(0.0f, 600.0f, 0.0f, 600.0f, 0.1f, 100.0f);
 
     glm::mat4 view(1.0f);
-    view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+    view = glm::translate(view, glm::vec3(0.0f, 0.0f, -5.0f));
 
     glm::mat4 projection(1.0f);
     projection = glm::perspective(glm::radians(45.0f), _width / _height, 0.1f, 100.0f);
@@ -142,8 +142,8 @@ void Cubo::run(GLFWwindow* window) {
 		glm::vec3 cubePosition = *cubePositions[i];
 		glm::mat4 model(1.0f);
 		model = glm::translate(model, cubePosition);
-		float angle = 20.0f * i;
-		model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+		float angle = 20.0f * (i+1);
+		model = glm::rotate(model, (float)glfwGetTime() * glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
 
 		this->mesh->getShader()->use();
 		for (Group* group : this->mesh->getGroups()) {
