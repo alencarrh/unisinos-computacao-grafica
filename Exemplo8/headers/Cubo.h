@@ -11,6 +11,7 @@ class Cubo : public Runnable {
 private:
 	GLint WIDTH, HEIGHT;
     std::string SCREEN_TITLE;
+	vector<glm::vec3*> cubePositions;
 
 	Mesh* mesh;
 

@@ -72,9 +72,6 @@ int Cubo::init(GLFWwindow* window) {
 
     glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
 
-    // glm::mat4 model(1.0f);
-    // model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-
     glm::mat4 view(1.0f);
     view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
 
@@ -82,14 +79,25 @@ int Cubo::init(GLFWwindow* window) {
     projection = glm::perspective(glm::radians(45.0f), _width / _height, 0.1f, 100.0f);
 
     this->mesh->getShader()->use();
-    // this->mesh->getShader()->setMatrix4fv("model", model);
     this->mesh->getShader()->setMatrix4fv("view", view);
     this->mesh->getShader()->setMatrix4fv("projection", projection);
 
     this->mesh->getShaderWhite()->use();
-    // this->mesh->getShaderWhite()->setMatrix4fv("model", model);
     this->mesh->getShaderWhite()->setMatrix4fv("view", view);
     this->mesh->getShaderWhite()->setMatrix4fv("projection", projection);
+
+
+	this->cubePositions.push_back(new glm::vec3(0.0f, 0.0f, 0.0f));
+	this->cubePositions.push_back(new glm::vec3(2.0f, 5.0f, -15.0f));
+	this->cubePositions.push_back(new glm::vec3(-1.5f, -2.2f, -2.5f));
+	this->cubePositions.push_back(new glm::vec3(-3.8f, -2.0f, -12.3f));
+	this->cubePositions.push_back(new glm::vec3(2.4f, -0.4f, -3.5f));
+	this->cubePositions.push_back(new glm::vec3(-1.7f, 3.0f, -7.5f));
+	this->cubePositions.push_back(new glm::vec3(1.3f, -2.0f, -2.5f));
+	this->cubePositions.push_back(new glm::vec3(1.5f, 2.0f, -2.5f));
+	this->cubePositions.push_back(new glm::vec3(1.5f, 0.2f, -1.5f));
+	this->cubePositions.push_back(new glm::vec3(-1.3f, 1.0f, -1.5f));
+
 
     for (Group* group : this->mesh->getGroups()) {
         vector<float> vertices;
@@ -130,21 +138,27 @@ int Cubo::init(GLFWwindow* window) {
 void Cubo::run(GLFWwindow* window) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glm::mat4 model(1.0f);
-	model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+	for (int i = 0; i < cubePositions.size(); i++) {
+		glm::vec3 cubePosition = *cubePositions[i];
+		glm::mat4 model(1.0f);
+		model = glm::translate(model, cubePosition);
+		float angle = 20.0f * i;
+		model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
 
-	this->mesh->getShader()->use();
-	for (Group* group : this->mesh->getGroups()) {
-		this->mesh->getShader()->setMatrix4fv("model", model);
-		glBindVertexArray(group->getVAO());
-		glDrawArrays(GL_TRIANGLES, 0, group->getNumVertices());
-	}
+		this->mesh->getShader()->use();
+		for (Group* group : this->mesh->getGroups()) {
+			this->mesh->getShader()->setMatrix4fv("model", model);
+			glBindVertexArray(group->getVAO());
+			glDrawArrays(GL_TRIANGLES, 0, group->getNumVertices());
+		}
 
-	this->mesh->getShaderWhite()->use();
-	for (Group* group : this->mesh->getGroups()) {
-		this->mesh->getShaderWhite()->setMatrix4fv("model", model);
-		glBindVertexArray(group->getVAO());
-		glDrawArrays(GL_LINE_LOOP, 0, group->getNumVertices());
+		this->mesh->getShaderWhite()->use();
+		for (Group* group : this->mesh->getGroups()) {
+			this->mesh->getShaderWhite()->setMatrix4fv("model", model);
+			glBindVertexArray(group->getVAO());
+			glDrawArrays(GL_LINE_LOOP, 0, group->getNumVertices());
+		}
+
 	}
 
 }
