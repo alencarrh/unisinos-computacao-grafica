@@ -72,8 +72,8 @@ int Cubo::init(GLFWwindow* window) {
 
     glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
 
-    glm::mat4 model(1.0f);
-    model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    // glm::mat4 model(1.0f);
+    // model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
     glm::mat4 view(1.0f);
     view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
@@ -90,7 +90,6 @@ int Cubo::init(GLFWwindow* window) {
     // this->mesh->getShaderWhite()->setMatrix4fv("model", model);
     this->mesh->getShaderWhite()->setMatrix4fv("view", view);
     this->mesh->getShaderWhite()->setMatrix4fv("projection", projection);
-
 
     for (Group* group : this->mesh->getGroups()) {
         vector<float> vertices;
@@ -129,26 +128,27 @@ int Cubo::init(GLFWwindow* window) {
 
 
 void Cubo::run(GLFWwindow* window) {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glm::mat4 model(1.0f);
-    model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+	glm::mat4 model(1.0f);
+	model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
-    this->mesh->getShader()->use();
-    for (Group* group : this->mesh->getGroups()) {
-        this->mesh->getShader()->setMatrix4fv("model", model);
-        glBindVertexArray(group->getVAO());
-        glDrawArrays(GL_TRIANGLES, 0, group->getNumVertices());
-    }
+	this->mesh->getShader()->use();
+	for (Group* group : this->mesh->getGroups()) {
+		this->mesh->getShader()->setMatrix4fv("model", model);
+		glBindVertexArray(group->getVAO());
+		glDrawArrays(GL_TRIANGLES, 0, group->getNumVertices());
+	}
 
-    this->mesh->getShaderWhite()->use();
-    for (Group* group : this->mesh->getGroups()) {
-        this->mesh->getShaderWhite()->setMatrix4fv("model", model);
-        glBindVertexArray(group->getVAO());
-        glDrawArrays(GL_LINE_LOOP, 0, group->getNumVertices());
-    }
+	this->mesh->getShaderWhite()->use();
+	for (Group* group : this->mesh->getGroups()) {
+		this->mesh->getShaderWhite()->setMatrix4fv("model", model);
+		glBindVertexArray(group->getVAO());
+		glDrawArrays(GL_LINE_LOOP, 0, group->getNumVertices());
+	}
 
 }
+
 
 bool Cubo::keepRunning(GLFWwindow* window) {
     return !glfwWindowShouldClose(window);
