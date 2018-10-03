@@ -17,7 +17,7 @@ private:
 	MeshBuilder* meshBuilder;
 
 public:
-	//ObjReader(string path, string fileName); //Para criar o objReader ,é preciso indicar o arquivo
+	//ObjReader(string path, string fileName); //Para criar o objReader ,Ã© preciso indicar o arquivo
 
 	Mesh* read(string filename) {
 		ifstream arq(filename);
@@ -28,7 +28,7 @@ public:
 			restLine << line;
 			string command;
 			restLine >> command;
-			//meshBuilder->processLine(command, line);
+			meshBuilder->processLine(command, line);
 		}
 
 		// no final de passar pro todas as linhas

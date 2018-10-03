@@ -1,14 +1,15 @@
 #pragma once
-#include <iostream>
 #include <sstream>
 #include <string>
 
 
+class VerticeBuilder {
 
-class VerticeBuilder
-{
 public:
-	VerticeBuilder();
-	~VerticeBuilder();
-};
+    VerticeBuilder();
+    ~VerticeBuilder();
 
+
+    void process(std::stringstream& s);
+
+};
