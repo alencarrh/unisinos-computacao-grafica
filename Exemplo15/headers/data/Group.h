@@ -25,6 +25,14 @@ public:
     void bindVAO();
     void bindBuffer(const vector<float>& data, const int vecSize = 3);
 
+    void setName(string newName) {
+        this->name = newName;
+    }
+
+    string getName() {
+        return this->name;
+    }
+
     vector<Face*>& getFaces() {
         return this->faces;
     }

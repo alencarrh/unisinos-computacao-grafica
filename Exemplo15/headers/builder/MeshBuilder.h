@@ -32,34 +32,12 @@ private:
     map<string, _function> functions;
 
 public:
-
     MeshBuilder();
     ~MeshBuilder();
 
-    _function* function(string command) {
-        _function* _func = &functions[command];
-
-        if (_func) {
-            return _func;
-        }
-
-        return NULL;
-    }
-
-    void processLine(string command, stringstream& line) {
-        _function* _func = function(command);
-
-        if (_func != NULL) {
-            (*_func)(line);
-        }
-    }
-
-    Mesh* build() {
-        // cria a mesh e retorna
-        // mesh->setVertices(verticeBuilder->build());
-        return mesh;
-    }
-
+    _function* function(string command);
+    void processLine(string command, stringstream& line);
+    Mesh* build();
 
 };
 

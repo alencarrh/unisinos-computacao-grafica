@@ -9,7 +9,7 @@ private:
 
 public:
     Cube();
-	~Cube() override;
+    ~Cube() override;
     void prepare() override;
 
     Mesh* mesh() override {

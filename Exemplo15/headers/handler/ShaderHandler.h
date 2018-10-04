@@ -17,9 +17,9 @@ public:
     unsigned int ID;
 
     // constructor reads and builds the shader
-	ShaderHandler(const GLchar* vertexPath, const GLchar* fragmentPath);
-    
-	// use/activate the shader
+    ShaderHandler(const GLchar* vertexPath, const GLchar* fragmentPath);
+
+    // use/activate the shader
     void use();
 
     // utility uniform functions
@@ -27,7 +27,7 @@ public:
     void setInt(const std::string& name, int value) const;
     void setFloat(const std::string& name, float value) const;
     void setMatrix4fv(const std::string& name, float matrix[]) const;
-	void setMatrix4fv(const std::string& name, glm::mat4& matrix) const;
+    void setMatrix4fv(const std::string& name, glm::mat4& matrix) const;
 
 
 private:

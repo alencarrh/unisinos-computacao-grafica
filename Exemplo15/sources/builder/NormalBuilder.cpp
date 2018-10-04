@@ -1,25 +1,14 @@
 #include "../../headers/builder/NormalBuilder.h"
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <GLM/glm.hpp>
-#include <vector>
 
 
-class NormalBuilder {
+void NormalBuilder::process(stringstream& line) {
 
-	/*vector<glm::vec3> vertices;
+    float x, y, z;
+    line >> x >> y >> z;
 
-	void process(stringstream& line) {
+    this->normais.push_back(new glm::vec3(x, y, z));
+}
 
-		float x, y, z;
-		line >> x >> y >> z;
-
-		vertices.push_back(glm::vec3(x, y, z));
-	}
-
-	vector<glm::vec3>& build() {
-		return this->vertices;
-	}*/
-
-};
+vector<glm::vec3*>& NormalBuilder::build() {
+    return this->normais;
+}

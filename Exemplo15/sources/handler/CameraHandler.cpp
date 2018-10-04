@@ -20,7 +20,7 @@ void CameraHandler::processMouseMovement(float xoffset, float yoffset, GLboolean
     xoffset *= mouseSensitivity;
     yoffset *= mouseSensitivity;
 
-	yaw += xoffset;
+    yaw += xoffset;
     pitch += yoffset;
 
     // Make sure that when pitch is out of bounds, screen doesn't get flipped

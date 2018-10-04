@@ -37,6 +37,11 @@ public:
     int addNormal(glm::vec3* normal);
     int addTexture(glm::vec2* texture);
 
+
+    void setGroups(vector<Group*>& groups) {
+        this->groups = groups;
+    }
+
     void setVertices(vector<glm::vec3*>& vertices) {
         this->vertices = vertices;
     }
