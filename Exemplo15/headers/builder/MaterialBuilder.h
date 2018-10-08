@@ -1,8 +1,6 @@
 #pragma once
-class MaterialBuilder
-{
+class MaterialBuilder {
 public:
-	MaterialBuilder();
-	~MaterialBuilder();
+    MaterialBuilder();
+    ~MaterialBuilder();
 };
-

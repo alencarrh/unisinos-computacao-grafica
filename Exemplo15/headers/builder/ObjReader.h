@@ -13,11 +13,10 @@ using namespace std;
 class ObjReader {
 
 private:
-	MeshBuilder* meshBuilder;
+    MeshBuilder* meshBuilder;
 
 public:
 
-	Mesh* read(string filename);
+    Mesh* read(string filename);
 };
 #endif
-

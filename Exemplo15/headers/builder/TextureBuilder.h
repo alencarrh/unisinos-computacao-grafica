@@ -12,11 +12,11 @@ using namespace std;
 class TextureBuilder {
 
 private:
-	vector<glm::vec2*> textures;
+    vector<glm::vec2*> textures;
 
 public:
     void process(std::stringstream& line);
-	vector<glm::vec2*>& build();
+    vector<glm::vec2*>& build();
 
 };
 #endif
