@@ -15,6 +15,8 @@ Face* createFace(int v0, int v1, int v2, int v3, int normal) {
     face->addVerticeId(v1);
     face->addVerticeId(v2);
     face->addVerticeId(v3);
+
+	face->addTextureId(1);
     return face;
 }
 

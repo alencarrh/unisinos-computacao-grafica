@@ -24,6 +24,7 @@ public:
     int numVertices();
     void bindVAO();
     void bindBuffer(const vector<float>& data, const int vecSize = 3);
+	void bindTexture(const vector<float>& data, const int vecSize = 3);
 
     void setName(string newName) {
         this->name = newName;

@@ -13,7 +13,7 @@ public:
     FaceBuilder();
     ~FaceBuilder();
 
-    void process(Group* group, std::stringstream& line);
+    static void process(Group* group, std::stringstream& line);
 };
 
 #endif

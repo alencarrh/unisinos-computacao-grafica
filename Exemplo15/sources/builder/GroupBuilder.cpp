@@ -5,10 +5,10 @@ void GroupBuilder::process(std::stringstream& line) {
     line >> name;
 
     if (isFirstGroup()) {
-        this->_currentGroup->setName(name);
+        _currentGroup->setName(name);
         return;
     }
 
-    this->groups.push_back(this->_currentGroup);
-    this->_currentGroup = new Group(name);
+    groups.push_back(_currentGroup);
+    _currentGroup = new Group(name);
 }

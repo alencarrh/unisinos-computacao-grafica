@@ -9,26 +9,25 @@
 
 using namespace std;
 
+static Group* _currentGroup = new Group("default");
+static vector<Group*> groups;
+
 class GroupBuilder {
 
-private:
-    vector<Group*> groups;
-    Group* _currentGroup = new Group("default");
-
 public:
-    void process(std::stringstream& line);
+	static void process(std::stringstream& line);
 
-    vector<Group*>& build() {
-        this->groups.push_back(_currentGroup);
-        return this->groups;
+	static vector<Group*>& build() {
+        groups.push_back(_currentGroup);
+        return groups;
     }
 
-    Group* currentGroup() {
+    static Group* currentGroup() {
         return _currentGroup;
     }
 
-    bool isFirstGroup() {
-        return this->groups.empty();
+    static bool isFirstGroup() {
+        return groups.empty();
     }
 
 };

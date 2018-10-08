@@ -21,14 +21,6 @@ class MeshBuilder {
 
 private:
     Mesh* mesh;
-
-    FaceBuilder* faceBuilder;
-    GroupBuilder* groupBuilder;
-    VerticeBuilder* verticeBuilder;
-    NormalBuilder* normalBuilder;
-    TextureBuilder* textureBuilder;
-    MaterialBuilder* materialBuilder;
-
     map<string, _function> functions;
 
 public:

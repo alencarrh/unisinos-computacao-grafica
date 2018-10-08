@@ -14,5 +14,6 @@ Mesh* ObjReader::read(string filename) {
 
     // no final de passar pro todas as linhas
 
-    this->meshBuilder->build();
+	return this->meshBuilder->build();
+    
 }

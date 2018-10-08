@@ -1,10 +1,10 @@
 #include "../../headers/builder/MeshBuilder.h"
 
 MeshBuilder::MeshBuilder() {
-    functions.insert(make_pair("v", verticeBuilder->process));
-    functions.insert(make_pair("vn", normalBuilder->process));
-    functions.insert(make_pair("vt", textureBuilder->process));
-    functions.insert(make_pair("g", groupBuilder->process));
+    functions.insert(make_pair("v", VerticeBuilder::process));
+    functions.insert(make_pair("vn", NormalBuilder::process));
+    functions.insert(make_pair("vt", TextureBuilder::process));
+    functions.insert(make_pair("g", GroupBuilder::process));
 }
 
 MeshBuilder::~MeshBuilder() {}
@@ -29,14 +29,14 @@ void MeshBuilder::processLine(string command, stringstream& line) {
     }
 
     if (command == "f") {
-        faceBuilder->process(groupBuilder->currentGroup(), line);
+        FaceBuilder::process(GroupBuilder::currentGroup(), line);
     }
 }
 
 Mesh* MeshBuilder::build() {
     // cria a mesh e retorna
-    this->mesh->setVertices(verticeBuilder->build());
-    mesh->setGroups(this->groupBuilder->build());
+    this->mesh->setVertices(VerticeBuilder::build());
+    mesh->setGroups(GroupBuilder::build());
 
     return this->mesh;
 }
