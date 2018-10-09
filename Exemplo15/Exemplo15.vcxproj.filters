@@ -96,6 +96,12 @@
     <ClCompile Include="sources\builder\MaterialBuilder.cpp">
       <Filter>source files</Filter>
     </ClCompile>
+    <ClCompile Include="sources\builder\MtlReader.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\MtlLibBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\core\vertex.vert">
@@ -161,6 +167,12 @@
       <Filter>header files</Filter>
     </ClInclude>
     <ClInclude Include="headers\builder\MaterialBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\MtlReader.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\MtlLibBuilder.h">
       <Filter>header files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,7 +11,7 @@
 #include "../builder/VerticeBuilder.h"
 #include "../builder/NormalBuilder.h"
 #include "../builder/TextureBuilder.h"
-#include "../builder/MaterialBuilder.h"
+#include "../builder/MtlLibBuilder.h"
 
 typedef void (*_function)(stringstream&);
 

@@ -5,6 +5,7 @@ MeshBuilder::MeshBuilder() {
     functions.insert(make_pair("vn", NormalBuilder::process));
     functions.insert(make_pair("vt", TextureBuilder::process));
     functions.insert(make_pair("g", GroupBuilder::process));
+	functions.insert(make_pair("mtllib", MtlLibBuilder::process));
 }
 
 MeshBuilder::~MeshBuilder() {}

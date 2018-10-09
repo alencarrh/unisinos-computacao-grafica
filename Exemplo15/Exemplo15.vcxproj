@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sources\builder\MtlLibBuilder.cpp" />
+    <ClCompile Include="sources\builder\MtlReader.cpp" />
     <ClCompile Include="sources\builder\MaterialBuilder.cpp" />
     <ClCompile Include="sources\builder\NormalBuilder.cpp" />
     <ClCompile Include="sources\builder\GroupBuilder.cpp" />
@@ -61,6 +63,8 @@
     <ClInclude Include="headers\builder\NormalBuilder.h" />
     <ClInclude Include="headers\builder\TextureBuilder.h" />
     <ClInclude Include="headers\builder\MaterialBuilder.h" />
+    <ClInclude Include="headers\builder\MtlReader.h" />
+    <ClInclude Include="headers\builder\MtlLibBuilder.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BC4EC559-6A48-4D28-87B2-7F05E6A43FE8}</ProjectGuid>
