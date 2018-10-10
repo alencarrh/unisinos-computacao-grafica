@@ -55,7 +55,7 @@ void Scene::run(GLFWwindow* window) {
 
     glm::mat4 model(1.0f);
     // model = glm::rotate(model, glm::radians(75.0f), glm::vec3(0.5f, 1.0f, 0.0f));
-    model = glm::rotate(model, (float)glfwGetTime() * glm::radians(45.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+    model = glm::rotate(model, (float)glfwGetTime() * glm::radians(10.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
     glm::mat4 modelLight(1.0f);
     modelLight = glm::translate(modelLight, (*lightPos));
@@ -77,7 +77,8 @@ void Scene::run(GLFWwindow* window) {
     this->shader->setMatrix4fv("view", view);
     this->shader->setMatrix4fv("projection", projection);
     this->shader->setUniform3f("lightColor", lightColor);
-	this->shader->setUniform3f("lightPos", lightPos);
+    this->shader->setUniform3f("lightPos", lightPos);
+    this->shader->setUniform3f("viewPos", &camera->position);
 
     //TODO no momento só usamos 1 textura, então vai funcionar, caso queiramos mais de uma por grupo
     //vai ser necessário modificar e linha abaixo
