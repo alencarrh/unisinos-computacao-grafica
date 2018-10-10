@@ -37,11 +37,13 @@ void MeshBuilder::processLine(string command, stringstream& line) {
 
     if (command == "f") {
         FaceBuilder::process(GroupBuilder::currentGroup(), line);
+		return;
     }
     if (command == "usemtl") {
         string id_material;
         line >> id_material;
         GroupBuilder::currentGroup()->setMaterialName(id_material);
+		return;
     }
 }
 

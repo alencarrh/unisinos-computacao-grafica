@@ -13,4 +13,6 @@ void Mesa::prepare() {
     this->_mesh = this->objReader->read(this->objFile);
 
     this->_mesh->prepare();
+
+	// this->_mesh->p();
 }

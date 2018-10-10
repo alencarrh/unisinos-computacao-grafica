@@ -43,6 +43,17 @@ public:
     string getName();
     string getMaterialName();
 
+	void p(){		
+
+		cout << "MESH: " << name.c_str() << endl;
+		cout << "\tMaterial" << material.c_str() << endl;
+
+		for(Face* face:faces) {
+			face->p();
+		}
+
+	}
+
 };
 
 #endif
