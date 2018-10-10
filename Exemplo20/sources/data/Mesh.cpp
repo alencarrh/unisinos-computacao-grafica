@@ -143,7 +143,9 @@ void Mesh::prepare() {
 
         if (group->getMaterialName() != "") {
             Material* material = getMaterial(group->getMaterialName());
-            group->setTexture(material->getTextureName());
+            if (material->getTextureName() != "") {
+                group->setTexture(material->getTextureName());
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ int Scene::init(GLFWwindow* window) {
     glfwSetScrollCallback(window, scroll_callback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(0.5f, 0.3f, 0.5f, 1.0f);
 
     glm::ortho(0.0f, this->_width, 0.0f, this->_height, 0.1f, 100.0f);
 
@@ -90,14 +90,11 @@ void Scene::run(GLFWwindow* window) {
         for (Group* group : obj->mesh()->getGroups()) {
 
             Material* material = obj->mesh()->getMaterial(group->getMaterialName());
-            if (material != NULL) {
-                //propriedades de luz do material
-                this->shader->setVec3("material.ambient", material->getAmbienteProperty());
-                this->shader->setVec3("material.diffuse", material->getDiffuseProperty());
-                this->shader->setVec3("material.specular", material->getSpecularProperty());
-                this->shader->setFloat("material.shininess", material->getShininess());
-            }
-
+            //propriedades de luz do material
+            this->shader->setVec3("material.ambient", material->getAmbienteProperty());
+            this->shader->setVec3("material.diffuse", material->getDiffuseProperty());
+            this->shader->setVec3("material.specular", material->getSpecularProperty());
+            this->shader->setFloat("material.shininess", material->getShininess());
 
             group->bindTexture();
             group->bindVAO();
