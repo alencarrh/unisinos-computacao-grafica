@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="header files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="resource files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{144377e4-e915-4645-a9cb-2170b78cf5ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\core">
+      <UniqueIdentifier>{a385c29a-17a6-49db-8114-65941d6252aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{c07b1ae7-55d0-49be-9644-978d57188870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\actions">
+      <UniqueIdentifier>{75aced2b-8a9f-4173-a1a0-386b93898fbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\conversor">
+      <UniqueIdentifier>{e05337bf-a711-4b64-b4f7-b650dc1329cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\data">
+      <UniqueIdentifier>{2d35a90c-7ce5-454d-af85-aa52770cbd75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\handler">
+      <UniqueIdentifier>{129ca9e5-6a1f-45a0-96c9-3049423ced32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\model">
+      <UniqueIdentifier>{d4753069-2015-4e2d-837f-a0d8c11aff91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\utils">
+      <UniqueIdentifier>{78f2b7d2-0c46-49a7-8bae-3699ae48daba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\system">
+      <UniqueIdentifier>{d99e4637-9767-48b4-ad5d-f10318f8ec3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Face.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Group.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Mesh.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\handler\CameraHandler.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\handler\ShaderHandler.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\system\System.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\model\Scene.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\model\Cube.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\MeshBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\FaceBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\GroupBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\VerticeBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\NormalBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\TextureBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\MaterialBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\MtlLibBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\utils\stb_image.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\KsBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\KaBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\KdBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\reader\MtlReader.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\reader\ObjReader.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\core\vertex.vert">
+      <Filter>shaders\core</Filter>
+    </None>
+    <None Include="shaders\core\fragment.frag">
+      <Filter>shaders\core</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\model\Scene.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\handler\CameraHandler.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\handler\ShaderHandler.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\data\Mesh.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\data\Group.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\data\Face.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\actions\Runnable.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\system\System.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\actions\Drawable.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\model\Cube.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\MeshBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\FaceBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\GroupBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\VerticeBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\NormalBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\TextureBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\MaterialBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\MtlLibBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\utils\stb_image.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\KaBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\KdBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\KsBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\reader\MtlReader.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\reader\ObjReader.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
