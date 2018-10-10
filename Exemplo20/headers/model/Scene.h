@@ -33,7 +33,7 @@ private:
 
     std::vector<Drawable*> objs;
 
-    static void process_input(GLFWwindow* window);
+    void process_input(GLFWwindow* window);
     static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
     static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height);

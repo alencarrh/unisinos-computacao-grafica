@@ -126,6 +126,15 @@ void Scene::process_input(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
         camera->processKeyboard(RIGHT, deltaTime);
     }
+	if(glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)	{
+		if(light->on){
+			light->color = new glm::vec3(0.0f, 0.0f, 0.0f);
+			light->on = false;
+		}else {
+			light->color = new glm::vec3(1.0f, 1.0f, 1.0f);
+			light->on = true;
+		}
+	}
 }
 
 void Scene::mouse_callback(GLFWwindow* window, double xpos, double ypos) {

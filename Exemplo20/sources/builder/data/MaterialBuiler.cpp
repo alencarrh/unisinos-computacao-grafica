@@ -59,7 +59,7 @@ void MaterialBuilder::processLine(string command, stringstream& line) {
         currentMaterial->setShininess(NShininessBuilder::build());
         materialHandler->addMaterial(currentMaterial);
 
-        currentMaterial = NULL;
+        currentMaterial = new Material(nome_material);
     }
 
 
