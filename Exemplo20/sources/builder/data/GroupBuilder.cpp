@@ -6,6 +6,7 @@ void GroupBuilder::process(std::stringstream& line) {
 
     if (isFirstGroup()) {
         _currentGroup->setName(name);
+        nameUpdated = true;
         return;
     }
 
@@ -15,14 +16,14 @@ void GroupBuilder::process(std::stringstream& line) {
 
 vector<Group*>& GroupBuilder::build() {
     groups.push_back(_currentGroup);
-    vector<Group*> temp = groups;
+    // vector<Group*> temp = groups;
 
     //Como esta classe é estática, após fazer o build deve-se fazer um clean dos valores
     // para quando for utilizada novamente não ter lixo do processo anterior
-    groups.clear();
-    groups.shrink_to_fit();
+    // groups.clear();
+    // groups.shrink_to_fit();
 
-    return temp;
+    return groups;
 }
 
 Group* GroupBuilder::currentGroup() {
@@ -30,5 +31,5 @@ Group* GroupBuilder::currentGroup() {
 }
 
 bool GroupBuilder::isFirstGroup() {
-    return groups.empty();
+    return groups.empty() && !nameUpdated;
 }

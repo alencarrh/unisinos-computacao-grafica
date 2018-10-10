@@ -25,6 +25,19 @@ void Face::addTextureId(int idTexture) {
     this->textures.push_back(idTexture);
 }
 
+
+void Face::setVertices(vector<int>& vec) {
+    this->vertices = vec;
+}
+
+void Face::setNormais(vector<int>& vec) {
+    this->normais = vec;
+}
+
+void Face::setTextures(vector<int>& vec) {
+    this->textures = vec;
+}
+
 vector<int>& Face::getVertices() {
     return vertices;
 }

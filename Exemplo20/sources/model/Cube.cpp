@@ -92,12 +92,12 @@ F--------G
 
     Group* group = new Group("default");
     group->setMaterialName("teste");
-    group->addFace(createFace(A, B, C, D, 4));
-    group->addFace(createFace(A, D, H, E, 0));
-    group->addFace(createFace(A, E, F, B, 2));
-    group->addFace(createFace(C, B, F, G, 1));
-    group->addFace(createFace(D, C, G, H, 3));
-    group->addFace(createFace(H, G, F, E, 5));
+    group->addFace(createFace(A, B, C, D, 4)); // 1 2 3 4   ->
+    group->addFace(createFace(A, D, H, E, 0)); // 1 4 8 5   ->
+    group->addFace(createFace(A, E, F, B, 2)); // 1 5 6 2   ->
+    group->addFace(createFace(C, B, F, G, 1)); // 3 2 6 7   -> 
+    group->addFace(createFace(D, C, G, H, 3)); // 4 3 7 8   ->
+    group->addFace(createFace(H, G, F, E, 5)); // 8 7 6 5   ->
 
     this->_mesh->addGroup(group);
 

@@ -9,5 +9,8 @@ void MaterialHandler::addMaterial(Material* material) {
 }
 
 Material* MaterialHandler::getMaterial(string materialName) {
+    if (materials.find(materialName) == materials.end()) {
+        return NULL;
+    }
     return this->materials[materialName];
 }

@@ -72,30 +72,6 @@
     <ClCompile Include="sources\model\Cube.cpp">
       <Filter>source files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\builder\MeshBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\FaceBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\GroupBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\VerticeBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\NormalBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\TextureBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\MaterialBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\MtlLibBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\utils\stb_image.cpp">
       <Filter>source files</Filter>
     </ClCompile>
@@ -114,16 +90,46 @@
     <ClCompile Include="sources\handler\MaterialHandler.cpp">
       <Filter>source files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\builder\KSpecularBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\KDiffuseBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\KAmbientBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\model\Light.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\light\KAmbientBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\light\KDiffuseBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\light\KSpecularBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\data\FaceBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\data\GroupBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\data\MaterialBuiler.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\data\MeshBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\values\MaterialNameBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\values\NormalBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\values\TextureBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\values\VerticeBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\light\NShininessBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\model\Mesa.cpp">
       <Filter>source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -168,30 +174,6 @@
     <ClInclude Include="headers\model\Cube.h">
       <Filter>header files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\builder\MeshBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\FaceBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\GroupBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\VerticeBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\NormalBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\TextureBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\MaterialBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\MtlLibBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
     <ClInclude Include="headers\utils\stb_image.h">
       <Filter>header files</Filter>
     </ClInclude>
@@ -210,16 +192,46 @@
     <ClInclude Include="headers\handler\MaterialHandler.h">
       <Filter>header files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\builder\KAmbientBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\KDiffuseBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\KSpecularBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
     <ClInclude Include="headers\model\Light.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\light\KSpecularBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\light\KDiffuseBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\light\KAmbientBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\data\FaceBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\data\GroupBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\data\MaterialBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\data\MeshBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\values\MaterialNameBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\values\NormalBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\values\TextureBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\values\VerticeBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\light\NShininessBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\model\Mesa.h">
       <Filter>header files</Filter>
     </ClInclude>
   </ItemGroup>

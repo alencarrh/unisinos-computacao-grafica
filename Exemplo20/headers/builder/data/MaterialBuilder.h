@@ -23,6 +23,7 @@ class MaterialBuilder {
 
 private:
     MaterialHandler* materialHandler;
+	Material* currentMaterial;
     map<string, _function> functions;
 
 public:

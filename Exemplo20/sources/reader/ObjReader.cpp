@@ -3,8 +3,6 @@
 
 ObjReader::ObjReader() {
     this->meshBuilder = new MeshBuilder();
-    this->meshBuilder->init();
-    
     this->mtlReader = new MtlReader();
 }
 
@@ -27,10 +25,12 @@ Mesh* ObjReader::read(string filename) {
     }
 
     Mesh* mesh = this->meshBuilder->build();
+    if (mesh->getMaterialsFile() != "") {
+        MaterialHandler* handler = mtlReader->read(mesh->getMaterialsFile());
+        mesh->setMaterialsHandler(handler);
+    }
 
-    MaterialHandler* handler = mtlReader->read(mesh->getMaterialsFile());
 
-    mesh->setMaterialsHandler(handler);
     return mesh;
 
 }

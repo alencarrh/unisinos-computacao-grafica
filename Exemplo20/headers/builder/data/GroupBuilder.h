@@ -11,6 +11,7 @@ using namespace std;
 
 static Group* _currentGroup = new Group("default");
 static vector<Group*> groups;
+static bool nameUpdated = false;
 
 class GroupBuilder {
 

@@ -6,11 +6,18 @@ MeshBuilder::MeshBuilder() {
     functions.insert(make_pair("vt", TextureBuilder::process));
     functions.insert(make_pair("g", GroupBuilder::process));
     functions.insert(make_pair("mtllib", MaterialNameBuilder::process));
+
+    this->mesh = new Mesh();
 }
 
 MeshBuilder::~MeshBuilder() {}
 
 _function* MeshBuilder::function(string command) {
+
+    if (functions.find(command) == functions.end()) {
+        return NULL;
+    }
+
     _function* _func = &functions[command];
 
     if (_func) {
@@ -30,6 +37,11 @@ void MeshBuilder::processLine(string command, stringstream& line) {
 
     if (command == "f") {
         FaceBuilder::process(GroupBuilder::currentGroup(), line);
+    }
+    if (command == "usemtl") {
+        string id_material;
+        line >> id_material;
+        GroupBuilder::currentGroup()->setMaterialName(id_material);
     }
 }
 

@@ -17,11 +17,12 @@ void FaceBuilder::process(Group* group, std::stringstream& line) {
     //   getline(stoken, aux, '/')  ->  53
     //   getline(stoken, aux, '/')  ->  279
 
-    Face* face = new Face();
+    vector<int> vertices;
+    vector<int> normais;
+    vector<int> textures;
+
     while (line >> token) {
-
         //TODO lidar quando tiver 4 conjutos de V/T/N
-
         stoken << token;
 
         getline(stoken, vertice, '/');
@@ -30,14 +31,61 @@ void FaceBuilder::process(Group* group, std::stringstream& line) {
 
 
         if (vertice != "") {
-            face->addVerticeId(stoi(vertice));
+            vertices.push_back(stoi(vertice) - 1);
         }
         if (texture != "") {
-            face->addTextureId(stoi(texture));
+            textures.push_back(stoi(texture) - 1);
         }
         if (normal != "") {
-            face->addNormalId(stoi(normal));
+            normais.push_back(stoi(normal) - 1);
+        }
+    }
+
+    if (vertices.size() == 3) {
+        Face* face = new Face();
+        face->setVertices(vertices);
+        face->setNormais(normais);
+        face->setTextures(textures);
+        group->addFace(face);
+        return;
+    }
+
+    if (vertices.size() == 4) {
+        Face* face1 = new Face();
+        // Face* face2 = new Face();
+
+        face1->addVerticeId(vertices[0]);
+        face1->addVerticeId(vertices[1]);
+        face1->addVerticeId(vertices[3]);
+
+        face1->addVerticeId(vertices[1]);
+        face1->addVerticeId(vertices[2]);
+        face1->addVerticeId(vertices[3]);
+
+        if (normais.size() == 4) {
+
+            face1->addNormalId(normais[0]);
+            face1->addNormalId(normais[1]);
+            face1->addNormalId(normais[3]);
+
+            face1->addNormalId(normais[1]);
+            face1->addNormalId(normais[2]);
+            face1->addNormalId(normais[3]);
+
+        }
+        if (textures.size() == 4) {
+            face1->addTextureId(textures[0]);
+            face1->addTextureId(textures[1]);
+            face1->addTextureId(textures[3]);
+
+            face1->addTextureId(textures[1]);
+            face1->addTextureId(textures[2]);
+            face1->addTextureId(textures[3]);
         }
 
+        group->addFace(face1);
+        // group->addFace(face2);
     }
+
+
 }

@@ -23,7 +23,7 @@ private:
 
 
 public:
-
+	Mesh(){}
     Mesh(string name);
     ~Mesh();
 

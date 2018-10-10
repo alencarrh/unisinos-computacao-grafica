@@ -1,5 +1,4 @@
 #include "../../headers/data/Mesh.h"
-#include "../../headers/builder/TextureBuilder.h"
 
 Mesh::Mesh(string name) {
     this->name = name;
@@ -88,7 +87,7 @@ vector<Group*>& Mesh::getGroups() {
 }
 
 string Mesh::getMaterialsFile() {
-    return this->getMaterialsFile;
+    return this->materialsFile;
 }
 
 void Mesh::prepare() {

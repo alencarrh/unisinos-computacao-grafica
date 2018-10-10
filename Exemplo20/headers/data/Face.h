@@ -20,6 +20,10 @@ public:
     void addVerticeId(int idVertice);
     void addNormalId(int idNormal);
     void addTextureId(int idTexture);
+
+    void setVertices(vector<int>& vec);
+    void setNormais(vector<int>& vec);
+    void setTextures(vector<int>& vec);
     vector<int>& getVertices();
     vector<int>& getNormais();
     vector<int>& getTextures();

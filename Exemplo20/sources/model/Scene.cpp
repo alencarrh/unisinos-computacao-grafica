@@ -90,12 +90,13 @@ void Scene::run(GLFWwindow* window) {
         for (Group* group : obj->mesh()->getGroups()) {
 
             Material* material = obj->mesh()->getMaterial(group->getMaterialName());
-
-            //propriedades de luz do material
-            this->shader->setVec3("material.ambient", material->getAmbienteProperty());
-            this->shader->setVec3("material.diffuse", material->getDiffuseProperty());
-            this->shader->setVec3("material.specular", material->getSpecularProperty());
-            this->shader->setFloat("material.shininess", material->getShininess());
+            if (material != NULL) {
+                //propriedades de luz do material
+                this->shader->setVec3("material.ambient", material->getAmbienteProperty());
+                this->shader->setVec3("material.diffuse", material->getDiffuseProperty());
+                this->shader->setVec3("material.specular", material->getSpecularProperty());
+                this->shader->setFloat("material.shininess", material->getShininess());
+            }
 
 
             group->bindTexture();
