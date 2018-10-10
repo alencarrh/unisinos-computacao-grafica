@@ -5,13 +5,13 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include "../data/Mesh.h"
-#include "../builder/FaceBuilder.h"
-#include "../builder/GroupBuilder.h"
-#include "../builder/VerticeBuilder.h"
-#include "../builder/NormalBuilder.h"
-#include "../builder/TextureBuilder.h"
-#include "../builder/MtlLibBuilder.h"
+#include "../../data/Mesh.h"
+#include "FaceBuilder.h"
+#include "GroupBuilder.h"
+#include "../values/VerticeBuilder.h"
+#include "../values/NormalBuilder.h"
+#include "../values/TextureBuilder.h"
+#include "../values/MaterialNameBuilder.h"
 
 typedef void (*_function)(stringstream&);
 

@@ -91,7 +91,7 @@ F--------G
      */
 
     Group* group = new Group("default");
-    group->setMaterial("teste");
+    group->setMaterialName("teste");
     group->addFace(createFace(A, B, C, D, 4));
     group->addFace(createFace(A, D, H, E, 0));
     group->addFace(createFace(A, E, F, B, 2));

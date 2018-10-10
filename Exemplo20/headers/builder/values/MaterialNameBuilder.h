@@ -1,19 +1,19 @@
-#ifndef MTL_LIB_BUILDER_H
-#define MTL_LIB_BUILDER_H
+#ifndef MATERIAL_NAME_BUILDER_H
+#define MATERIAL_NAME_BUILDER_H
 
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <fstream>
-#include "../reader/MtlReader.h"
 
 using namespace std;
 
-static MtlReader* mtlFile;
+static string name;
 
-class MtlLibBuilder {
+class MaterialNameBuilder {
 
 public:
     static void process(std::stringstream& line);
+    static string build();
 };
 #endif

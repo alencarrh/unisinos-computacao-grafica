@@ -6,7 +6,7 @@
 #include <string>
 #include <fstream>
 #include "../data/Mesh.h"
-#include "../builder/MaterialBuilder.h"
+#include "../builder/data/MaterialBuilder.h"
 
 using namespace std;
 
@@ -16,6 +16,9 @@ private:
     MaterialBuilder* materialBuilder;
 
 public:
-    Mesh* read(string filename);
+    MtlReader();
+    ~MtlReader();
+
+    MaterialHandler* read(string filename);
 };
 #endif

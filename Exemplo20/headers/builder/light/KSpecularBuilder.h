@@ -1,5 +1,5 @@
-#ifndef NORMAL_BUILDER_H
-#define NORMAL_BUILDER_H
+#ifndef KSPECULAR_BUILDER_H
+#define KSPECULAR_BUILDER_H
 
 #include <iostream>
 #include <sstream>
@@ -8,15 +8,13 @@
 #include <vector>
 
 using namespace std;
+static glm::vec3* ks;
 
-static vector<glm::vec3*> normais;
-
-class NormalBuilder {
+class KSpecularBuilder {
 
 public:
     static void process(stringstream& line);
-    static vector<glm::vec3*>& build();
+    static glm::vec3* build();
 
 };
-
 #endif

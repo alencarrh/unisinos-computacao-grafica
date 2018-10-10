@@ -80,3 +80,31 @@ void Group::setTexture(string filename) {
     stbi_image_free(imageData);
     this->addVBO(texture);
 }
+
+void Group::setName(string newName) {
+    this->name = newName;
+}
+
+string Group::getName() {
+    return this->name;
+}
+
+vector<Face*>& Group::getFaces() {
+    return this->faces;
+}
+
+void Group::addFace(Face* face) {
+    this->faces.push_back(face);
+}
+
+void Group::addVBO(GLuint vbo) {
+    this->vbos.push_back(vbo);
+}
+
+void Group::setMaterialName(string material) {
+    this->material = material;
+}
+
+string Group::getMaterialName() {
+    return this->material;
+}

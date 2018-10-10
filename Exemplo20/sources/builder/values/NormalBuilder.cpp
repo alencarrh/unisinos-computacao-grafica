@@ -1,4 +1,4 @@
-#include "../../headers/builder/NormalBuilder.h"
+#include "../../../headers/builder/values/NormalBuilder.h"
 
 void NormalBuilder::process(stringstream& line) {
 

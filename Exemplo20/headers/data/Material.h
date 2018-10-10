@@ -18,49 +18,19 @@ public:
     Material(std::string name);
     ~Material();
 
-    void setAmbienteProperty(glm::vec3* ambient) {
-        this->ambient = ambient;
-    }
+	void setShininess(float shininess);
+	void setTextureName(std::string textureName);
+    void setAmbienteProperty(glm::vec3* ambient);
+    void setDiffuseProperty(glm::vec3* diffuse);
+    void setSpecularProperty(glm::vec3* specular);
 
-    void setDiffuseProperty(glm::vec3* diffuse) {
-        this->diffuse = diffuse;
-    }
-
-    void setSpecularProperty(glm::vec3* specular) {
-        this->specular = specular;
-    }
-
-    void setShininess(float shininess) {
-        this->shininess = shininess;
-    }
-
-    void setTextureName(std::string textureName) {
-        this->textureName = textureName;
-    }
-
-    std::string getName() {
-        return this->name;
-    }
-
-    glm::vec3* getAmbienteProperty() {
-        return this->ambient;
-    }
-
-    glm::vec3* getDiffuseProperty() {
-        return this->diffuse;
-    }
-
-    glm::vec3* getSpecularProperty() {
-        return this->specular;
-    }
-
-    float getShininess() {
-        return this->shininess;
-    }
-
-    std::string getTextureName() {
-        return this->textureName;
-    }
+    std::string getName();
+	float getShininess();
+	std::string getTextureName();
+    glm::vec3* getAmbienteProperty();
+    glm::vec3* getDiffuseProperty();
+    glm::vec3* getSpecularProperty();
+    
 
 };
 

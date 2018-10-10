@@ -59,6 +59,38 @@ int Mesh::addTexture(glm::vec2* texture) {
     return this->textures.size() - 1;
 }
 
+void Mesh::setGroups(vector<Group*>& groups) {
+    this->groups = groups;
+}
+
+void Mesh::setVertices(vector<glm::vec3*>& vertices) {
+    this->vertices = vertices;
+}
+
+void Mesh::setNormais(vector<glm::vec3*>& normais) {
+    this->normais = normais;
+}
+
+void Mesh::setTextures(vector<glm::vec2*>& textures) {
+    this->textures = textures;
+}
+
+void Mesh::setMaterialsHandler(MaterialHandler* handler) {
+    this->materialsHandler = handler;
+}
+
+Material* Mesh::getMaterial(string materialName) {
+    return this->materialsHandler->getMaterial(materialName);
+}
+
+vector<Group*>& Mesh::getGroups() {
+    return groups;
+}
+
+string Mesh::getMaterialsFile() {
+    return this->getMaterialsFile;
+}
+
 void Mesh::prepare() {
 
     glm::vec3* vertice;

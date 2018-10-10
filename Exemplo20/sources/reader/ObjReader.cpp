@@ -1,19 +1,36 @@
 #include "../../headers/reader/ObjReader.h"
 
+
+ObjReader::ObjReader() {
+    this->meshBuilder = new MeshBuilder();
+    this->meshBuilder->init();
+    
+    this->mtlReader = new MtlReader();
+}
+
+ObjReader::~ObjReader() {}
+
 Mesh* ObjReader::read(string filename) {
     ifstream arq(filename);
+
     while (!arq.eof()) {
         string line;
-        getline(arq, line);
         stringstream restLine;
-        restLine << line;
         string command;
+
+        getline(arq, line);
+        restLine << line;
+
         restLine >> command;
+
         this->meshBuilder->processLine(command, restLine);
     }
 
-    // no final de passar pro todas as linhas
+    Mesh* mesh = this->meshBuilder->build();
 
-    return this->meshBuilder->build();
+    MaterialHandler* handler = mtlReader->read(mesh->getMaterialsFile());
+
+    mesh->setMaterialsHandler(handler);
+    return mesh;
 
 }

@@ -6,7 +6,7 @@
 #include <string>
 #include <GLM/glm.hpp>
 #include <vector>
-#include "../data/Group.h"
+#include "../../data/Group.h"
 
 class FaceBuilder {
 public:

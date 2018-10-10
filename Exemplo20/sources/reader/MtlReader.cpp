@@ -1,7 +1,15 @@
 #include "../../headers/reader/MtlReader.h"
 
-Mesh* MtlReader::read(string filename) {
+
+MtlReader::MtlReader() {
+    this->materialBuilder = new MaterialBuilder();
+}
+
+MtlReader::~MtlReader() {}
+
+MaterialHandler* MtlReader::read(string filename) {
     ifstream arq(filename);
+
     while (!arq.eof()) {
         string line;
         getline(arq, line);
@@ -12,5 +20,5 @@ Mesh* MtlReader::read(string filename) {
         this->materialBuilder->processLine(command, restLine);
     }
 
-    return NULL;
+    return this->materialBuilder->build();
 }

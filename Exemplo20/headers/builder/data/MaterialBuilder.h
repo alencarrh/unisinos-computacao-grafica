@@ -6,6 +6,12 @@
 #include <sstream>
 #include <string>
 #include <fstream>
+#include "../../handler/MaterialHandler.h"
+#include "../values/MaterialNameBuilder.h"
+#include "../light/KAmbientBuilder.h"
+#include "../light/KDiffuseBuilder.h"
+#include "../light/KSpecularBuilder.h"
+#include "../light/NShininessBuilder.h"
 
 using namespace std;
 
@@ -16,6 +22,7 @@ using namespace std;
 class MaterialBuilder {
 
 private:
+    MaterialHandler* materialHandler;
     map<string, _function> functions;
 
 public:
@@ -24,7 +31,7 @@ public:
 
     _function* function(string command);
     void processLine(string command, stringstream& line);
-    //Mesh* build();
+    MaterialHandler* build();
 
 };
 

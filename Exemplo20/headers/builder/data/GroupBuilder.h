@@ -5,7 +5,7 @@
 #include <string>
 #include <GLM/glm.hpp>
 #include <vector>
-#include "../data/Group.h"
+#include "../../data/Group.h"
 
 using namespace std;
 
@@ -16,19 +16,9 @@ class GroupBuilder {
 
 public:
     static void process(std::stringstream& line);
-
-    static vector<Group*>& build() {
-        groups.push_back(_currentGroup);
-        return groups;
-    }
-
-    static Group* currentGroup() {
-        return _currentGroup;
-    }
-
-    static bool isFirstGroup() {
-        return groups.empty();
-    }
+	static vector<Group*>& build();
+	static Group* currentGroup();
+	static bool isFirstGroup();
 
 };
 #endif

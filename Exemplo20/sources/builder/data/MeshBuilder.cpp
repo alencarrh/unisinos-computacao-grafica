@@ -1,15 +1,14 @@
-#include "../../headers/builder/MeshBuilder.h"
+#include "../../../headers/builder/data/MeshBuilder.h"
 
 MeshBuilder::MeshBuilder() {
     functions.insert(make_pair("v", VerticeBuilder::process));
     functions.insert(make_pair("vn", NormalBuilder::process));
     functions.insert(make_pair("vt", TextureBuilder::process));
     functions.insert(make_pair("g", GroupBuilder::process));
-    functions.insert(make_pair("mtllib", MtlLibBuilder::process));
+    functions.insert(make_pair("mtllib", MaterialNameBuilder::process));
 }
 
 MeshBuilder::~MeshBuilder() {}
-
 
 _function* MeshBuilder::function(string command) {
     _function* _func = &functions[command];
@@ -35,9 +34,10 @@ void MeshBuilder::processLine(string command, stringstream& line) {
 }
 
 Mesh* MeshBuilder::build() {
-    // cria a mesh e retorna
     this->mesh->setVertices(VerticeBuilder::build());
-    mesh->setGroups(GroupBuilder::build());
-
+    this->mesh->setNormais(NormalBuilder::build());
+    this->mesh->setTextures(TextureBuilder::build());
+    this->mesh->setGroups(GroupBuilder::build());
+    this->mesh->setMaterialsFile(MaterialNameBuilder::build());
     return this->mesh;
 }

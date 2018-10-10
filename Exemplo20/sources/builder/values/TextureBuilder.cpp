@@ -1,4 +1,4 @@
-#include "../../headers/builder/TextureBuilder.h"
+#include "../../../headers/builder/values/TextureBuilder.h"
 
 void TextureBuilder::process(stringstream& line) {
     float x, y;

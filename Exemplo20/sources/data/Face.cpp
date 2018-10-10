@@ -24,3 +24,15 @@ void Face::addNormalId(int idNormal) {
 void Face::addTextureId(int idTexture) {
     this->textures.push_back(idTexture);
 }
+
+vector<int>& Face::getVertices() {
+    return vertices;
+}
+
+vector<int>& Face::getNormais() {
+    return normais;
+}
+
+vector<int>& Face::getTextures() {
+    return textures;
+}

@@ -27,38 +27,21 @@ public:
     ~Group();
 
     int numVertices();
+
     void bindVAO();
     void bindTexture();
     void bindBuffer(const vector<float>& data, const int vecSize = 3);
+
     void setTexture(string filename);
+    void setName(string newName);
+    void setMaterialName(string material);
 
-    void setName(string newName) {
-        this->name = newName;
-    }
+    void addFace(Face* face);
+    void addVBO(GLuint vbo);
 
-    string getName() {
-        return this->name;
-    }
-
-    vector<Face*>& getFaces() {
-        return this->faces;
-    }
-
-    void addFace(Face* face) {
-        this->faces.push_back(face);
-    }
-
-    void addVBO(GLuint vbo) {
-        this->vbos.push_back(vbo);
-    }
-
-    void setMaterial(string material) {
-        this->material = material;
-    }
-
-    string getMaterialName() {
-        return this->material;
-    }
+    vector<Face*>& getFaces();
+    string getName();
+    string getMaterialName();
 
 };
 

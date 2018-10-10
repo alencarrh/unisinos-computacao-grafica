@@ -1,4 +1,4 @@
-#include "../../headers/builder/VerticeBuilder.h"
+#include "../../../headers/builder/values/VerticeBuilder.h"
 
 void VerticeBuilder::process(stringstream& line) {
     float x, y, z;

@@ -20,17 +20,8 @@ public:
     void addVerticeId(int idVertice);
     void addNormalId(int idNormal);
     void addTextureId(int idTexture);
-
-    vector<int>& getVertices() {
-        return vertices;
-    }
-
-    vector<int>& getNormais() {
-        return normais;
-    }
-
-    vector<int>& getTextures() {
-        return textures;
-    }
+    vector<int>& getVertices();
+    vector<int>& getNormais();
+    vector<int>& getTextures();
 };
 #endif

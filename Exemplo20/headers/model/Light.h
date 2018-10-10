@@ -12,8 +12,8 @@ public:
     glm::vec3* diffuse;
     glm::vec3* specular;
 
-	Light();
-	~Light();
+    Light();
+    ~Light();
 
 };
 
