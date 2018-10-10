@@ -14,9 +14,7 @@ public:
 
     Mesh* mesh() override {
         return this->_mesh;
-    };
-
-
+    }
 };
 
 #endif

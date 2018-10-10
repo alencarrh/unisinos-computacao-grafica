@@ -14,8 +14,8 @@ static vector<glm::vec3*> kd;
 class KdBuilder {
 
 public:
-	static void process(stringstream& line);
-	static vector<glm::vec3*>& build();
+    static void process(stringstream& line);
+    static vector<glm::vec3*>& build();
 
 };
 #endif

@@ -1,4 +1,5 @@
 #include "../../headers/data/Mesh.h"
+#include "../../headers/builder/TextureBuilder.h"
 
 Mesh::Mesh(string name) {
     this->name = name;
@@ -59,26 +60,44 @@ int Mesh::addTexture(glm::vec2* texture) {
 }
 
 void Mesh::prepare() {
+
+    glm::vec3* vertice;
+    glm::vec3* normal;
+    glm::vec2* texture;
+
     for (Group* group : this->getGroups()) {
         vector<float> vertices;
         vector<float> normais;
-        //TODO texturas
+        vector<float> textures;
         for (Face* face : group->getFaces()) {
 
+            //TODO the below code for vertices and normais are equal, and the only thing different for texture
+            //     is that only it ignores Z coordinate. The goal is try to do only 1 method for this logic.
+
             for (int verticeID : face->getVertices()) {
-                glm::vec3* vertice = this->vertice(verticeID);
+                vertice = this->vertice(verticeID);
                 vertices.push_back(vertice->x);
                 vertices.push_back(vertice->y);
                 vertices.push_back(vertice->z);
+                // delete vertice;
             }
 
             for (int normalID : face->getNormais()) {
-                glm::vec3* normal = this->normal(normalID);
-                vertices.push_back(normal->x);
-                vertices.push_back(normal->y);
-                vertices.push_back(normal->z);
+                normal = this->normal(normalID);
+                normais.push_back(normal->x);
+                normais.push_back(normal->y);
+                normais.push_back(normal->z);
+                // delete normal;
+            }
+
+            for (int textureID : face->getTextures()) {
+                texture = this->texture(textureID);
+                textures.push_back(texture->x);
+                textures.push_back(texture->y);
+                // delete texture;
             }
         }
+
 
         group->bindVAO();
         if (!vertices.empty()) {
@@ -87,5 +106,10 @@ void Mesh::prepare() {
         if (!normais.empty()) {
             group->bindBuffer(normais);
         }
+        if (!textures.empty()) {
+            group->bindBuffer(textures, 2);
+        }
+
+        group->setTexture(this->material);
     }
 }

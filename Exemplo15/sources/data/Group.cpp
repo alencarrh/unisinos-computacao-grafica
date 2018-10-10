@@ -33,6 +33,14 @@ void Group::bindVAO() {
 }
 
 
+void Group::bindTexture() {
+    if (this->texture == NULL) {
+        return;
+    }
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texture);
+}
+
 void Group::bindBuffer(const vector<float>& data, const int vecSize) {
     GLuint vbo;
     glGenBuffers(1, &vbo);
@@ -44,4 +52,31 @@ void Group::bindBuffer(const vector<float>& data, const int vecSize) {
 
     shaderLocation++;
     this->addVBO(vbo);
+}
+
+
+void Group::setTexture(string filename) {
+    GLuint texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    int width, height, nrChannels;
+
+    unsigned char* imageData = stbi_load(filename.c_str(), &width, &height, &nrChannels, 0);
+
+    if (imageData) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+
+    stbi_image_free(imageData);
+    this->addVBO(texture);
 }

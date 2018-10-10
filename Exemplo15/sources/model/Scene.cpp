@@ -51,6 +51,7 @@ void Scene::run(GLFWwindow* window) {
     glm::mat4 view = camera->getViewMatrix();
 
     glm::mat4 model(1.0f);
+    // model = glm::rotate(model, glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
     model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
 
@@ -59,8 +60,13 @@ void Scene::run(GLFWwindow* window) {
     this->shader->setMatrix4fv("view", view);
     this->shader->setMatrix4fv("projection", projection);
 
+    //TODO no momento só usamos 1 textura, então vai funcionar, caso queiramos mais de uma por grupo
+    //vai ser necessário modificar e linha abaixo
+    this->shader->setInt("texture1", 0);
+
     for (Drawable* obj : this->objs) {
         for (Group* group : obj->mesh()->getGroups()) {
+            group->bindTexture();
             group->bindVAO();
             glDrawArrays(GL_TRIANGLES, 0, group->numVertices());
         }

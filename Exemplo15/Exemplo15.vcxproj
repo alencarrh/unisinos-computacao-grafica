@@ -19,14 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sources\builder\KaBuilder.cpp" />
+    <ClCompile Include="sources\builder\KdBuilder.cpp" />
+    <ClCompile Include="sources\builder\KsBuilder.cpp" />
     <ClCompile Include="sources\builder\MtlLibBuilder.cpp" />
-    <ClCompile Include="sources\builder\MtlReader.cpp" />
+    <ClCompile Include="sources\reader\MtlReader.cpp" />
     <ClCompile Include="sources\builder\MaterialBuilder.cpp" />
     <ClCompile Include="sources\builder\NormalBuilder.cpp" />
     <ClCompile Include="sources\builder\GroupBuilder.cpp" />
     <ClCompile Include="sources\builder\FaceBuilder.cpp" />
     <ClCompile Include="main\main.cpp" />
-    <ClCompile Include="sources\builder\ObjReader.cpp" />
+    <ClCompile Include="sources\reader\ObjReader.cpp" />
     <ClCompile Include="sources\builder\MeshBuilder.cpp" />
     <ClCompile Include="sources\data\Face.cpp" />
     <ClCompile Include="sources\data\Group.cpp" />
@@ -38,6 +41,7 @@
     <ClCompile Include="sources\system\System.cpp" />
     <ClCompile Include="sources\builder\VerticeBuilder.cpp" />
     <ClCompile Include="sources\builder\TextureBuilder.cpp" />
+    <ClCompile Include="sources\utils\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\core\fragment.frag" />
@@ -48,7 +52,9 @@
     <ClInclude Include="headers\builder\FaceBuilder.h" />
     <ClInclude Include="headers\actions\Drawable.h" />
     <ClInclude Include="headers\actions\Runnable.h" />
-    <ClInclude Include="headers\conversor\MeshConversor.h" />
+    <ClInclude Include="headers\builder\KaBuilder.h" />
+    <ClInclude Include="headers\builder\KdBuilder.h" />
+    <ClInclude Include="headers\builder\KsBuilder.h" />
     <ClInclude Include="headers\data\Face.h" />
     <ClInclude Include="headers\data\Group.h" />
     <ClInclude Include="headers\data\Mesh.h" />
@@ -58,13 +64,14 @@
     <ClInclude Include="headers\model\Scene.h" />
     <ClInclude Include="headers\system\System.h" />
     <ClInclude Include="headers\builder\MeshBuilder.h" />
-    <ClInclude Include="headers\builder\ObjReader.h" />
+    <ClInclude Include="headers\reader\ObjReader.h" />
     <ClInclude Include="headers\builder\VerticeBuilder.h" />
     <ClInclude Include="headers\builder\NormalBuilder.h" />
     <ClInclude Include="headers\builder\TextureBuilder.h" />
     <ClInclude Include="headers\builder\MaterialBuilder.h" />
-    <ClInclude Include="headers\builder\MtlReader.h" />
+    <ClInclude Include="headers\reader\MtlReader.h" />
     <ClInclude Include="headers\builder\MtlLibBuilder.h" />
+    <ClInclude Include="headers\utils\stb_image.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BC4EC559-6A48-4D28-87B2-7F05E6A43FE8}</ProjectGuid>

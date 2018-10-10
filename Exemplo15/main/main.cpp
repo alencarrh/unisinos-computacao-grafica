@@ -9,13 +9,13 @@
     Este código é baseado no tutorial learnopengl.com
     
 
-    Continuação do exemplo12 - Refatoração completa do código
+    Continuação do exemplo14 - Adicionado textureas
 
 
 */
 
 int main() {
-    Scene* scene = new Scene(600, 600, "Refactor - Simple Cube");
+    Scene* scene = new Scene(600, 600, "Simple Cube with textures");
     scene->addObj(new Cube());
 
     System* system = new System(scene);

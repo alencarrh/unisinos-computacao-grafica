@@ -9,22 +9,22 @@
 
 using namespace std;
 
-typedef void(*_function)(stringstream&);
+typedef void (*_function)(stringstream&);
 
 using namespace std;
 
 class MaterialBuilder {
 
 private:
-	map<string, _function> functions;
+    map<string, _function> functions;
 
 public:
-	MaterialBuilder();
-	~MaterialBuilder();
+    MaterialBuilder();
+    ~MaterialBuilder();
 
-	_function* function(string command);
-	void processLine(string command, stringstream& line);
-	//Mesh* build();
+    _function* function(string command);
+    void processLine(string command, stringstream& line);
+    //Mesh* build();
 
 };
 

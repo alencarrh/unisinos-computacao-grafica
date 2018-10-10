@@ -11,12 +11,18 @@ Face* createFace(int v0, int v1, int v2, int v3, int normal) {
     face->addVerticeId(v0);
     face->addVerticeId(v1);
     face->addVerticeId(v3);
+    face->addTextureId(3);
+    face->addTextureId(2);
+    face->addTextureId(0);
+
 
     face->addVerticeId(v1);
     face->addVerticeId(v2);
     face->addVerticeId(v3);
+    face->addTextureId(2);
+    face->addTextureId(1);
+    face->addTextureId(0);
 
-	face->addTextureId(1);
     return face;
 }
 
@@ -34,6 +40,13 @@ void Cube::prepare() {
     this->_mesh->addVertice(new glm::vec3(-1.0f / escale, 1.0f / escale, -1.0f / escale)); //F
     this->_mesh->addVertice(new glm::vec3(-1.0f / escale, -1.0f / escale, -1.0f / escale)); //G
     this->_mesh->addVertice(new glm::vec3(1.0f / escale, -1.0f / escale, -1.0f / escale)); //H
+
+    this->_mesh->addTexture(new glm::vec2(1.0, 1.0));
+    this->_mesh->addTexture(new glm::vec2(1.0, 0.0));
+    this->_mesh->addTexture(new glm::vec2(0.0, 0.0));
+    this->_mesh->addTexture(new glm::vec2(0.0, 1.0));
+
+    this->_mesh->setMaterial("./files/textures/container.jpg");
 
     Group* group = new Group("default");
     group->addFace(createFace(A, B, C, D, 4));

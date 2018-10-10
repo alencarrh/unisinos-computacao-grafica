@@ -14,7 +14,7 @@ static vector<glm::vec3*> normais;
 class NormalBuilder {
 
 public:
-	static void process(stringstream& line);
+    static void process(stringstream& line);
     static vector<glm::vec3*>& build();
 
 };

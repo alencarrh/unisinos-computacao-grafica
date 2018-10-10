@@ -43,15 +43,15 @@ public:
 
     int width() override {
         return this->WIDTH;
-    };
+    }
 
     int height() override {
         return this->HEIGHT;
-    };
+    }
 
     std::string screenTitle() override {
         return this->SCREEN_TITLE;
-    };
+    }
 
 };
 

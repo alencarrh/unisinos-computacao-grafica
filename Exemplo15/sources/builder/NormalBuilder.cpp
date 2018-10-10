@@ -1,6 +1,5 @@
 #include "../../headers/builder/NormalBuilder.h"
 
-
 void NormalBuilder::process(stringstream& line) {
 
     float x, y, z;
@@ -10,6 +9,6 @@ void NormalBuilder::process(stringstream& line) {
 }
 
 vector<glm::vec3*>& NormalBuilder::build() {
-	//TODO limpar lista aqui já que está classe está static
+    //TODO limpar lista aqui já que está classe está static
     return normais;
 }

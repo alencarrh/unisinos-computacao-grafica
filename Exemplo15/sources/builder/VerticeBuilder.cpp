@@ -7,6 +7,6 @@ void VerticeBuilder::process(stringstream& line) {
 }
 
 vector<glm::vec3*>& VerticeBuilder::build() {
-	//TODO limpar lista aqui já que está classe está static
+    //TODO limpar lista aqui já que está classe está static
     return vertices;
 }

@@ -15,9 +15,9 @@ static vector<Group*> groups;
 class GroupBuilder {
 
 public:
-	static void process(std::stringstream& line);
+    static void process(std::stringstream& line);
 
-	static vector<Group*>& build() {
+    static vector<Group*>& build() {
         groups.push_back(_currentGroup);
         return groups;
     }

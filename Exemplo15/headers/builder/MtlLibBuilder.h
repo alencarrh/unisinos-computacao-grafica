@@ -5,7 +5,7 @@
 #include <sstream>
 #include <string>
 #include <fstream>
-#include "MtlReader.h"
+#include "../reader/MtlReader.h"
 
 using namespace std;
 
@@ -14,6 +14,6 @@ static MtlReader* mtlFile;
 class MtlLibBuilder {
 
 public:
-	static void process(std::stringstream& line);
+    static void process(std::stringstream& line);
 };
 #endif

@@ -14,7 +14,7 @@ static vector<glm::vec2*> textures;
 class TextureBuilder {
 
 public:
-	static void process(std::stringstream& line);
+    static void process(std::stringstream& line);
     static vector<glm::vec2*>& build();
 
 };
