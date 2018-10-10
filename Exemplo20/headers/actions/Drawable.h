@@ -10,6 +10,7 @@ public:
     virtual ~Drawable() {};
     virtual void prepare() = 0;
     virtual Mesh* mesh() = 0;
+	virtual glm::vec3* position() = 0;
 };
 
 #endif

@@ -9,7 +9,7 @@
 #include "Lamp.h"
 #include "Light.h"
 
-static CameraHandler* camera = new CameraHandler(glm::vec3(0.0f, 0.0f, 3.0f));
+static CameraHandler* camera = new CameraHandler(glm::vec3(0.0f, 0.0f, 10.0f));
 
 // timing
 static float deltaTime = 0.0f; // time between current frame and last frame
@@ -28,7 +28,7 @@ private:
     ShaderHandler* shader;
     ShaderHandler* lightShader;
 
-    Lamp* lamp = new Lamp();
+    Lamp* lamp;
     Light* light;
 
     std::vector<Drawable*> objs;
@@ -53,6 +53,7 @@ public:
 
     void setLight(Light* light) {
         this->light = light;
+        this->lamp = new Lamp();
     }
 
     int width() override {

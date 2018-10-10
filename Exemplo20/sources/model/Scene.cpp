@@ -18,6 +18,7 @@ int Scene::init(GLFWwindow* window) {
     lamp->prepare();
     for (Drawable* obj : this->objs) {
         obj->prepare();
+
     }
 
     shader = new ShaderHandler("./shaders/core/obj_vertex.vert", "./shaders/core/obj_fragment.frag");
@@ -50,7 +51,7 @@ void Scene::run(GLFWwindow* window) {
     glm::mat4 view = camera->getViewMatrix();
 
     glm::mat4 model(1.0f);
-    model = glm::rotate(model, glm::radians(65.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+    // model = glm::rotate(model, glm::radians(65.0f), glm::vec3(0.5f, 1.0f, 0.0f));
     // model = glm::rotate(model, (float)glfwGetTime() * glm::radians(10.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
     glm::mat4 modelLight(1.0f);
@@ -69,7 +70,7 @@ void Scene::run(GLFWwindow* window) {
 
 
     this->shader->use();
-    this->shader->setMatrix4fv("model", model);
+    
     this->shader->setMatrix4fv("view", view);
     this->shader->setMatrix4fv("projection", projection);
     this->shader->setVec3("lightColor", light->color);
@@ -87,8 +88,10 @@ void Scene::run(GLFWwindow* window) {
     this->shader->setInt("texture1", 0);
 
     for (Drawable* obj : this->objs) {
-        for (Group* group : obj->mesh()->getGroups()) {
+		model = glm::translate(model,(*obj->position()));
+		this->shader->setMatrix4fv("model", model);
 
+        for (Group* group : obj->mesh()->getGroups()) {
             Material* material = obj->mesh()->getMaterial(group->getMaterialName());
             //propriedades de luz do material
             this->shader->setVec3("material.ambient", material->getAmbienteProperty());
@@ -126,6 +129,12 @@ void Scene::process_input(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
         camera->processKeyboard(RIGHT, deltaTime);
     }
+	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+		camera->processKeyboard(UP, deltaTime);
+	}
+	if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
+		camera->processKeyboard(DOWN, deltaTime);
+	}
 	if(glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)	{
 		if(light->on){
 			light->color = new glm::vec3(0.0f, 0.0f, 0.0f);

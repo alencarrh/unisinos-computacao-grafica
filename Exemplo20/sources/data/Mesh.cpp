@@ -126,15 +126,9 @@ void Mesh::prepare() {
 
 
         group->bindVAO();
-        if (!vertices.empty()) {
-            group->bindBuffer(vertices);
-        }
-        if (!normais.empty()) {
-            group->bindBuffer(normais);
-        }
-        if (!textures.empty()) {
-            group->bindBuffer(textures, 2);
-        }
+        group->bindBuffer(vertices);
+        group->bindBuffer(normais);
+        group->bindBuffer(textures, 2);
 
         if (group->getMaterialName() != "") {
             Material* material = getMaterial(group->getMaterialName());

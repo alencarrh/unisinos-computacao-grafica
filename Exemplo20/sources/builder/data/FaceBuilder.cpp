@@ -7,7 +7,6 @@ FaceBuilder::~FaceBuilder() {}
 
 
 void FaceBuilder::process(Group* group, std::stringstream& line) {
-    
     string token;
     string vertice, texture, normal;
     //   line => 237/53/279 236/53/256 205/1/207 206/67/208
@@ -22,7 +21,7 @@ void FaceBuilder::process(Group* group, std::stringstream& line) {
     vector<int> textures;
 
     while (line >> token) {
-		stringstream stoken;
+        stringstream stoken;
         stoken << token;
 
         getline(stoken, vertice, '/');

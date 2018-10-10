@@ -20,19 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main\main.cpp" />
-    <ClCompile Include="sources\ScreenSaver.cpp" />
-    <ClCompile Include="sources\Shader.cpp" />
-    <ClCompile Include="sources\System.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="headers\ScreenSaver.h" />
-    <ClInclude Include="headers\Runnable.h" />
-    <ClInclude Include="headers\Shader.h" />
-    <ClInclude Include="headers\System.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="shaders\core\fragment.frag" />
-    <None Include="shaders\core\vertex.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4F593A15-BDA3-441E-9C6D-7DFFC41978C8}</ProjectGuid>

@@ -25,7 +25,7 @@
     <ClCompile Include="sources\builder\light\NShininessBuilder.cpp" />
     <ClCompile Include="sources\builder\values\MaterialNameBuilder.cpp" />
     <ClCompile Include="sources\data\Material.cpp" />
-    <ClCompile Include="sources\model\Mesa.cpp" />
+    <ClCompile Include="sources\model\Object.cpp" />
     <ClCompile Include="sources\handler\MaterialHandler.cpp" />
     <ClCompile Include="sources\model\Lamp.cpp" />
     <ClCompile Include="sources\model\Light.cpp" />
@@ -74,7 +74,7 @@
     <ClInclude Include="headers\model\Cube.h" />
     <ClInclude Include="headers\model\Lamp.h" />
     <ClInclude Include="headers\model\Light.h" />
-    <ClInclude Include="headers\model\Mesa.h" />
+    <ClInclude Include="headers\model\Object.h" />
     <ClInclude Include="headers\model\Scene.h" />
     <ClInclude Include="headers\system\System.h" />
     <ClInclude Include="headers\builder\data\MeshBuilder.h" />
@@ -91,7 +91,7 @@
     <ProjectGuid>{5CA566E5-7E42-493B-A72A-27CF1877AE68}</ProjectGuid>
     <RootNamespace>Exemplo20</RootNamespace>
     <ProjectName>Exemplo20</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

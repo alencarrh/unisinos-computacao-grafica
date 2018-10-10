@@ -42,6 +42,11 @@ void Group::bindTexture() {
 }
 
 void Group::bindBuffer(const vector<float>& data, const int vecSize) {
+    if(data.empty()) {
+		// shaderLocation++;
+        return;
+    }
+
     GLuint vbo;
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);

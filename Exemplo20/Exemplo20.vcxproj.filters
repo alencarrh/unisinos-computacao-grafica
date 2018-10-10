@@ -129,7 +129,7 @@
     <ClCompile Include="sources\builder\light\NShininessBuilder.cpp">
       <Filter>source files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\model\Mesa.cpp">
+    <ClCompile Include="sources\model\Object.cpp">
       <Filter>source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -231,7 +231,7 @@
     <ClInclude Include="headers\builder\light\NShininessBuilder.h">
       <Filter>header files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\model\Mesa.h">
+    <ClInclude Include="headers\model\Object.h">
       <Filter>header files</Filter>
     </ClInclude>
   </ItemGroup>
