@@ -109,7 +109,8 @@ void Mesh::prepare() {
         if (!textures.empty()) {
             group->bindBuffer(textures, 2);
         }
-
-        group->setTexture(this->material);
+        if(this->material != ""){
+            group->setTexture(this->material);
+		}
     }
 }

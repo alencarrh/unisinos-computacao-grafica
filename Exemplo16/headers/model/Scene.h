@@ -6,6 +6,7 @@
 #include "../handler/CameraHandler.h"
 #include "../handler/ShaderHandler.h"
 #include "../actions/Drawable.h"
+#include "Lamp.h"
 
 static CameraHandler* camera = new CameraHandler(glm::vec3(0.0f, 0.0f, 3.0f));
 
@@ -24,6 +25,11 @@ private:
     std::string SCREEN_TITLE;
 
     ShaderHandler* shader;
+    ShaderHandler* shaderLamp;
+
+    Lamp* lamp = new Lamp();
+    glm::vec3* lightPos = new glm::vec3(1.2f, 1.0f, 2.0f);
+    glm::vec3* lightColor = new glm::vec3(1.0f, 1.0f, 1.0f);
 
     std::vector<Drawable*> objs;
 

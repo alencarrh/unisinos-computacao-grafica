@@ -15,18 +15,21 @@ Scene::~Scene() {
 }
 
 int Scene::init(GLFWwindow* window) {
+    lamp->prepare();
+
     for (Drawable* obj : this->objs) {
         obj->prepare();
     }
 
     shader = new ShaderHandler("./shaders/core/vertex.vert", "./shaders/core/fragment.frag");
+    shaderLamp = new ShaderHandler("./shaders/core/vertex_lamp.vert", "./shaders/core/fragment_lamp.frag");
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
     glm::ortho(0.0f, this->_width, 0.0f, this->_height, 0.1f, 100.0f);
 
@@ -51,14 +54,29 @@ void Scene::run(GLFWwindow* window) {
     glm::mat4 view = camera->getViewMatrix();
 
     glm::mat4 model(1.0f);
-    // model = glm::rotate(model, glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
-    model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+    model = glm::rotate(model, glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+    // model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+
+    glm::mat4 modelLight(1.0f);
+    modelLight = glm::translate(modelLight, (*lightPos));
+
+    this->shaderLamp->use();
+    this->shaderLamp->setMatrix4fv("model", modelLight);
+    this->shaderLamp->setMatrix4fv("view", view);
+    this->shaderLamp->setMatrix4fv("projection", projection);
+    this->shaderLamp->setUniform3f("lightColor", lightColor);
+
+    for (Group* group : this->lamp->mesh()->getGroups()) {
+        group->bindVAO();
+        glDrawArrays(GL_TRIANGLES, 0, group->numVertices());
+    }
 
 
     this->shader->use();
     this->shader->setMatrix4fv("model", model);
     this->shader->setMatrix4fv("view", view);
     this->shader->setMatrix4fv("projection", projection);
+    this->shader->setUniform3f("lightColor", lightColor);
 
     //TODO no momento só usamos 1 textura, então vai funcionar, caso queiramos mais de uma por grupo
     //vai ser necessário modificar e linha abaixo

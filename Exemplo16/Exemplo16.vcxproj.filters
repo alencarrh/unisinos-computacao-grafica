@@ -114,6 +114,9 @@
     <ClCompile Include="sources\reader\ObjReader.cpp">
       <Filter>source files</Filter>
     </ClCompile>
+    <ClCompile Include="sources\model\Lamp.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\core\vertex.vert">
@@ -122,6 +125,8 @@
     <None Include="shaders\core\fragment.frag">
       <Filter>shaders\core</Filter>
     </None>
+    <None Include="shaders\core\fragment_lamp.frag" />
+    <None Include="shaders\core\vertex_lamp.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\model\Scene.h">
@@ -194,6 +199,9 @@
       <Filter>header files</Filter>
     </ClInclude>
     <ClInclude Include="headers\reader\ObjReader.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\model\Lamp.h">
       <Filter>header files</Filter>
     </ClInclude>
   </ItemGroup>

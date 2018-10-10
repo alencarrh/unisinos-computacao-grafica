@@ -83,6 +83,10 @@ void ShaderHandler::setMatrix4fv(const std::string& name, glm::mat4& matrix) con
     glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(matrix));
 }
 
+void ShaderHandler::setUniform3f(const std::string& name, glm::vec3* vec) const {
+    glUniform3f(glGetUniformLocation(ID, name.c_str()), vec->x, vec->y, vec->z);
+}
+
 void ShaderHandler::checkCompileErrors(unsigned int shader, std::string type) {
     int success;
     char infoLog[1024];

@@ -23,6 +23,7 @@
     <ClCompile Include="sources\builder\KdBuilder.cpp" />
     <ClCompile Include="sources\builder\KsBuilder.cpp" />
     <ClCompile Include="sources\builder\MtlLibBuilder.cpp" />
+    <ClCompile Include="sources\model\Lamp.cpp" />
     <ClCompile Include="sources\reader\MtlReader.cpp" />
     <ClCompile Include="sources\builder\MaterialBuilder.cpp" />
     <ClCompile Include="sources\builder\NormalBuilder.cpp" />
@@ -46,6 +47,8 @@
   <ItemGroup>
     <None Include="shaders\core\fragment.frag" />
     <None Include="shaders\core\vertex.vert" />
+    <None Include="shaders\core\fragment_lamp.frag" />
+    <None Include="shaders\core\vertex_lamp.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\builder\GroupBuilder.h" />
@@ -61,6 +64,7 @@
     <ClInclude Include="headers\handler\CameraHandler.h" />
     <ClInclude Include="headers\handler\ShaderHandler.h" />
     <ClInclude Include="headers\model\Cube.h" />
+    <ClInclude Include="headers\model\Lamp.h" />
     <ClInclude Include="headers\model\Scene.h" />
     <ClInclude Include="headers\system\System.h" />
     <ClInclude Include="headers\builder\MeshBuilder.h" />
