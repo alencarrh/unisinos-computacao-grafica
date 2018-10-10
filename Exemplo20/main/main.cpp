@@ -18,7 +18,7 @@
 
 int main() {
     Light* light = new Light();
-    light->position = new glm::vec3(0.0f, 3.0f, 0.0f);
+    light->position = new glm::vec3(0.0f, 5.0f, 0.0f);
     light->color = new glm::vec3(1.0f, 1.0f, 1.0f);
 
     light->ambient = new glm::vec3(0.3f, 0.3f, 0.3f);

@@ -79,6 +79,9 @@ void Mesh::setMaterialsHandler(MaterialHandler* handler) {
 }
 
 Material* Mesh::getMaterial(string materialName) {
+    if (materialsHandler == NULL) {
+        materialsHandler = new MaterialHandler();
+    }
     return this->materialsHandler->getMaterial(materialName);
 }
 

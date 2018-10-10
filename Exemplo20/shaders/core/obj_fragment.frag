@@ -12,7 +12,6 @@ uniform vec3 viewPos;
 // texture samplers
 uniform sampler2D texture1;
 
-
 struct Material {
     vec3 ambient;
     vec3 diffuse;
