@@ -2,7 +2,12 @@
 
 void GroupBuilder::process(std::stringstream& line) {
     string name;
-    line >> name;
+
+    while (!line.eof()) {
+        string temp;
+        line >> temp;
+        name += temp;
+    }
 
     if (isFirstGroup()) {
         _currentGroup->setName(name);

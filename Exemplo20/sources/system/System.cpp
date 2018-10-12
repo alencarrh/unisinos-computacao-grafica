@@ -13,11 +13,12 @@ int System::GLFWInit() {
         return EXIT_FAILURE;
     }
 
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    this->window = glfwCreateWindow(runnable->width(), runnable->height(), runnable->screenTitle().c_str(), NULL, NULL);
+    this->window = glfwCreateWindow(runnable->width(), runnable->height(), runnable->screenTitle().c_str(), nullptr,
+                                    nullptr);
 
     if (!window) {
         std::cout << "ERROR: Failed to create GLFW window" << std::endl;

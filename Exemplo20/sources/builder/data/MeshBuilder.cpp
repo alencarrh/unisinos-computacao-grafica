@@ -15,7 +15,7 @@ MeshBuilder::~MeshBuilder() {}
 _function* MeshBuilder::function(string command) {
 
     if (functions.find(command) == functions.end()) {
-        return NULL;
+        return nullptr;
     }
 
     _function* _func = &functions[command];
@@ -24,26 +24,25 @@ _function* MeshBuilder::function(string command) {
         return _func;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 void MeshBuilder::processLine(string command, stringstream& line) {
     _function* _func = function(command);
 
-    if (_func != NULL) {
+    if (_func != nullptr) {
         (*_func)(line);
         return;
     }
 
     if (command == "f") {
         FaceBuilder::process(GroupBuilder::currentGroup(), line);
-		return;
+        return;
     }
     if (command == "usemtl") {
         string id_material;
         line >> id_material;
         GroupBuilder::currentGroup()->setMaterialName(id_material);
-		return;
     }
 }
 

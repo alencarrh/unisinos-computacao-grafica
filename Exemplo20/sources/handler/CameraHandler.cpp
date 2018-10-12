@@ -1,23 +1,17 @@
 #include "../../headers/handler/CameraHandler.h"
 
 glm::mat4 CameraHandler::getViewMatrix() {
-    return glm::lookAt(position, position + front, up);
+    return lookAt(position, position + front, up);
 }
 
 void CameraHandler::processKeyboard(Camera_Movement direction, float deltaTime) {
     float velocity = movementSpeed * deltaTime;
-    if (direction == FORWARD)
-        position += front * velocity;
-    if (direction == BACKWARD)
-        position -= front * velocity;
-    if (direction == LEFT)
-        position -= right * velocity;
-    if (direction == RIGHT)
-        position += right * velocity;
-	if (direction == UP)
-		position += up * velocity;
-	if (direction == DOWN)
-		position -= up * velocity;
+    if (direction == FORWARD) position += front * velocity;
+    if (direction == BACKWARD) position -= front * velocity;
+    if (direction == LEFT) position -= right * velocity;
+    if (direction == RIGHT) position += right * velocity;
+    if (direction == UP) position += up * velocity;
+    if (direction == DOWN) position -= up * velocity;
 
 
 }
@@ -63,9 +57,9 @@ void CameraHandler::updateCameraVectors() {
     _front.y = sin(glm::radians(pitch));
     _front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 
-    this->front = glm::normalize(_front);
+    this->front = normalize(_front);
 
     // Also re-calculate the Right and Up vector
-    right = glm::normalize(glm::cross(front, worldUp)); //Normalize the vectors, because their length gets closer to 0 
-    up = glm::normalize(glm::cross(right, front)); //     the more you look up or down which results in slower movement.
+    right = normalize(cross(front, worldUp)); //Normalize the vectors, because their length gets closer to 0 
+    up = normalize(cross(right, front)); //     the more you look up or down which results in slower movement.
 }

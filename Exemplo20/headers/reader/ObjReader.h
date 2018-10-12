@@ -15,11 +15,11 @@ class ObjReader {
 
 private:
     MeshBuilder* meshBuilder;
-	MtlReader* mtlReader;
+    MtlReader* mtlReader;
 
 public:
-	ObjReader();
-	~ObjReader();
+    ObjReader();
+    ~ObjReader();
     Mesh* read(string filename);
 
 };

@@ -1,8 +1,8 @@
 #ifndef GROUP_H
 #define GROUP_H
 
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <vector>
 #include <iostream>
 #include "Face.h"
@@ -30,7 +30,7 @@ public:
 
     void bindVAO();
     void bindTexture();
-    void bindBuffer(const vector<float>& data, const int vecSize = 3);
+    void bindBuffer(const vector<float>& data, int vecSize = 3);
 
     void setTexture(string filename);
     void setName(string newName);
@@ -43,16 +43,16 @@ public:
     string getName();
     string getMaterialName();
 
-	void p(){		
+    void p() {
 
-		cout << "MESH: " << name.c_str() << endl;
-		cout << "\tMaterial" << material.c_str() << endl;
+        cout << "MESH: " << name.c_str() << endl;
+        cout << "\tMaterial" << material.c_str() << endl;
 
-		for(Face* face:faces) {
-			face->p();
-		}
+        for (Face* face : faces) {
+            face->p();
+        }
 
-	}
+    }
 
 };
 

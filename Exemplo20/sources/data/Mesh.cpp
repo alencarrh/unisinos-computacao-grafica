@@ -79,7 +79,7 @@ void Mesh::setMaterialsHandler(MaterialHandler* handler) {
 }
 
 Material* Mesh::getMaterial(string materialName) {
-    if (materialsHandler == NULL) {
+    if (materialsHandler == nullptr) {
         materialsHandler = new MaterialHandler();
     }
     return this->materialsHandler->getMaterial(materialName);
@@ -104,21 +104,21 @@ void Mesh::prepare() {
             //     is that only it ignores Z coordinate. The goal is try to do only 1 method for this logic.
 
             for (int verticeID : face->getVertices()) {
-				glm::vec3* vertice = this->vertice(verticeID);
+                glm::vec3* vertice = this->vertice(verticeID);
                 vertices.push_back(vertice->x);
                 vertices.push_back(vertice->y);
                 vertices.push_back(vertice->z);
             }
 
             for (int normalID : face->getNormais()) {
-				glm::vec3* normal = this->normal(normalID);
+                glm::vec3* normal = this->normal(normalID);
                 normais.push_back(normal->x);
                 normais.push_back(normal->y);
                 normais.push_back(normal->z);
             }
 
             for (int textureID : face->getTextures()) {
-				glm::vec2* texture = this->texture(textureID);
+                glm::vec2* texture = this->texture(textureID);
                 textures.push_back(texture->x);
                 textures.push_back(texture->y);
             }
@@ -138,5 +138,3 @@ void Mesh::prepare() {
         }
     }
 }
-
-

@@ -23,7 +23,7 @@ private:
 
 
 public:
-	Mesh(){}
+    Mesh() {}
     Mesh(string name);
     ~Mesh();
 
@@ -49,28 +49,28 @@ public:
     Material* getMaterial(string materialName);
     vector<Group*>& getGroups();
 
-	void p() {
-		cout << "MESH: " << name << endl;
+    void p() {
+        cout << "MESH: " << name << endl;
 
-		for(glm::vec3* vertice : vertices) {
-			cout << "\tv " << vertice->x << " " << vertice->y << " " << vertice->z << " " << endl;
-		}
-		for (glm::vec3* normal : normais) {
-			cout << "\tn " << normal->x << " " << normal->y << " " << normal->z << " " << endl;
-		}
-		for (glm::vec2* texture : textures) {
-			cout << "\tt " << texture->x << " " << texture->y << " " << endl;
-		}
+        for (glm::vec3* vertice : vertices) {
+            cout << "\tv " << vertice->x << " " << vertice->y << " " << vertice->z << " " << endl;
+        }
+        for (glm::vec3* normal : normais) {
+            cout << "\tn " << normal->x << " " << normal->y << " " << normal->z << " " << endl;
+        }
+        for (glm::vec2* texture : textures) {
+            cout << "\tt " << texture->x << " " << texture->y << " " << endl;
+        }
 
-		cout << "\tMaterialFile: " << materialsFile << endl;
+        cout << "\tMaterialFile: " << materialsFile << endl;
 
-		cout << endl << "GROUPS" << endl;
+        cout << endl << "GROUPS" << endl;
 
-		for (Group* group : groups){
-			group->p();
-		}
+        for (Group* group : groups) {
+            group->p();
+        }
 
-	}
+    }
 
 };
 

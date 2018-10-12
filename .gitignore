@@ -9,3 +9,5 @@
 *.log
 *.idb
 *.ilk
+*.mtl
+__Texturas/

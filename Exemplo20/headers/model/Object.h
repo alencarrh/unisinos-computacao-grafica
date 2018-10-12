@@ -9,16 +9,16 @@ private:
     Mesh* _mesh;
     ObjReader* objReader;
     string objFile;
-	glm::vec3* _position;
+    glm::vec3* _position;
 
 public:
-	Object();
-	Object(string objFile, glm::vec3* postion);
+    Object();
+    Object(string objFile, glm::vec3* postion);
     ~Object() override;
     void prepare() override;
-    
+
     glm::vec3* position() override {
-		return this->_position;
+        return this->_position;
     }
 
     Mesh* mesh() override {

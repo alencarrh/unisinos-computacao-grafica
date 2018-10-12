@@ -1,8 +1,8 @@
 #ifndef RUNNABLE_H
 #define RUNNABLE_H
 
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <string>
 
 class Runnable {

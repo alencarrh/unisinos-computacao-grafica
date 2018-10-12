@@ -18,7 +18,7 @@ void createFace(int v0, int v1, int v2, int v3, int normal, Group* group) {
     face1->addNormalId(normal);
     face1->addNormalId(normal);
 
-	Face* face2 = new Face();
+    Face* face2 = new Face();
     face2->addVerticeId(v1);
     face2->addVerticeId(v2);
     face2->addVerticeId(v3);
@@ -29,8 +29,8 @@ void createFace(int v0, int v1, int v2, int v3, int normal, Group* group) {
     face2->addNormalId(normal);
     face2->addNormalId(normal);
 
-	group->addFace(face1);
-	group->addFace(face2);
+    group->addFace(face1);
+    group->addFace(face2);
 }
 
 void Cube::prepare() {
@@ -104,5 +104,5 @@ F--------G
 
     this->_mesh->prepare();
 
-	this->_mesh->p();
+    this->_mesh->p();
 }

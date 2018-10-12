@@ -6,14 +6,15 @@
 class Lamp : public Drawable {
 private:
     Mesh* _mesh;
-	glm::vec3* _position;
+    glm::vec3* _position;
 
 public:
     Lamp();
     ~Lamp() override;
     void prepare() override;
+
     glm::vec3* position() override {
-		return this->_position;
+        return this->_position;
     }
 
     Mesh* mesh() override {

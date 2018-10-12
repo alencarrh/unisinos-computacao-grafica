@@ -1,8 +1,8 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <GLM/glm.hpp>
 #include <GLM/gtc/matrix_transform.hpp>
 
@@ -21,7 +21,7 @@ enum Camera_Movement {
 // Default camera values
 const float DEFAULT_YAW = -90.0f;
 const float DEFAULT_PITCH = 0.0f;
-const float DEFAULT_SPEED = 2.5f;
+const float DEFAULT_SPEED = 5.5f;
 const float DEFAULT_SENSITIVITY = 0.1f;
 const float DEFAULT_ZOOM = 45.0f;
 const glm::vec3 DEFAULT_POSITION = glm::vec3(0.0f, 0.0f, 0.0f);

@@ -42,8 +42,8 @@ void Group::bindTexture() {
 }
 
 void Group::bindBuffer(const vector<float>& data, const int vecSize) {
-    if(data.empty()) {
-		// shaderLocation++;
+    if (data.empty()) {
+        // shaderLocation++;
         return;
     }
 
@@ -52,7 +52,7 @@ void Group::bindBuffer(const vector<float>& data, const int vecSize) {
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data.front(), GL_STATIC_DRAW);
 
-    glVertexAttribPointer(shaderLocation, vecSize, GL_FLOAT, GL_FALSE, 0, NULL);
+    glVertexAttribPointer(shaderLocation, vecSize, GL_FLOAT, GL_FALSE, 0, nullptr);
     glEnableVertexAttribArray(shaderLocation);
 
     shaderLocation++;

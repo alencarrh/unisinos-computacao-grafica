@@ -11,6 +11,10 @@ ObjReader::~ObjReader() {}
 Mesh* ObjReader::read(string filename) {
     ifstream arq(filename);
 
+    if (!arq) {
+        exit(10);
+    }
+
     while (!arq.eof()) {
         string line;
         stringstream restLine;

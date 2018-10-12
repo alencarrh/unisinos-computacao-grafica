@@ -17,7 +17,7 @@ MaterialBuilder::~MaterialBuilder() {}
 _function* MaterialBuilder::function(string command) {
 
     if (functions.find(command) == functions.end()) {
-        return NULL;
+        return nullptr;
     }
 
     _function* _func = &functions[command];
@@ -26,13 +26,13 @@ _function* MaterialBuilder::function(string command) {
         return _func;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 void MaterialBuilder::processLine(string command, stringstream& line) {
     _function* _func = function(command);
 
-    if (_func != NULL) {
+    if (_func != nullptr) {
         (*_func)(line);
         return;
     }
@@ -48,7 +48,7 @@ void MaterialBuilder::processLine(string command, stringstream& line) {
         string nome_material;
         line >> nome_material;
 
-        if (currentMaterial == NULL) {
+        if (currentMaterial == nullptr) {
             currentMaterial = new Material(nome_material);
             return;
         }
@@ -66,7 +66,7 @@ void MaterialBuilder::processLine(string command, stringstream& line) {
 }
 
 MaterialHandler* MaterialBuilder::build() {
-    if (currentMaterial != NULL) {
+    if (currentMaterial != nullptr) {
         currentMaterial->setAmbienteProperty(KAmbientBuilder::build());
         currentMaterial->setDiffuseProperty(KDiffuseBuilder::build());
         currentMaterial->setSpecularProperty(KSpecularBuilder::build());

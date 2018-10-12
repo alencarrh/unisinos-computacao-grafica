@@ -18,19 +18,19 @@ public:
     Material(std::string name);
     ~Material();
 
-	void setShininess(float shininess);
-	void setTextureName(std::string textureName);
+    void setShininess(float shininess);
+    void setTextureName(std::string textureName);
     void setAmbienteProperty(glm::vec3* ambient);
     void setDiffuseProperty(glm::vec3* diffuse);
     void setSpecularProperty(glm::vec3* specular);
 
     std::string getName();
-	float getShininess();
-	std::string getTextureName();
+    float getShininess();
+    std::string getTextureName();
     glm::vec3* getAmbienteProperty();
     glm::vec3* getDiffuseProperty();
     glm::vec3* getSpecularProperty();
-    
+
 
 };
 

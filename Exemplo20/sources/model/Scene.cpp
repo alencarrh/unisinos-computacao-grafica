@@ -55,7 +55,7 @@ void Scene::run(GLFWwindow* window) {
     // model = glm::rotate(model, (float)glfwGetTime() * glm::radians(10.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
     glm::mat4 modelLight(1.0f);
-    modelLight = glm::translate(modelLight, (*light->position));
+    modelLight = translate(modelLight, (*light->position));
 
     this->lightShader->use();
     this->lightShader->setMatrix4fv("model", modelLight);
@@ -70,7 +70,7 @@ void Scene::run(GLFWwindow* window) {
 
 
     this->shader->use();
-    
+
     this->shader->setMatrix4fv("view", view);
     this->shader->setMatrix4fv("projection", projection);
     this->shader->setVec3("lightColor", light->color);
@@ -88,8 +88,8 @@ void Scene::run(GLFWwindow* window) {
     this->shader->setInt("texture1", 0);
 
     for (Drawable* obj : this->objs) {
-		model = glm::translate(model,(*obj->position()));
-		this->shader->setMatrix4fv("model", model);
+        model = translate(model, (*obj->position()));
+        this->shader->setMatrix4fv("model", model);
 
         for (Group* group : obj->mesh()->getGroups()) {
             Material* material = obj->mesh()->getMaterial(group->getMaterialName());
@@ -113,6 +113,8 @@ bool Scene::keepRunning(GLFWwindow* window) {
 
 void Scene::finish() { }
 
+bool fPress = false;
+
 void Scene::process_input(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
@@ -129,21 +131,31 @@ void Scene::process_input(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
         camera->processKeyboard(RIGHT, deltaTime);
     }
-	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-		camera->processKeyboard(UP, deltaTime);
-	}
-	if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
-		camera->processKeyboard(DOWN, deltaTime);
-	}
-	if(glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)	{
-		if(light->on){
-			light->color = new glm::vec3(0.0f, 0.0f, 0.0f);
-			light->on = false;
-		}else {
-			light->color = new glm::vec3(1.0f, 1.0f, 1.0f);
-			light->on = true;
-		}
-	}
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+        camera->processKeyboard(UP, deltaTime);
+    }
+    if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
+        camera->processKeyboard(DOWN, deltaTime);
+    }
+    if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS && !fPress) {
+        fPress = true;
+        if (light->on) {
+            light->color = new glm::vec3(0.0f, 0.0f, 0.0f);
+            light->on = false;
+        } else {
+            light->color = new glm::vec3(1.0f, 1.0f, 1.0f);
+            light->on = true;
+        }
+    }
+    if (glfwGetKey(window, GLFW_KEY_F) == GLFW_RELEASE && fPress) {
+        fPress = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
+        light->position = new glm::vec3(camera->position + camera->front);
+    }
+
+
 }
 
 void Scene::mouse_callback(GLFWwindow* window, double xpos, double ypos) {

@@ -17,9 +17,9 @@ class GroupBuilder {
 
 public:
     static void process(std::stringstream& line);
-	static vector<Group*>& build();
-	static Group* currentGroup();
-	static bool isFirstGroup();
+    static vector<Group*>& build();
+    static Group* currentGroup();
+    static bool isFirstGroup();
 
 };
 #endif
