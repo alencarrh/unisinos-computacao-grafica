@@ -57,19 +57,6 @@ int Mesh::addTexture(glm::vec2* texture) {
     this->textures.push_back(texture);
     return this->textures.size() - 1;
 }
-
-void Mesh::setGroups(vector<Group*>& groups) {
-    this->groups = groups;
-}
-
-void Mesh::setVertices(vector<glm::vec3*>& vertices) {
-    this->vertices = vertices;
-}
-
-void Mesh::setNormais(vector<glm::vec3*>& normais) {
-    this->normais = normais;
-}
-
 void Mesh::setTextures(vector<glm::vec2*>& textures) {
     this->textures = textures;
 }

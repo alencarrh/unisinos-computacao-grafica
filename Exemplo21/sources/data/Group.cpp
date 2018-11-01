@@ -61,39 +61,39 @@ void Group::bindBuffer(const vector<float>& data, const int vecSize) {
 
 
 void Group::setTexture(string filename) {
-    GLuint texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    // GLuint texture;
+    // glGenTextures(1, &texture);
+    // glBindTexture(GL_TEXTURE_2D, texture);
+    //
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+    //
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    //
+    // int width, height, nrChannels;
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    int width, height, nrChannels;
-
-    unsigned char* imageData = stbi_load(filename.c_str(), &width, &height, &nrChannels, 0);
+    // unsigned char* imageData = stbi_load(filename.c_str(), &width, &height, &nrChannels, 0);
 
 
 
-    if (imageData) {
-        GLenum format;
-        if (nrChannels == 1) {
-            format = GL_RED;
-        } else if (nrChannels == 3) {
-            format = GL_RGB;
-        } else if (nrChannels == 4) {
-            format = GL_RGBA;
-        }
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    } else {
-        std::cout << "Failed to load texture" << std::endl;
-    }
-
-    stbi_image_free(imageData);
-    this->addVBO(texture);
+    // if (imageData) {
+    //     GLenum format;
+    //     if (nrChannels == 1) {
+    //         format = GL_RED;
+    //     } else if (nrChannels == 3) {
+    //         format = GL_RGB;
+    //     } else if (nrChannels == 4) {
+    //         format = GL_RGBA;
+    //     }
+    //     glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData);
+    //     glGenerateMipmap(GL_TEXTURE_2D);
+    // } else {
+    //     std::cout << "Failed to load texture" << std::endl;
+    // }
+    //
+    // stbi_image_free(imageData);
+    // this->addVBO(texture);
 }
 
 void Group::setName(string newName) {

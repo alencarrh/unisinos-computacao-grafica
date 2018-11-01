@@ -6,8 +6,6 @@
 #include <vector>
 #include <iostream>
 #include "Face.h"
-#include "../utils/stb_image.h"
-
 
 using namespace std;
 

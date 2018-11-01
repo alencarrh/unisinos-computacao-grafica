@@ -19,30 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="headers\mediator\Mediator.cpp" />
-    <ClCompile Include="headers\mediator\VerticeBuilder.cpp" />
-    <ClCompile Include="sources\builder\data\FaceBuilder.cpp" />
-    <ClCompile Include="sources\builder\data\GroupBuilder.cpp" />
-    <ClCompile Include="sources\builder\data\MeshBuilder.cpp" />
+    <ClCompile Include="headers\builder\MeterialMediator.h" />
+    <ClCompile Include="sources\builder\mesh\FaceBuilder.cpp" />
+    <ClCompile Include="sources\builder\mesh\GroupBuilder.cpp" />
+    <ClCompile Include="sources\builder\mesh\MaterialFileBuilder.cpp" />
+    <ClCompile Include="sources\builder\mesh\MaterialNameBuilder.cpp" />
+    <ClCompile Include="sources\builder\mesh\MeshBuilder.cpp" />
     <ClCompile Include="sources\builder\MeshMediator.cpp" />
-    <ClCompile Include="sources\builder\values\NormalBuilder.cpp" />
-    <ClCompile Include="sources\builder\values\TextureBuilder.cpp" />
-    <ClCompile Include="sources\builder\values\VerticeBuilder.cpp" />
-    <ClCompile Include="sources\data\Material.cpp" />
-    <ClCompile Include="sources\model\Object.cpp" />
-    <ClCompile Include="sources\handler\MaterialHandler.cpp" />
-    <ClCompile Include="sources\model\Lamp.cpp" />
-    <ClCompile Include="sources\model\Light.cpp" />
+    <ClCompile Include="sources\builder\mesh\NormalBuilder.cpp" />
+    <ClCompile Include="sources\builder\mesh\TextureBuilder.cpp" />
+    <ClCompile Include="sources\builder\mesh\VerticeBuilder.cpp" />
     <ClCompile Include="main\main.cpp" />
     <ClCompile Include="sources\data\Face.cpp" />
     <ClCompile Include="sources\data\Group.cpp" />
     <ClCompile Include="sources\data\Mesh.cpp" />
-    <ClCompile Include="sources\handler\CameraHandler.cpp" />
-    <ClCompile Include="sources\handler\ShaderHandler.cpp" />
-    <ClCompile Include="sources\model\Cube.cpp" />
-    <ClCompile Include="sources\model\Scene.cpp" />
-    <ClCompile Include="sources\system\System.cpp" />
-    <ClCompile Include="sources\utils\stb_image.cpp" />
+    <ClCompile Include="sources\reader\ObjReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\core\obj_fragment.frag" />
@@ -51,33 +42,21 @@
     <None Include="shaders\core\light_vertex.vert" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\actions\Drawable.h" />
-    <ClInclude Include="headers\actions\Runnable.h" />
-    <ClInclude Include="headers\builder\data\FaceBuilder.h" />
-    <ClInclude Include="headers\builder\data\GroupBuilder.h" />
-    <ClInclude Include="headers\builder\data\MeshBuilder.h" />
+    <ClInclude Include="headers\builder\Builder.h" />
+    <ClInclude Include="headers\builder\mesh\FaceBuilder.h" />
+    <ClInclude Include="headers\builder\mesh\GroupBuilder.h" />
+    <ClInclude Include="headers\builder\mesh\MeshBuilder.h" />
     <ClInclude Include="headers\builder\MeshMediator.h" />
-    <ClInclude Include="headers\builder\values\MaterialNameBuilder.h" />
-    <ClInclude Include="headers\builder\values\MaterialFileBuilder.h" />
-    <ClInclude Include="headers\builder\values\NameBuilder.h" />
-    <ClInclude Include="headers\builder\values\NormalBuilder.h" />
-    <ClInclude Include="headers\builder\values\TextureBuilder.h" />
-    <ClInclude Include="headers\builder\values\VerticeBuilder.h" />
+    <ClInclude Include="headers\builder\mesh\MaterialNameBuilder.h" />
+    <ClInclude Include="headers\builder\mesh\MaterialFileBuilder.h" />
+    <ClInclude Include="headers\builder\mesh\NormalBuilder.h" />
+    <ClInclude Include="headers\builder\mesh\TextureBuilder.h" />
+    <ClInclude Include="headers\builder\mesh\VerticeBuilder.h" />
     <ClInclude Include="headers\data\Face.h" />
     <ClInclude Include="headers\data\Group.h" />
     <ClInclude Include="headers\data\Material.h" />
     <ClInclude Include="headers\data\Mesh.h" />
-    <ClInclude Include="headers\handler\CameraHandler.h" />
-    <ClInclude Include="headers\handler\MaterialHandler.h" />
-    <ClInclude Include="headers\handler\ShaderHandler.h" />
-    <ClInclude Include="headers\model\Cube.h" />
-    <ClInclude Include="headers\model\Lamp.h" />
-    <ClInclude Include="headers\model\Light.h" />
-    <ClInclude Include="headers\model\Object.h" />
-    <ClInclude Include="headers\model\Scene.h" />
     <ClInclude Include="headers\reader\ObjReader.h" />
-    <ClInclude Include="headers\system\System.h" />
-    <ClInclude Include="headers\utils\stb_image.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B0E972B5-0590-4319-ACC2-FD29A9536D85}</ProjectGuid>

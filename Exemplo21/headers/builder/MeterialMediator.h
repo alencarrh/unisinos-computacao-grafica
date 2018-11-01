@@ -1,5 +1,5 @@
-#ifndef MESH_MEDIATOR_H
-#define MESH_MEDIATOR_H
+#ifndef MATERIAL_MEDIATOR_H
+#define MATERIAL_MEDIATOR_H
 
 #include <iostream>
 #include <sstream>
@@ -15,15 +15,15 @@ class MeshMediator {
     Mesh* mesh;
 
 public:
-    MeshMediator(Mesh* mesh);
+    MeshMediator(MaterialHandler* mesh);
     ~MeshMediator();
 
     //data callback
     void callbackFace(Face* face);
     void callbackGroup(string name);
-    
+    void callbackMaterial(Material* material);
+
     //values callback
-	void callbackMaterialFile(string material);
     void callbackMaterialName(string name);
     void callbackNormal(glm::vec3* normal);
     void callbackTexture(glm::vec2* texture);
