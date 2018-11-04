@@ -48,15 +48,6 @@
     <ClCompile Include="main\main.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="sources\data\Face.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\data\Group.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\data\Mesh.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\builder\MeshMediator.cpp">
       <Filter>source files</Filter>
     </ClCompile>
@@ -88,6 +79,15 @@
       <Filter>source files</Filter>
     </ClCompile>
     <ClCompile Include="sources\reader\ObjReader.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Face.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Group.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Mesh.cpp">
       <Filter>source files</Filter>
     </ClCompile>
   </ItemGroup>

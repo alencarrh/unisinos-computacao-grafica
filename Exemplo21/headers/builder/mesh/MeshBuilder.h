@@ -11,6 +11,7 @@
 #include "./NormalBuilder.h"
 #include "./TextureBuilder.h"
 #include "./VerticeBuilder.h"
+#include <map>
 
 using namespace std;
 

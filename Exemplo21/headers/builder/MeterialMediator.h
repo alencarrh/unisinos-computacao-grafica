@@ -15,7 +15,7 @@ class MeshMediator {
     Mesh* mesh;
 
 public:
-    MeshMediator(MaterialHandler* mesh);
+    MeshMediator(Mesh* mesh);
     ~MeshMediator();
 
     //data callback

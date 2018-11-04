@@ -57,19 +57,9 @@ int Mesh::addTexture(glm::vec2* texture) {
     this->textures.push_back(texture);
     return this->textures.size() - 1;
 }
+
 void Mesh::setTextures(vector<glm::vec2*>& textures) {
     this->textures = textures;
-}
-
-void Mesh::setMaterialsHandler(MaterialHandler* handler) {
-    this->materialsHandler = handler;
-}
-
-Material* Mesh::getMaterial(string materialName) {
-    if (materialsHandler == nullptr) {
-        materialsHandler = new MaterialHandler();
-    }
-    return this->materialsHandler->getMaterial(materialName);
 }
 
 vector<Group*>& Mesh::getGroups() {
@@ -117,11 +107,11 @@ void Mesh::prepare() {
         group->bindBuffer(normais);
         group->bindBuffer(textures, 2);
 
-        if (group->getMaterialName() != "") {
-            Material* material = getMaterial(group->getMaterialName());
-            if (material->getTextureName() != "") {
-                group->setTexture(material->getTextureName());
-            }
-        }
+        // if (group->getMaterialName() != "") {
+            // Material* material = getMaterial(group->getMaterialName());
+            // if (material->getTextureName() != "") {
+                // group->setTexture(material->getTextureName());
+            // }
+        // }
     }
 }

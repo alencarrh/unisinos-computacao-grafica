@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 using namespace std;
+static int VERTICES = 3;
 
 class Face {
 
@@ -13,7 +14,7 @@ private:
     vector<int> textures;
 
 public:
-
+	
     Face();
     ~Face();
 

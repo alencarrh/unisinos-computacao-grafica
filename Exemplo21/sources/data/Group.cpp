@@ -18,11 +18,7 @@ Group::~Group() {
 }
 
 int Group::numVertices() {
-    int sum = 0;
-    for (auto& face : faces) {
-        sum += face->getVertices().size();
-    }
-    return sum;
+    return faces.size() * VERTICES;
 }
 
 void Group::bindVAO() {
@@ -72,11 +68,11 @@ void Group::setTexture(string filename) {
     // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     //
     // int width, height, nrChannels;
-
+    //
     // unsigned char* imageData = stbi_load(filename.c_str(), &width, &height, &nrChannels, 0);
-
-
-
+    //
+    //
+    //
     // if (imageData) {
     //     GLenum format;
     //     if (nrChannels == 1) {
