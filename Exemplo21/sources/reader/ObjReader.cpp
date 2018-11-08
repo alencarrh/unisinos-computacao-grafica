@@ -11,7 +11,7 @@ Mesh* ObjReader::read(string filename) {
     ifstream arq(filename);
 
     if (!arq) {
-		exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     }
 
     while (!arq.eof()) {
@@ -30,5 +30,4 @@ Mesh* ObjReader::read(string filename) {
     Mesh* mesh = this->meshBuilder->build();
 
     return mesh;
-
 }

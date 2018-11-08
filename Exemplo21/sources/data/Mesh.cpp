@@ -108,10 +108,10 @@ void Mesh::prepare() {
         group->bindBuffer(textures, 2);
 
         // if (group->getMaterialName() != "") {
-            // Material* material = getMaterial(group->getMaterialName());
-            // if (material->getTextureName() != "") {
-                // group->setTexture(material->getTextureName());
-            // }
+        // Material* material = getMaterial(group->getMaterialName());
+        // if (material->getTextureName() != "") {
+        // group->setTexture(material->getTextureName());
+        // }
         // }
     }
 }

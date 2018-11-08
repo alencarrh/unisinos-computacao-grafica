@@ -19,7 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="headers\builder\MeterialMediator.h" />
+    <ClCompile Include="headers\builder\MaterialMediator.h" />
+    <ClCompile Include="sources\builder\MaterialMediator.cpp" />
+    <ClCompile Include="sources\builder\material\KAmbientBuilder.cpp" />
+    <ClCompile Include="sources\builder\material\KDiffuseBuilder.cpp" />
+    <ClCompile Include="sources\builder\material\KSpecularBuilder.cpp" />
+    <ClCompile Include="sources\builder\material\MaterialBuilder.cpp" />
+    <ClCompile Include="sources\builder\material\NewMaterialNameBuilder.cpp" />
+    <ClCompile Include="sources\builder\material\NShinnessBuilder.cpp" />
+    <ClCompile Include="sources\builder\material\TextureNameBuilder.cpp" />
     <ClCompile Include="sources\builder\mesh\FaceBuilder.cpp" />
     <ClCompile Include="sources\builder\mesh\GroupBuilder.cpp" />
     <ClCompile Include="sources\builder\mesh\MaterialFileBuilder.cpp" />
@@ -43,6 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\builder\Builder.h" />
+    <ClInclude Include="headers\builder\material\KAmbientBuilder.h" />
+    <ClInclude Include="headers\builder\material\KDiffuseBuilder.h" />
+    <ClInclude Include="headers\builder\material\KSpecularBuilder.h" />
+    <ClInclude Include="headers\builder\material\MaterialBuilder.h" />
+    <ClInclude Include="headers\builder\material\TextureNameBuilder.h" />
+    <ClInclude Include="headers\builder\material\NewMaterialNameBuilder.h" />
+    <ClInclude Include="headers\builder\material\NShininessBuilder.h" />
     <ClInclude Include="headers\builder\mesh\FaceBuilder.h" />
     <ClInclude Include="headers\builder\mesh\GroupBuilder.h" />
     <ClInclude Include="headers\builder\mesh\MeshBuilder.h" />
@@ -56,6 +71,7 @@
     <ClInclude Include="headers\data\Group.h" />
     <ClInclude Include="headers\data\Material.h" />
     <ClInclude Include="headers\data\Mesh.h" />
+    <ClInclude Include="headers\handler\MaterialHandler.h" />
     <ClInclude Include="headers\reader\ObjReader.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

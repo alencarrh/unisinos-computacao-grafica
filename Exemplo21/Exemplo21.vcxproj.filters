@@ -51,9 +51,6 @@
     <ClCompile Include="sources\builder\MeshMediator.cpp">
       <Filter>source files</Filter>
     </ClCompile>
-    <ClCompile Include="headers\builder\MeterialMediator.h">
-      <Filter>source files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\builder\mesh\FaceBuilder.cpp">
       <Filter>source files</Filter>
     </ClCompile>
@@ -88,6 +85,33 @@
       <Filter>source files</Filter>
     </ClCompile>
     <ClCompile Include="sources\data\Mesh.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\MaterialMediator.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="headers\builder\MaterialMediator.h">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\material\KAmbientBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\material\KDiffuseBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\material\KSpecularBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\material\NShinnessBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\material\MaterialBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\material\NewMaterialNameBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\material\TextureNameBuilder.cpp">
       <Filter>source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -145,6 +169,30 @@
       <Filter>header files</Filter>
     </ClInclude>
     <ClInclude Include="headers\builder\Builder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\handler\MaterialHandler.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\material\KAmbientBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\material\KDiffuseBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\material\KSpecularBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\material\NShininessBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\material\MaterialBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\material\NewMaterialNameBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\material\TextureNameBuilder.h">
       <Filter>header files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,7 +5,7 @@ Builder* MeshBuilder::function(string command) {
         return nullptr;
     }
 
-	Builder* builder = functions[command];
+    Builder* builder = functions[command];
 
     if (builder) {
         return builder;
@@ -27,13 +27,13 @@ MeshBuilder::MeshBuilder() {
     this->textureBuilder = new TextureBuilder(mediator);
 
 
-	functions.insert(make_pair("v", verticeBuilder));
-	functions.insert(make_pair("vn", normalBuilder));
-	functions.insert(make_pair("vt", textureBuilder));
-	functions.insert(make_pair("g", groupBuilder));
-	functions.insert(make_pair("f", faceBuilder));
-	functions.insert(make_pair("mtllib", materialFileBuilder));
-	functions.insert(make_pair("usemtl", materialNameBuilder));
+    functions.insert(make_pair("v", verticeBuilder));
+    functions.insert(make_pair("vn", normalBuilder));
+    functions.insert(make_pair("vt", textureBuilder));
+    functions.insert(make_pair("g", groupBuilder));
+    functions.insert(make_pair("f", faceBuilder));
+    functions.insert(make_pair("mtllib", materialFileBuilder));
+    functions.insert(make_pair("usemtl", materialNameBuilder));
 
 }
 

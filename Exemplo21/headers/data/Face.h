@@ -14,7 +14,7 @@ private:
     vector<int> textures;
 
 public:
-	
+
     Face();
     ~Face();
 
