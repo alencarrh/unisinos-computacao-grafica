@@ -12,6 +12,7 @@ class MaterialHandler {
 private:
     map<string, Material*> materials;
     Material* defaultMaterial;
+
 public:
     MaterialHandler();
     ~MaterialHandler();

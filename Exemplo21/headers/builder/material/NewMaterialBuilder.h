@@ -6,13 +6,13 @@
 
 using namespace std;
 
-class NewMaterialNameBuilder : public Builder {
+class NewMaterialBuilder : public Builder {
 private:
     MaterialMediator* mediator;
 
 public:
-    NewMaterialNameBuilder(MaterialMediator* mediator);
-    ~NewMaterialNameBuilder();
+    NewMaterialBuilder(MaterialMediator* mediator);
+    ~NewMaterialBuilder();
     void process(stringstream& line) override;
 };
 

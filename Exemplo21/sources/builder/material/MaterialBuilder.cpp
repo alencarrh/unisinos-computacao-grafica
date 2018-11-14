@@ -22,14 +22,13 @@ MaterialBuilder::MaterialBuilder() {
     this->kDiffuseBuilder = new KDiffuseBuilder(mediator);
     this->kSpecularBuilder = new KSpecularBuilder(mediator);
     this->nShininessBuilder = new NShininessBuilder(mediator);
-
+    this->newMaterialBuilder = new NewMaterialBuilder(mediator);
 
     functions.insert(make_pair("Ka", kAmbientBuilder));
     functions.insert(make_pair("Kd", kDiffuseBuilder));
     functions.insert(make_pair("Ks", kSpecularBuilder));
     functions.insert(make_pair("Ns", nShininessBuilder));
-    functions.insert(make_pair("newmtl", materialNameBuilder));
-
+    functions.insert(make_pair("newmtl", newMaterialBuilder));
 
 }
 
@@ -45,6 +44,5 @@ void MaterialBuilder::processLine(string command, stringstream& line) {
 }
 
 MaterialHandler* MaterialBuilder::build() {
-    return this->
-
+    return this->materialHandler;
 }

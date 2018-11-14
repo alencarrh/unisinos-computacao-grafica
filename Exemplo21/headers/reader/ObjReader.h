@@ -6,8 +6,7 @@
 #include <string>
 #include <fstream>
 #include "../data/Mesh.h"
-#include "../../../Exemplo21/headers/builder/mesh/MeshBuilder.h"
-
+#include "../builder/mesh/MeshBuilder.h"
 using namespace std;
 
 class ObjReader {

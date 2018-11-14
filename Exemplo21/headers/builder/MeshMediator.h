@@ -8,7 +8,11 @@
 
 class MeshMediator {
 
+private:
     Mesh* mesh;
+	Group* currentGroup;
+	bool firstGroup;
+
 
 public:
     MeshMediator(Mesh* mesh);

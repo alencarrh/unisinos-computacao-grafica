@@ -29,20 +29,5 @@ public:
     vector<int>& getNormais();
     vector<int>& getTextures();
 
-    void p() {
-        cout << "Face" << endl << "\tfv ";
-        for (int v : vertices) {
-            cout << v << " ";
-        }
-        cout << endl << "\tfn ";
-        for (int n : normais) {
-            cout << n << " ";
-        }
-        cout << endl << "\tft ";
-        for (int t : textures) {
-            cout << t << " ";
-        }
-        cout << endl;
-    }
 };
 #endif

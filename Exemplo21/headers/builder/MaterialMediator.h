@@ -7,6 +7,7 @@
 class MaterialMediator {
 
     MaterialHandler* materialHandler;
+	Material* currentMaterial;
 
 public:
     MaterialMediator(MaterialHandler* mesh);
@@ -16,6 +17,7 @@ public:
     void callbackKDiffusse(glm::vec3* kd);
     void callbackKSpecular(glm::vec3* ks);
     void callbackNShinness(float ns);
+	void callbackNewMaterial(string name);
 
 };
 
