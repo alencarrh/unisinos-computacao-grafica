@@ -1,5 +1,5 @@
-#ifndef MATERIAL_NAME_BUILDER_H
-#define MATERIAL_NAME_BUILDER_H
+#ifndef NEW_MATERIAL_NAME_BUILDER_H
+#define NEW_MATERIAL_NAME_BUILDER_H
 
 #include "../MaterialMediator.h"
 #include "../Builder.h"

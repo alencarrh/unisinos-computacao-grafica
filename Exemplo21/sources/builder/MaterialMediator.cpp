@@ -10,7 +10,7 @@ void MaterialMediator::callbackKAmbient(glm::vec3* ka) {
     this->currentMaterial->setAmbienteProperty(ka);
 }
 
-void MaterialMediator::callbackKDiffusse(glm::vec3* kd) {
+void MaterialMediator::callbackKDiffuse(glm::vec3* kd) {
     this->currentMaterial->setDiffuseProperty(kd);
 }
 

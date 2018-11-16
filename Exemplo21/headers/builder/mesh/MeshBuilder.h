@@ -1,17 +1,18 @@
 #ifndef MESH_BUILDER_H
 #define MESH_BUILDER_H
 
+#include <map>
 #include "../Builder.h"
-#include "../MeshMediator.h"
 #include "../../data/Mesh.h"
 #include "FaceBuilder.h"
 #include "GroupBuilder.h"
-#include "./MaterialNameBuilder.h"
 #include "./MaterialFileBuilder.h"
 #include "./NormalBuilder.h"
 #include "./TextureBuilder.h"
 #include "./VerticeBuilder.h"
-#include <map>
+#include "../MeshMediator.h"
+#include "./MaterialNameBuilder.h"
+
 
 using namespace std;
 

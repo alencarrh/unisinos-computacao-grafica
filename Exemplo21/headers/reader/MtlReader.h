@@ -10,6 +10,8 @@
 
 using namespace std;
 
+static map<string, MaterialHandler*> handlers;
+
 class MtlReader {
 
 private:

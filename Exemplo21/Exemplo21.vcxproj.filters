@@ -45,54 +45,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main\main.cpp">
-      <Filter>main</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\MeshMediator.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\mesh\FaceBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\mesh\GroupBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\mesh\MeshBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\mesh\VerticeBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\mesh\NormalBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\mesh\TextureBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\mesh\MaterialFileBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\mesh\MaterialNameBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\reader\ObjReader.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\data\Face.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\data\Group.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\data\Mesh.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\builder\MaterialMediator.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="headers\builder\MaterialMediator.h">
-      <Filter>source files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\builder\material\KAmbientBuilder.cpp">
       <Filter>source files</Filter>
     </ClCompile>
@@ -102,76 +54,102 @@
     <ClCompile Include="sources\builder\material\KSpecularBuilder.cpp">
       <Filter>source files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\builder\material\NShinnessBuilder.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\builder\material\MaterialBuilder.cpp">
       <Filter>source files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\builder\material\NewMaterialNameBuilder.cpp">
+    <ClCompile Include="sources\builder\material\NewMaterialBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\material\NShinnessBuilder.cpp">
       <Filter>source files</Filter>
     </ClCompile>
     <ClCompile Include="sources\builder\material\TextureNameBuilder.cpp">
       <Filter>source files</Filter>
     </ClCompile>
+    <ClCompile Include="sources\builder\mesh\FaceBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\mesh\GroupBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\mesh\MaterialFileBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\mesh\MaterialNameBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\mesh\MeshBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\mesh\NormalBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\mesh\TextureBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\mesh\VerticeBuilder.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\MaterialMediator.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\builder\MeshMediator.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Face.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Group.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Material.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\data\Mesh.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\handler\CameraHandler.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\handler\MaterialHandler.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\handler\ShaderHandler.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\model\Lamp.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\model\Light.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\model\Object.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\model\Scene.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\reader\MtlReader.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\reader\ObjReader.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\system\System.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\utils\stb_image.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="main\main.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\core\light_fragment.frag" />
-    <None Include="shaders\core\light_vertex.vert" />
-    <None Include="shaders\core\obj_fragment.frag">
-      <Filter>shaders\core</Filter>
-    </None>
-    <None Include="shaders\core\obj_vertex.vert">
-      <Filter>shaders\core</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="headers\data\Mesh.h">
+    <ClInclude Include="headers\actions\Drawable.h">
       <Filter>header files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\data\Group.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\data\Face.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\data\Material.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\reader\ObjReader.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\MeshMediator.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\mesh\FaceBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\mesh\GroupBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\mesh\MeshBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\mesh\TextureBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\mesh\VerticeBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\mesh\NormalBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\mesh\MaterialFileBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\mesh\MaterialNameBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\builder\Builder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\handler\MaterialHandler.h">
+    <ClInclude Include="headers\actions\Runnable.h">
       <Filter>header files</Filter>
     </ClInclude>
     <ClInclude Include="headers\builder\material\KAmbientBuilder.h">
@@ -183,16 +161,94 @@
     <ClInclude Include="headers\builder\material\KSpecularBuilder.h">
       <Filter>header files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\builder\material\NShininessBuilder.h">
-      <Filter>header files</Filter>
-    </ClInclude>
     <ClInclude Include="headers\builder\material\MaterialBuilder.h">
       <Filter>header files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\builder\material\NewMaterialNameBuilder.h">
+    <ClInclude Include="headers\builder\material\NewMaterialBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\material\NShininessBuilder.h">
       <Filter>header files</Filter>
     </ClInclude>
     <ClInclude Include="headers\builder\material\TextureNameBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\mesh\FaceBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\mesh\GroupBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\mesh\MaterialFileBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\mesh\MaterialNameBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\mesh\MeshBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\mesh\NormalBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\mesh\TextureBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\mesh\VerticeBuilder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\Builder.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\MaterialMediator.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\builder\MeshMediator.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\data\Face.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\data\Group.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\data\Material.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\data\Mesh.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\handler\CameraHandler.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\handler\MaterialHandler.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\handler\ShaderHandler.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\model\Lamp.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\model\Light.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\model\Object.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\model\Scene.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\reader\MtlReader.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\reader\ObjReader.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\system\System.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\utils\stb_image.h">
       <Filter>header files</Filter>
     </ClInclude>
   </ItemGroup>

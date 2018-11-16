@@ -4,7 +4,6 @@
 #include "../MeshMediator.h"
 #include "../Builder.h"
 
-using namespace std;
 
 class MaterialNameBuilder : public Builder {
 private:

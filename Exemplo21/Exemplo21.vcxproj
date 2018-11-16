@@ -19,51 +19,58 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="headers\builder\MaterialMediator.h" />
+    <ClCompile Include="main\main.cpp" />
     <ClCompile Include="sources\builder\MaterialMediator.cpp" />
     <ClCompile Include="sources\builder\material\KAmbientBuilder.cpp" />
     <ClCompile Include="sources\builder\material\KDiffuseBuilder.cpp" />
     <ClCompile Include="sources\builder\material\KSpecularBuilder.cpp" />
     <ClCompile Include="sources\builder\material\MaterialBuilder.cpp" />
-    <ClCompile Include="sources\builder\material\NewMaterialNameBuilder.cpp" />
+    <ClCompile Include="sources\builder\material\NewMaterialBuilder.cpp" />
     <ClCompile Include="sources\builder\material\NShinnessBuilder.cpp" />
     <ClCompile Include="sources\builder\material\TextureNameBuilder.cpp" />
+    <ClCompile Include="sources\builder\MeshMediator.cpp" />
     <ClCompile Include="sources\builder\mesh\FaceBuilder.cpp" />
     <ClCompile Include="sources\builder\mesh\GroupBuilder.cpp" />
     <ClCompile Include="sources\builder\mesh\MaterialFileBuilder.cpp" />
     <ClCompile Include="sources\builder\mesh\MaterialNameBuilder.cpp" />
     <ClCompile Include="sources\builder\mesh\MeshBuilder.cpp" />
-    <ClCompile Include="sources\builder\MeshMediator.cpp" />
     <ClCompile Include="sources\builder\mesh\NormalBuilder.cpp" />
     <ClCompile Include="sources\builder\mesh\TextureBuilder.cpp" />
     <ClCompile Include="sources\builder\mesh\VerticeBuilder.cpp" />
-    <ClCompile Include="main\main.cpp" />
     <ClCompile Include="sources\data\Face.cpp" />
     <ClCompile Include="sources\data\Group.cpp" />
+    <ClCompile Include="sources\data\Material.cpp" />
     <ClCompile Include="sources\data\Mesh.cpp" />
+    <ClCompile Include="sources\handler\CameraHandler.cpp" />
+    <ClCompile Include="sources\handler\MaterialHandler.cpp" />
+    <ClCompile Include="sources\handler\ShaderHandler.cpp" />
+    <ClCompile Include="sources\model\Lamp.cpp" />
+    <ClCompile Include="sources\model\Light.cpp" />
+    <ClCompile Include="sources\model\Object.cpp" />
+    <ClCompile Include="sources\model\Scene.cpp" />
+    <ClCompile Include="sources\reader\MtlReader.cpp" />
     <ClCompile Include="sources\reader\ObjReader.cpp" />
+    <ClCompile Include="sources\system\System.cpp" />
+    <ClCompile Include="sources\utils\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\core\obj_fragment.frag" />
-    <None Include="shaders\core\obj_vertex.vert" />
-    <None Include="shaders\core\light_fragment.frag" />
-    <None Include="shaders\core\light_vertex.vert" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="headers\actions\Drawable.h" />
+    <ClInclude Include="headers\actions\Runnable.h" />
     <ClInclude Include="headers\builder\Builder.h" />
+    <ClInclude Include="headers\builder\MaterialMediator.h" />
     <ClInclude Include="headers\builder\material\KAmbientBuilder.h" />
     <ClInclude Include="headers\builder\material\KDiffuseBuilder.h" />
     <ClInclude Include="headers\builder\material\KSpecularBuilder.h" />
     <ClInclude Include="headers\builder\material\MaterialBuilder.h" />
-    <ClInclude Include="headers\builder\material\TextureNameBuilder.h" />
-    <ClInclude Include="headers\builder\material\NewMaterialNameBuilder.h" />
+    <ClInclude Include="headers\builder\material\NewMaterialBuilder.h" />
     <ClInclude Include="headers\builder\material\NShininessBuilder.h" />
+    <ClInclude Include="headers\builder\material\TextureNameBuilder.h" />
+    <ClInclude Include="headers\builder\MeshMediator.h" />
     <ClInclude Include="headers\builder\mesh\FaceBuilder.h" />
     <ClInclude Include="headers\builder\mesh\GroupBuilder.h" />
-    <ClInclude Include="headers\builder\mesh\MeshBuilder.h" />
-    <ClInclude Include="headers\builder\MeshMediator.h" />
-    <ClInclude Include="headers\builder\mesh\MaterialNameBuilder.h" />
     <ClInclude Include="headers\builder\mesh\MaterialFileBuilder.h" />
+    <ClInclude Include="headers\builder\mesh\MaterialNameBuilder.h" />
+    <ClInclude Include="headers\builder\mesh\MeshBuilder.h" />
     <ClInclude Include="headers\builder\mesh\NormalBuilder.h" />
     <ClInclude Include="headers\builder\mesh\TextureBuilder.h" />
     <ClInclude Include="headers\builder\mesh\VerticeBuilder.h" />
@@ -71,8 +78,17 @@
     <ClInclude Include="headers\data\Group.h" />
     <ClInclude Include="headers\data\Material.h" />
     <ClInclude Include="headers\data\Mesh.h" />
+    <ClInclude Include="headers\handler\CameraHandler.h" />
     <ClInclude Include="headers\handler\MaterialHandler.h" />
+    <ClInclude Include="headers\handler\ShaderHandler.h" />
+    <ClInclude Include="headers\model\Lamp.h" />
+    <ClInclude Include="headers\model\Light.h" />
+    <ClInclude Include="headers\model\Object.h" />
+    <ClInclude Include="headers\model\Scene.h" />
+    <ClInclude Include="headers\reader\MtlReader.h" />
     <ClInclude Include="headers\reader\ObjReader.h" />
+    <ClInclude Include="headers\system\System.h" />
+    <ClInclude Include="headers\utils\stb_image.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B0E972B5-0590-4319-ACC2-FD29A9536D85}</ProjectGuid>

@@ -10,8 +10,8 @@ class MeshMediator {
 
 private:
     Mesh* mesh;
-	Group* currentGroup;
-	bool firstGroup;
+    Group* currentGroup;
+    int groupNumber;
 
 
 public:

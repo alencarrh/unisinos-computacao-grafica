@@ -8,12 +8,11 @@
 #include "../MaterialMediator.h"
 #include "../Builder.h"
 
-using namespace std;
-
 class KAmbientBuilder : public Builder {
 
 private:
     MaterialMediator* mediator;
+
 public:
     KAmbientBuilder(MaterialMediator* mediator);
     ~KAmbientBuilder();

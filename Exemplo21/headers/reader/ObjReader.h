@@ -5,14 +5,20 @@
 #include <sstream>
 #include <string>
 #include <fstream>
-#include "../data/Mesh.h"
 #include "../builder/mesh/MeshBuilder.h"
+#include  "MtlReader.h"
+
+
+
 using namespace std;
+
+static map<string, Mesh*> meshes;
 
 class ObjReader {
 
 private:
     MeshBuilder* meshBuilder;
+    MtlReader* mtlReader;
 
 public:
     ObjReader();

@@ -6,10 +6,14 @@ MtlReader::MtlReader() {
 }
 
 MtlReader::~MtlReader() {
-	delete materialBuilder;
+    delete materialBuilder;
 }
 
 MaterialHandler* MtlReader::read(string filename) {
+    if (handlers.find(filename) == handlers.end()) {
+        return handlers[filename];
+    }
+
     ifstream arq(filename);
 
     while (!arq.eof()) {
@@ -22,5 +26,8 @@ MaterialHandler* MtlReader::read(string filename) {
         this->materialBuilder->processLine(command, restLine);
     }
 
-    return this->materialBuilder->build();
+    MaterialHandler* handler = this->materialBuilder->build();
+    handlers.insert(make_pair(filename, handler));
+
+    return handler;
 }

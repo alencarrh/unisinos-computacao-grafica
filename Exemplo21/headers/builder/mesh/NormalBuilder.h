@@ -4,8 +4,6 @@
 #include "../MeshMediator.h"
 #include "../Builder.h"
 
-using namespace std;
-
 class NormalBuilder : public Builder {
 private:
     MeshMediator* mediator;

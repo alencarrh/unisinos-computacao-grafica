@@ -3,11 +3,16 @@
 
 ObjReader::ObjReader() {
     this->meshBuilder = new MeshBuilder();
+    this->mtlReader = new MtlReader();
 }
 
 ObjReader::~ObjReader() {}
 
 Mesh* ObjReader::read(string filename) {
+    if (meshes.find(filename) != meshes.end()) {
+        return meshes[filename];
+    }
+
     ifstream arq(filename);
 
     if (!arq) {
@@ -28,6 +33,15 @@ Mesh* ObjReader::read(string filename) {
     }
 
     Mesh* mesh = this->meshBuilder->build();
+    meshes.insert(make_pair(filename, mesh));
+
+
+    if (mesh->getMaterialsFile().empty()) {
+        return mesh;
+    }
+
+	MaterialHandler* handler = this->mtlReader->read(mesh->getMaterialsFile());
+	mesh->setMaterialHandler(handler);
 
     return mesh;
 }

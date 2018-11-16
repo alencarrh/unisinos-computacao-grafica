@@ -2,6 +2,9 @@
 
 MeshMediator::MeshMediator(Mesh* mesh) {
     this->mesh = mesh;
+    this->groupNumber = 0;
+    this->currentGroup = new Group("default123");
+    this->mesh->addGroup(this->currentGroup);
 }
 
 MeshMediator::~MeshMediator() {}
@@ -11,14 +14,15 @@ void MeshMediator::callbackFace(Face* face) {
 }
 
 void MeshMediator::callbackGroup(string name) {
-    if (this->firstGroup) {
+    this->groupNumber++;
+
+    if (this->groupNumber == 1) {
         this->currentGroup->setName(name);
-        this->firstGroup = false;
         return;
     }
 
-    this->mesh->addGroup(this->currentGroup);
     this->currentGroup = new Group(name);
+	this->mesh->addGroup(this->currentGroup);
 }
 
 void MeshMediator::callbackMaterialFile(string materialFile) {

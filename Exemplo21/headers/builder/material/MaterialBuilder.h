@@ -11,7 +11,8 @@
 #include "KAmbientBuilder.h"
 #include "KDiffuseBuilder.h"
 #include "KSpecularBuilder.h"
-#include "../material/NewMaterialBuilder.h"
+#include "NewMaterialBuilder.h"
+
 using namespace std;
 
 class MaterialBuilder {
@@ -26,7 +27,7 @@ private:
     KDiffuseBuilder* kDiffuseBuilder;
     KSpecularBuilder* kSpecularBuilder;
     NShininessBuilder* nShininessBuilder;
-	NewMaterialBuilder* newMaterialBuilder;
+    NewMaterialBuilder* newMaterialBuilder;
 
     Builder* function(string command);
 

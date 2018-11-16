@@ -38,6 +38,18 @@ void Mesh::setMaterialsFile(string materialsFile) {
     this->materialsFile = materialsFile;
 }
 
+Material* Mesh::getMaterial(string materialName) {
+    if (materialsHandler == nullptr) {
+        materialsHandler = new MaterialHandler();
+    }
+    return this->materialsHandler->getMaterial(materialName);
+}
+
+
+void Mesh::setMaterialHandler(MaterialHandler* handler) {
+	this->materialsHandler = handler;
+}
+
 int Mesh::addGroup(Group* group) {
     this->groups.push_back(group);
     return this->groups.size() - 1;
@@ -107,11 +119,11 @@ void Mesh::prepare() {
         group->bindBuffer(normais);
         group->bindBuffer(textures, 2);
 
-        // if (group->getMaterialName() != "") {
-        // Material* material = getMaterial(group->getMaterialName());
-        // if (material->getTextureName() != "") {
-        // group->setTexture(material->getTextureName());
-        // }
-        // }
+        if (group->getMaterialName() != "") {
+            Material* material = getMaterial(group->getMaterialName());
+            if (material->getTextureName() != "") {
+                group->setTexture(material->getTextureName());
+            }
+        }
     }
 }
