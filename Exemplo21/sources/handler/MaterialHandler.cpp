@@ -11,7 +11,7 @@ MaterialHandler::MaterialHandler() {
     defaultMaterial->setShininess(128.0f);
     defaultMaterial->setTextureName("./files/textures/default.jpg");
 
-    this->materials.insert(make_pair("default", defaultMaterial));
+	this->addMaterial(defaultMaterial);
 }
 
 MaterialHandler::~MaterialHandler() {}

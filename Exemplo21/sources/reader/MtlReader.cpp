@@ -10,7 +10,7 @@ MtlReader::~MtlReader() {
 }
 
 MaterialHandler* MtlReader::read(string filename) {
-    if (handlers.find(filename) == handlers.end()) {
+    if (handlers.find(filename) != handlers.end()) {
         return handlers[filename];
     }
 

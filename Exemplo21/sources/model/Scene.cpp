@@ -84,9 +84,12 @@ void Scene::run(GLFWwindow* window) {
 
     //TODO no momento só usamos 1 textura, então vai funcionar, caso queiramos mais de uma por grupo
     //vai ser necessário modificar e linha abaixo
-    this->shader->setInt("texture1", 0);
+    // this->shader->setInt("texture1", 0);
 
+	int currentTexture = 0;
     for (Drawable* obj : this->objects) {
+		this->shader->setInt("texture1", currentTexture);
+		currentTexture++;
         model = translate(model, (*obj->position()));
         this->shader->setMatrix4fv("model", model);
 
@@ -98,8 +101,8 @@ void Scene::run(GLFWwindow* window) {
             this->shader->setVec3("material.specular", material->getSpecularProperty());
             this->shader->setFloat("material.shininess", material->getShininess());
 
+			group->bindVAO();
             group->bindTexture();
-            group->bindVAO();
             glDrawArrays(GL_TRIANGLES, 0, group->numVertices());
         }
     }

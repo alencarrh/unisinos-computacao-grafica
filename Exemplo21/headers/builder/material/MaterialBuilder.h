@@ -12,6 +12,7 @@
 #include "KDiffuseBuilder.h"
 #include "KSpecularBuilder.h"
 #include "NewMaterialBuilder.h"
+#include "TextureNameBuilder.h"
 
 using namespace std;
 
@@ -28,6 +29,8 @@ private:
     KSpecularBuilder* kSpecularBuilder;
     NShininessBuilder* nShininessBuilder;
     NewMaterialBuilder* newMaterialBuilder;
+	TextureNameBuilder* textureNameBuilder;
+
 
     Builder* function(string command);
 

@@ -1,7 +1,7 @@
 #include "../../headers/builder/MaterialMediator.h"
 
-MaterialMediator::MaterialMediator(MaterialHandler* mesh) {
-    this->materialHandler = new MaterialHandler();
+MaterialMediator::MaterialMediator(MaterialHandler* handler) {
+	this->materialHandler = handler;
 }
 
 MaterialMediator::~MaterialMediator() {}
@@ -22,9 +22,12 @@ void MaterialMediator::callbackNShinness(float ns) {
     this->currentMaterial->setShininess(ns);
 }
 
+
+void MaterialMediator::callbackTextureName(string name) {
+	this->currentMaterial->setTextureName(name);
+}
+
 void MaterialMediator::callbackNewMaterial(string name) {
-    if (this->currentMaterial) {
-        this->materialHandler->addMaterial(this->currentMaterial);
-    }
     this->currentMaterial = new Material(name);
+    this->materialHandler->addMaterial(this->currentMaterial);
 }

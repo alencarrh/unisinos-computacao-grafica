@@ -23,11 +23,13 @@ MaterialBuilder::MaterialBuilder() {
     this->kSpecularBuilder = new KSpecularBuilder(mediator);
     this->nShininessBuilder = new NShininessBuilder(mediator);
     this->newMaterialBuilder = new NewMaterialBuilder(mediator);
+	this->textureNameBuilder = new TextureNameBuilder(mediator);
 
     functions.insert(make_pair("Ka", kAmbientBuilder));
     functions.insert(make_pair("Kd", kDiffuseBuilder));
     functions.insert(make_pair("Ks", kSpecularBuilder));
     functions.insert(make_pair("Ns", nShininessBuilder));
+    functions.insert(make_pair("map_Kd", textureNameBuilder));
     functions.insert(make_pair("newmtl", newMaterialBuilder));
 
 }

@@ -1,5 +1,5 @@
-#ifndef MATERIAL_NAME_BUILDER_H
-#define MATERIAL_NAME_BUILDER_H
+#ifndef TEXTURE_NAME_BUILDER_H
+#define TEXTURE_NAME_BUILDER_H
 
 #include "../MaterialMediator.h"
 #include "../Builder.h"

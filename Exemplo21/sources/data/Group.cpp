@@ -39,7 +39,6 @@ void Group::bindTexture() {
 
 void Group::bindBuffer(const vector<float>& data, const int vecSize) {
     if (data.empty()) {
-        // shaderLocation++;
         return;
     }
 

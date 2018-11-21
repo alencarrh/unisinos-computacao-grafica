@@ -20,6 +20,7 @@ public:
     void callbackKSpecular(glm::vec3* ks);
     void callbackNShinness(float ns);
     void callbackNewMaterial(string name);
+	void callbackTextureName(string name);
 
 };
 
