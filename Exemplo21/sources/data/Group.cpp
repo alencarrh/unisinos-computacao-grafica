@@ -33,8 +33,13 @@ void Group::bindTexture() {
     if (this->texture == NULL) {
         return;
     }
-    glActiveTexture(GL_TEXTURE0);
+    // glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);
+}
+
+
+GLuint Group::getTexture() {
+    return this->texture;
 }
 
 void Group::bindBuffer(const vector<float>& data, const int vecSize) {
@@ -56,7 +61,6 @@ void Group::bindBuffer(const vector<float>& data, const int vecSize) {
 
 
 void Group::setTexture(string filename) {
-    GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
 

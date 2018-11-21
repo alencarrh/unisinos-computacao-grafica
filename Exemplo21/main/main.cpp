@@ -18,7 +18,7 @@ int main() {
 
     // scene->addObj(new Object("cenaPaintball.obj", new glm::vec3(0.0f, 0.0f, 30.0f)));
     scene->addObj(new Object("trout.obj", new glm::vec3(0.0f, 0.0f, 5.0f)));
-    // scene->addObj(new Object("mesa01.obj", new glm::vec3(0.0f, 0.0f, 5.0f)));
+    scene->addObj(new Object("mesa01.obj", new glm::vec3(0.0f, 0.0f, 5.0f)));
     // scene->addObj(new Object("teapot.obj", new glm::vec3(-20.0f, 0.0f, 5.0f)));
     // scene->addObj(new Object("spider_pumpkin_obj.obj", new glm::vec3(-5.0f, -5.0f, 5.0f)));
 

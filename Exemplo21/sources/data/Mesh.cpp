@@ -47,7 +47,7 @@ Material* Mesh::getMaterial(string materialName) {
 
 
 void Mesh::setMaterialHandler(MaterialHandler* handler) {
-	this->materialsHandler = handler;
+    this->materialsHandler = handler;
 }
 
 int Mesh::addGroup(Group* group) {
@@ -112,7 +112,6 @@ void Mesh::prepare() {
                 textures.push_back(texture->y);
             }
         }
-
 
         group->bindVAO();
         group->bindBuffer(vertices);

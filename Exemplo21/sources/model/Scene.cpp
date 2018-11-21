@@ -84,12 +84,10 @@ void Scene::run(GLFWwindow* window) {
 
     //TODO no momento só usamos 1 textura, então vai funcionar, caso queiramos mais de uma por grupo
     //vai ser necessário modificar e linha abaixo
+
     // this->shader->setInt("texture1", 0);
 
-	int currentTexture = 0;
     for (Drawable* obj : this->objects) {
-		this->shader->setInt("texture1", currentTexture);
-		currentTexture++;
         model = translate(model, (*obj->position()));
         this->shader->setMatrix4fv("model", model);
 
@@ -101,8 +99,17 @@ void Scene::run(GLFWwindow* window) {
             this->shader->setVec3("material.specular", material->getSpecularProperty());
             this->shader->setFloat("material.shininess", material->getShininess());
 
-			group->bindVAO();
+            group->bindVAO();
             group->bindTexture();
+
+            // if (currentTexture == 1) {
+                // glActiveTexture(GL_TEXTURE0);
+            // } else {
+                // glActiveTexture(GL_TEXTURE1);
+
+            // }
+            // glBindTexture(GL_TEXTURE_2D, group->getTexture());
+
             glDrawArrays(GL_TRIANGLES, 0, group->numVertices());
         }
     }
@@ -138,24 +145,23 @@ void Scene::process_input(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
         camera->processKeyboard(DOWN, deltaTime);
     }
-	if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS && !fPress) {
-		fPress = true;
-		if (light->on) {
-			light->color = new glm::vec3(0.0f, 0.0f, 0.0f);
-			light->on = false;
-		}
-		else {
-			light->color = new glm::vec3(1.0f, 1.0f, 1.0f);
-			light->on = true;
-		}
-	}
-	if (glfwGetKey(window, GLFW_KEY_F) == GLFW_RELEASE && fPress) {
-		fPress = false;
-	}
+    if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS && !fPress) {
+        fPress = true;
+        if (light->on) {
+            light->color = new glm::vec3(0.0f, 0.0f, 0.0f);
+            light->on = false;
+        } else {
+            light->color = new glm::vec3(1.0f, 1.0f, 1.0f);
+            light->on = true;
+        }
+    }
+    if (glfwGetKey(window, GLFW_KEY_F) == GLFW_RELEASE && fPress) {
+        fPress = false;
+    }
 
-	if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
-		light->position = new glm::vec3(camera->position + camera->front);
-	}
+    if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
+        light->position = new glm::vec3(camera->position + camera->front);
+    }
 }
 
 void Scene::mouse_callback(GLFWwindow* window, double xpos, double ypos) {

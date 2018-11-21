@@ -38,6 +38,8 @@ public:
     void addFace(Face* face);
     void addVBO(GLuint vbo);
 
+	GLuint getTexture();
+
     vector<Face*>& getFaces();
     string getName();
     string getMaterialName();
