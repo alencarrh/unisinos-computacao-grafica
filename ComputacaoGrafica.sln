@@ -53,6 +53,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exemplo20", "Exemplo20\Exem
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exemplo21", "Exemplo21\Exemplo21.vcxproj", "{B0E972B5-0590-4319-ACC2-FD29A9536D85}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PistaGerador", "PistaGerador\PistaGerador.vcxproj", "{4013A7B7-7518-4B78-B6DE-436789DF14FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -261,6 +263,14 @@ Global
 		{B0E972B5-0590-4319-ACC2-FD29A9536D85}.Release|x64.Build.0 = Release|x64
 		{B0E972B5-0590-4319-ACC2-FD29A9536D85}.Release|x86.ActiveCfg = Release|Win32
 		{B0E972B5-0590-4319-ACC2-FD29A9536D85}.Release|x86.Build.0 = Release|Win32
+		{4013A7B7-7518-4B78-B6DE-436789DF14FC}.Debug|x64.ActiveCfg = Debug|x64
+		{4013A7B7-7518-4B78-B6DE-436789DF14FC}.Debug|x64.Build.0 = Debug|x64
+		{4013A7B7-7518-4B78-B6DE-436789DF14FC}.Debug|x86.ActiveCfg = Debug|Win32
+		{4013A7B7-7518-4B78-B6DE-436789DF14FC}.Debug|x86.Build.0 = Debug|Win32
+		{4013A7B7-7518-4B78-B6DE-436789DF14FC}.Release|x64.ActiveCfg = Release|x64
+		{4013A7B7-7518-4B78-B6DE-436789DF14FC}.Release|x64.Build.0 = Release|x64
+		{4013A7B7-7518-4B78-B6DE-436789DF14FC}.Release|x86.ActiveCfg = Release|Win32
+		{4013A7B7-7518-4B78-B6DE-436789DF14FC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
