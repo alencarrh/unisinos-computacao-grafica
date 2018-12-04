@@ -20,11 +20,12 @@ float HEIGHT = 600.0;
 glm::mat4 projection;
 
 // VAO, VBOs attributes
-GLuint VAO, VBO_VERTICE, VBO_COLOR; //ignorar VBO_COLOR por enquanto
+GLuint VAO_PONTOS_CONTROLE, VBO_PONTOS_CONTROLE, VBO_COLOR; //ignorar VBO_COLOR por enquanto
+GLuint VAO_B_SLINES, VBO_B_SLINES;
 glm::vec3* control_points_color = new glm::vec3(1.0f, 0.0f, 0.0f); //RED
 
 // others attributes
-vector<float> control_points;
+vector<float> control_points, b_splines;
 ShaderHandler* shader;
 
 //control attributes
@@ -34,10 +35,13 @@ double x_last_pos = -1.0, y_last_pos = -1.0;
 int init();
 int define_callbacks(GLFWwindow* window);
 int load_shaders();
-void gen_and_bind_vao();
+void gen_and_bind_vao_pontos_controle();
 void gen_and_configure_vbo_control_points();
+void gen_and_bind_vao_b_splines();
+void gen_and_configure_vbo_b_splines();
 void finish(GLFWwindow* window);
-void update_vbo_vertice();
+void update_vbo_pontos_controle();
+void update_vbo_b_splines();
 void draw();
 
 //control methods
@@ -57,8 +61,10 @@ int main() {
     init();
     define_callbacks(window);
     load_shaders();
-    gen_and_bind_vao();
+    gen_and_bind_vao_pontos_controle();
     gen_and_configure_vbo_control_points();
+    gen_and_bind_vao_b_splines();
+    gen_and_configure_vbo_b_splines();
     //gen_and_configure_vbo_color() ??
 
     while (keep_running(window)) {
@@ -98,8 +104,6 @@ int init() {
     glewInit();
 
     projection = glm::ortho(0.0f, WIDTH, HEIGHT, 0.0f, -1.0f, 1.0f);
-	glEnable(GL_POINT_SMOOTH);
-
 
     return EXIT_SUCCESS;
 }
@@ -127,26 +131,94 @@ int load_shaders() {
     return EXIT_SUCCESS;
 }
 
-void gen_and_bind_vao() {
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
+void gen_and_bind_vao_pontos_controle() {
+    glGenVertexArrays(1, &VAO_PONTOS_CONTROLE);
 }
 
 void gen_and_configure_vbo_control_points() {
-    glGenBuffers(1, &VBO_VERTICE);
+    glGenBuffers(1, &VBO_PONTOS_CONTROLE);
+}
+
+void gen_and_bind_vao_b_splines() {
+    glGenVertexArrays(1, &VAO_B_SLINES);
+}
+
+void gen_and_configure_vbo_b_splines() {
+    glGenBuffers(1, &VBO_B_SLINES);
+}
+
+void update_vbo_pontos_controle() {
+    glBindVertexArray(VAO_PONTOS_CONTROLE);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO_PONTOS_CONTROLE);
+    glBufferData(GL_ARRAY_BUFFER, control_points.size() * sizeof(float), control_points.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), NULL);
+    glEnableVertexAttribArray(0);
 }
 
 
-void update_vbo_vertice() {
-    glBindBuffer(GL_ARRAY_BUFFER, VBO_VERTICE);
-    glBufferData(GL_ARRAY_BUFFER, control_points.size() * sizeof(float), control_points.data(), GL_STATIC_DRAW);
+void update_vbo_b_splines() {
+    // x y
+    // 0 1
+    // 2 3
+    // 4 5
+    // 6 7
+
+    b_splines.clear();
+    int size = control_points.size();
+
+    for (int i = 0; i < size + 2; i += 2) {
+        for (float t = 0; t < 1; t += 0.05f) {
+
+            float t_pow_3 = pow(t, 3);
+            float t_pow_2 = pow(t, 2);
+            float x =
+            (
+                (
+                    (-1 * t_pow_3 + 3 * t_pow_2 - 3 * t + 1) * control_points[(i + 0) % size] +
+                    (+3 * t_pow_3 - 6 * t_pow_2 + 0 * t + 4) * control_points[(i + 2) % size] +
+                    (-3 * t_pow_3 + 3 * t_pow_2 + 3 * t + 1) * control_points[(i + 4) % size] +
+                    (+1 * t_pow_3 + 0 * t_pow_2 + 0 * t + 0) * control_points[(i + 6) % size]
+                )
+                / 6.0f
+            );
+
+            float y =
+            (
+                (
+                    (-1 * t_pow_3 + 3 * t_pow_2 - 3 * t + 1) * control_points[(i + 0) % size + 1] +
+                    (+3 * t_pow_3 - 6 * t_pow_2 + 0 * t + 4) * control_points[(i + 2) % size + 1] +
+                    (-3 * t_pow_3 + 3 * t_pow_2 + 3 * t + 1) * control_points[(i + 4) % size + 1] +
+                    (+1 * t_pow_3 + 0 * t_pow_2 + 0 * t + 0) * control_points[(i + 6) % size + 1]
+                )
+                / 6.0f
+            );
+
+            b_splines.push_back(x);
+            b_splines.push_back(y);
+        }
+    }
+
+
+    glBindVertexArray(VAO_B_SLINES);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO_B_SLINES);
+    glBufferData(GL_ARRAY_BUFFER, b_splines.size() * sizeof(float), b_splines.data(), GL_STATIC_DRAW);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), NULL);
-	glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(0);
 }
 
 void draw() {
-    glPointSize(10);
+    glBindVertexArray(VAO_PONTOS_CONTROLE);
+    //Control points
+
+    // glEnable(GL_POINT_SMOOTH);
+    glPointSize(5);
     glDrawArrays(GL_POINTS, 0, (float)control_points.size() / 2);
+    // glDisable(GL_POINT_SMOOTH);
+
+    // B-Splines
+    glBindVertexArray(VAO_B_SLINES);
+    glDrawArrays(GL_LINE_STRIP, 0, (float)b_splines.size() / 2);
+
 
 }
 
@@ -170,7 +242,14 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
         control_points.push_back((float)x_current_pos);
         control_points.push_back((float)y_current_pos);
 
-        update_vbo_vertice();
+        update_vbo_pontos_controle();
+
+        // if (control_points.size() > 7) {
+        // cout << "update_vbo_b_splines" << endl;
+        update_vbo_b_splines();
+        // }
+
+
     }
 }
 
@@ -184,13 +263,12 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
-
 void clear_screen() {
     glClearColor(0.2f, 0.2f, 0.2f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void finish(GLFWwindow* window) {
-	glDeleteBuffers(1, &VBO_VERTICE);
-	glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO_PONTOS_CONTROLE);
+    glDeleteVertexArrays(1, &VAO_PONTOS_CONTROLE);
 }
