@@ -41,14 +41,14 @@ Mesh* Car::mesh() {
 }
 
 glm::vec3* Car::position() {
-    return positions[current_position];
+    return positions[current_position % positions.size()];
 }
 
 void Car::action(int action) {
     if (action == FRENTE) {
-		current_position = (current_position + 1) % positions.size()-1;
+        current_position++;
     }
     if (action == TRAS) {
-		current_position = (current_position - 1) % positions.size();
+        current_position--;
     }
 }

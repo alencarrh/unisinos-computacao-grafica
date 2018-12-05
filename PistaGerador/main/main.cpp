@@ -342,7 +342,7 @@ void to_obj() {
     material.close();
 
     ofstream curva(BSLINE);
-    for (int i = 0; i < bspline.size(); i += 3) {
+    for (int i = 0; i < bspline.size()-15; i += 3) {
         curva << bspline[i] * GLOBAL_SCALE << " " << bspline[i + 2] * HEIGHT_SCALE << " " << bspline[i + 1] * GLOBAL_SCALE << endl;
     }
     curva.close();
