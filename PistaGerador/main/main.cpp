@@ -3,6 +3,7 @@
 
 float CURVE_DISTANCE = 15.0f;
 
+
 GLuint VAO_CP, VBO_CP; //Control points
 GLuint VAO_BSLINE, VBO_BSLINE; //B-Splines
 GLuint VAO_BSLINE_IN, VBO_BSLINE_IN; //B-Splines internal
@@ -87,7 +88,7 @@ void update_bspline() {
     int size = control_points.size();
 
     for (int i = 0; i < size + 3; i += 3) {
-        for (float t = 0; t < 1; t += 0.05f) {
+        for (float t = 0; t < 1; t += 0.03f) {
 
             float t_pow_3 = pow(t, 3);
             float t_pow_2 = pow(t, 2);
@@ -137,6 +138,10 @@ void update_bspline_in_ex() {
         float Bx = bspline[(i + 3) % size];
         float By = bspline[(i + 4) % size];
 
+        float Ac = bspline[(i + 2) % size];
+        float Bc = bspline[(i + 5) % size];
+
+
         //->
         //AB
         float w = Bx - Ax;
@@ -159,15 +164,15 @@ void update_bspline_in_ex() {
 
         bspline_in.push_back(internalCx);
         bspline_in.push_back(internalCy);
-        bspline_in.push_back(0.0f); // TODO
+        bspline_in.push_back(Ac); // TODO
 
 
-        float externalCx = cos(externalAngle) * CURVE_DISTANCE + Bx;
-        float externalCy = sin(externalAngle) * CURVE_DISTANCE + By;
+        float externalCx = cos(externalAngle) * CURVE_DISTANCE + Ax;
+        float externalCy = sin(externalAngle) * CURVE_DISTANCE + Ay;
 
         bspline_ex.push_back(externalCx);
         bspline_ex.push_back(externalCy);
-        bspline_ex.push_back(0.0f); // TODO
+        bspline_ex.push_back(Ac); // TODO
 
     }
 
@@ -218,6 +223,58 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
     }
 }
 
+float euclidean_distance(float x1, float x2, float y1, float y2) {
+    float moduloX = x2 - x1;
+    float moduloY = y2 - y1;
+    float distance = sqrt(pow(moduloX, 2) + pow(moduloY, 2));
+    return distance;
+}
+
+void update_color(int value) {
+    double x_current_pos, y_current_pos;
+    glfwGetCursorPos(window, &x_current_pos, &y_current_pos);
+    cout << "x: " << x_current_pos << "   y: " << y_current_pos << endl;
+    //acha vertice mais proximo
+    int vertice_proximo = 2;
+    float smallest_distance = euclidean_distance(control_points[0], x_current_pos, control_points[1], y_current_pos);
+
+    for (int i = 3; i < control_points.size(); i += 3) {
+        float current_distance = euclidean_distance(control_points[i], x_current_pos, control_points[i + 1],
+                                                    y_current_pos);
+        if (current_distance < smallest_distance) {
+            smallest_distance = current_distance;
+            vertice_proximo = i + 2;
+        }
+    }
+
+
+    float new_value = control_points[vertice_proximo] + value;
+
+    if (new_value > 255.0f) {
+        control_points[vertice_proximo] = 255.0f;
+    } else if (new_value < 0.0f) {
+        control_points[vertice_proximo] = 0.0f;
+    } else {
+        control_points[vertice_proximo] = new_value;
+    }
+
+    bind_vbo(VAO_CP, VBO_CP, control_points);
+    update_bspline();
+    update_bspline_in_ex();
+}
+
+void increase() {
+    update_color(COLOR_CHANGE_FACTOR);
+}
+
+void decrease() {
+    update_color(-1 * COLOR_CHANGE_FACTOR);
+}
+
+
+bool m_pressed = false;
+bool n_pressed = false;
+
 void keyboard_input_handler(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
@@ -233,10 +290,26 @@ void keyboard_input_handler(GLFWwindow* window) {
         bind_vbo(VAO_BSLINE_EX, VBO_BSLINE_EX, bspline_ex);
     }
 
-
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
         to_obj();
     }
+
+    if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS && !m_pressed) {
+        m_pressed = true;
+        increase();
+    }
+    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS && !n_pressed) {
+        n_pressed = true;
+        decrease();
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_M) == GLFW_RELEASE && m_pressed) {
+        m_pressed = false;
+    }
+    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_RELEASE && n_pressed) {
+        n_pressed = false;
+    }
+
 }
 
 void finish(GLFWwindow* window) {
@@ -270,7 +343,7 @@ void to_obj() {
 
     ofstream curva(BSLINE);
     for (int i = 0; i < bspline.size(); i += 3) {
-        curva << bspline[i] * GLOBAL_SCALE  << " " << bspline[i + 2]  << " " << bspline[i+1] * GLOBAL_SCALE << endl;
+        curva << bspline[i] * GLOBAL_SCALE << " " << bspline[i + 2] * HEIGHT_SCALE << " " << bspline[i + 1] * GLOBAL_SCALE << endl;
     }
     curva.close();
 
@@ -280,6 +353,7 @@ void to_obj() {
     obj << "g " << GROUP_NAME << endl;
     obj << "usemtl " << MATERIAL_NAME << endl;
 
+    obj << "vn 0.0 1.0 0.0" << endl;
     obj << "vt 0.0 0.0" << endl;
     obj << "vt 0.0 1.0" << endl;
     obj << "vt 1.0 0.0" << endl;
@@ -288,17 +362,19 @@ void to_obj() {
     int size = bspline_in.size();
     int vertices_size = size / 3;
     for (int i = 0; i < size; i += 3) {
-        obj << "v " << (bspline_in[i] * GLOBAL_SCALE) << " " << bspline_in[i + 2] << " " << (bspline_in[i + 1] * GLOBAL_SCALE)
+        obj << "v " << (bspline_in[i] * GLOBAL_SCALE) << " " << bspline_in[i + 2] * HEIGHT_SCALE << " " << (bspline_in[i + 1] *
+                GLOBAL_SCALE)
             << endl;
     }
     for (int i = 0; i < size; i += 3) {
-        obj << "v " << (bspline_ex[i] * GLOBAL_SCALE) << " " << bspline_ex[i + 2] << " " << (bspline_ex[i + 1] * GLOBAL_SCALE)
+        obj << "v " << (bspline_ex[i] * GLOBAL_SCALE) << " " << bspline_ex[i + 2] * HEIGHT_SCALE << " " << (bspline_ex[i + 1] *
+                GLOBAL_SCALE)
             << endl;
     }
 
     for (int i = 1; i <= size / 3 - 3; i ++) {
-        obj << "f " << i << "/1 " << (i + 1) << "/2 " << i + vertices_size << "/4" << endl;
-        obj << "f " << i + vertices_size << "/4 " << (i + 1) << "/2 " << i + 1 + vertices_size << "/3" << endl;
+        obj << "f " << i << "/1/1 " << (i + 1) << "/2/1 " << i + vertices_size << "/4/1" << endl;
+        obj << "f " << i + vertices_size << "/4/1 " << (i + 1) << "/2/1 " << i + 1 + vertices_size << "/3/1" << endl;
     }
 
     obj.close();

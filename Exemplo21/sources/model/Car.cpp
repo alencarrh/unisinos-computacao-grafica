@@ -1,10 +1,10 @@
 #include "../../headers/model/Car.h"
 
-Car::Car(string objFile, string curve_postion) {
+Car::Car(string objFile, string route) {
     this->objReader = new ObjReader();
     this->objFile = objFile;
     this->current_position = 0;
-    this->curve_position = curve_postion;
+    this->route = route;
 }
 
 Car::~Car() {}
@@ -14,7 +14,7 @@ void Car::prepare() {
     this->_mesh->prepare();
 
 
-    ifstream arq(curve_position);
+    ifstream arq(route);
 
     if (!arq) {
         exit(EXIT_FAILURE);
@@ -46,7 +46,7 @@ glm::vec3* Car::position() {
 
 void Car::action(int action) {
     if (action == FRENTE) {
-		current_position = (current_position + 1) % positions.size();
+		current_position = (current_position + 1) % positions.size()-1;
     }
     if (action == TRAS) {
 		current_position = (current_position - 1) % positions.size();

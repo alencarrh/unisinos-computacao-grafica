@@ -22,7 +22,10 @@ GLFWwindow* window;
 string TITLE = "Gerador Pista - GB";
 float WIDTH = 600.0;
 float HEIGHT = 600.0;
+
 float GLOBAL_SCALE = 0.05f;
+float HEIGHT_SCALE = 0.07f;
+float COLOR_CHANGE_FACTOR = 10.0f;
 
 //others
 glm::mat4 projection;

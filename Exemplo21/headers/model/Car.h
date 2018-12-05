@@ -8,12 +8,12 @@ class Car : public Drawable {
     Mesh* _mesh;
     ObjReader* objReader;
     string objFile;
-    string curve_position;
+    string route;
     vector<glm::vec3*> positions;
     int current_position;
 
 public:
-    Car(string objFile, string curve_postions);
+    Car(string objFile, string route);
     ~Car() override;
     void prepare() override;
     Mesh* mesh() override;
