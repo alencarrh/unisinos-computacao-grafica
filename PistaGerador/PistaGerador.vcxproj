@@ -23,7 +23,8 @@
     <ClCompile Include="sources\ShaderHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\ShaderHandler.h" />
+    <ClInclude Include="main\ShaderHandler.h" />
+    <ClInclude Include="main\utils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\core\fragment.frag" />

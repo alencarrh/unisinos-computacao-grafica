@@ -32,11 +32,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\ShaderHandler.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="shaders\core\vertex.vert">
       <Filter>shaders\core</Filter>
     </None>
@@ -44,5 +39,13 @@
       <Filter>shaders\core</Filter>
     </None>
     <None Include="shaders\core\cp_vertex.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main\ShaderHandler.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="main\utils.h">
+      <Filter>header files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

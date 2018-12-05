@@ -1,4 +1,4 @@
-#include "../headers/ShaderHandler.h"
+#include "../main/ShaderHandler.h"
 
 // constructor reads and builds the shader
 ShaderHandler::ShaderHandler(const GLchar* vertexPath, const GLchar* fragmentPath) {
