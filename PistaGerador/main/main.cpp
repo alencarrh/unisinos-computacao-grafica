@@ -274,7 +274,7 @@ void to_obj() {
     obj << "vt 1.0 1.0" << endl;
 
     int size = bspline_in.size();
-
+	int vertices_size = size / 3;
     for (int i = 0; i < size; i += 3) {
         obj << "v " << bspline_in[i] << " " << bspline_in[i + 2] << " " << bspline_in[i + 1] << endl;
     }
@@ -282,24 +282,9 @@ void to_obj() {
         obj << "v " << bspline_ex[i] << " " << bspline_ex[i + 2] << " " << bspline_ex[i + 1] << endl;
     }
 
-    for (int i = 1; i <= size/3; i ++) {
-		obj << "f " << i << "/1 " << (i + size + 1) << "/4 " << i + size << "/3" << endl;
-		obj << "f " << i << "/1 " << (i + size + 1) << "/4 " << i + 1 << "/2" << endl;
-        
-        /*
-        |   |   |
-        Pi2 |  Pe2
-        |   |   |
-        |   |   |
-        |   |   |
-        Pi1 |  Pe1
-        |   |   |
-
-         f1 -> (i)/1 (i+n+1)/4 (i+n)/3
-         f2 -> (i)/1 (i+n+1)/4 (i+1)/2
-
-        */
-
+    for (int i = 1; i <= size/3 - 3; i ++) {
+		obj << "f " << i << "/1 " << (i + 1) << "/2 " << i + vertices_size << "/4" << endl;
+		obj << "f " << i + vertices_size << "/4 " << (i + 1) << "/2 " << i + 1 + vertices_size << "/3" << endl;
     }
 
 
