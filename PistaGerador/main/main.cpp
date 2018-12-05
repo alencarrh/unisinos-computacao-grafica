@@ -250,8 +250,10 @@ void finish(GLFWwindow* window) {
     del_vbo(VBO_BSLINE_IN);
 }
 
-string OBJ_FILE = "../Exemplo21/pista.obj";
-string MATERIAL_FILE = "../Exemplo21/pista.mtl";
+string path = "../Exemplo21/";
+string BSLINE = path + "curva.txt";
+string OBJ_FILE = path + "pista.obj";
+string MATERIAL_FILE = path + "pista.mtl";
 string MATERIAL_NAME = "NOME_DO_MATERIAL_AQUI";
 string GROUP_NAME = "GRUPO";
 string TEXTURE_FILE = "pista.jpg";
@@ -266,6 +268,13 @@ void to_obj() {
     material << "map_Kd " << TEXTURE_FILE << endl;
     material.close();
 
+    ofstream curva(BSLINE);
+    for (int i = 0; i < bspline.size(); i += 3) {
+        curva << bspline[i] * GLOBAL_SCALE  << " " << bspline[i + 2]  << " " << bspline[i+1] * GLOBAL_SCALE << endl;
+    }
+    curva.close();
+
+
     ofstream obj(OBJ_FILE);
     obj << "mtllib " << MATERIAL_FILE << endl;
     obj << "g " << GROUP_NAME << endl;
@@ -277,14 +286,13 @@ void to_obj() {
     obj << "vt 1.0 1.0" << endl;
 
     int size = bspline_in.size();
-    float scale = 0.05f;
     int vertices_size = size / 3;
     for (int i = 0; i < size; i += 3) {
-        obj << "v " << (bspline_in[i] * scale) << " " << bspline_in[i + 2] << " " << (bspline_in[i + 1] * scale)
+        obj << "v " << (bspline_in[i] * GLOBAL_SCALE) << " " << bspline_in[i + 2] << " " << (bspline_in[i + 1] * GLOBAL_SCALE)
             << endl;
     }
     for (int i = 0; i < size; i += 3) {
-        obj << "v " << (bspline_ex[i] * scale) << " " << bspline_ex[i + 2] << " " << (bspline_ex[i + 1] * scale)
+        obj << "v " << (bspline_ex[i] * GLOBAL_SCALE) << " " << bspline_ex[i + 2] << " " << (bspline_ex[i + 1] * GLOBAL_SCALE)
             << endl;
     }
 

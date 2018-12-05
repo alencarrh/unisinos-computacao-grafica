@@ -13,6 +13,10 @@ public:
     ~Lamp() override;
     void prepare() override;
 
+    void action(int action) override {
+		
+    }
+
     glm::vec3* position() override {
         return this->_position;
     }

@@ -144,6 +144,9 @@
     <ClCompile Include="main\main.cpp">
       <Filter>source files</Filter>
     </ClCompile>
+    <ClCompile Include="sources\model\Car.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\actions\Drawable.h">
@@ -249,6 +252,9 @@
       <Filter>header files</Filter>
     </ClInclude>
     <ClInclude Include="headers\utils\stb_image.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\model\Car.h">
       <Filter>header files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,6 +13,10 @@ Object::Object(Mesh* mesh) {
     this->_mesh = mesh;
 }
 
+void Object::action(int action) {
+    
+}
+
 Object::~Object() {}
 
 void Object::prepare() {

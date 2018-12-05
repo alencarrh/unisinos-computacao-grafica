@@ -44,6 +44,7 @@
     <ClCompile Include="sources\handler\CameraHandler.cpp" />
     <ClCompile Include="sources\handler\MaterialHandler.cpp" />
     <ClCompile Include="sources\handler\ShaderHandler.cpp" />
+    <ClCompile Include="sources\model\Car.cpp" />
     <ClCompile Include="sources\model\Lamp.cpp" />
     <ClCompile Include="sources\model\Light.cpp" />
     <ClCompile Include="sources\model\Object.cpp" />
@@ -81,6 +82,7 @@
     <ClInclude Include="headers\handler\CameraHandler.h" />
     <ClInclude Include="headers\handler\MaterialHandler.h" />
     <ClInclude Include="headers\handler\ShaderHandler.h" />
+    <ClInclude Include="headers\model\Car.h" />
     <ClInclude Include="headers\model\Lamp.h" />
     <ClInclude Include="headers\model\Light.h" />
     <ClInclude Include="headers\model\Object.h" />

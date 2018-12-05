@@ -50,7 +50,7 @@ void Scene::run(GLFWwindow* window) {
 
     glm::mat4 view = camera->getViewMatrix();
 
-    glm::mat4 model(1.0f);
+    // glm::mat4 model(1.0f);
     // model = glm::rotate(model, glm::radians(65.0f), glm::vec3(0.5f, 1.0f, 0.0f));
     // model = glm::rotate(model, (float)glfwGetTime() * glm::radians(10.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
@@ -68,7 +68,6 @@ void Scene::run(GLFWwindow* window) {
         glDrawArrays(GL_TRIANGLES, 0, group->numVertices() * 2);
     }
 
-
     this->shader->use();
     this->shader->setMatrix4fv("view", view);
     this->shader->setMatrix4fv("projection", projection);
@@ -81,13 +80,8 @@ void Scene::run(GLFWwindow* window) {
     this->shader->setVec3("light.diffuse", light->diffuse);
     this->shader->setVec3("light.specular", light->specular);
 
-
-    //TODO no momento só usamos 1 textura, então vai funcionar, caso queiramos mais de uma por grupo
-    //vai ser necessário modificar e linha abaixo
-
-    // this->shader->setInt("texture1", 0);
-
     for (Drawable* obj : this->objects) {
+		glm::mat4 model(1.0f);
         model = translate(model, (*obj->position()));
         this->shader->setMatrix4fv("model", model);
 
@@ -101,15 +95,6 @@ void Scene::run(GLFWwindow* window) {
 
             group->bindVAO();
             group->bindTexture();
-
-            // if (currentTexture == 1) {
-                // glActiveTexture(GL_TEXTURE0);
-            // } else {
-                // glActiveTexture(GL_TEXTURE1);
-
-            // }
-            // glBindTexture(GL_TEXTURE_2D, group->getTexture());
-
             glDrawArrays(GL_TRIANGLES, 0, group->numVertices());
         }
     }
@@ -162,6 +147,18 @@ void Scene::process_input(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
         light->position = new glm::vec3(camera->position + camera->front);
     }
+
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+		for (Drawable* obj : this->objects) {
+			obj->action(FRENTE);
+		}
+	}
+	
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+		for (Drawable* obj : this->objects) {
+			obj->action(TRAS);
+		}
+	}
 }
 
 void Scene::mouse_callback(GLFWwindow* window, double xpos, double ypos) {

@@ -17,6 +17,7 @@ public:
     Object(Mesh* mesh);
     ~Object() override;
     void prepare() override;
+    void action(int action) override;
 
     glm::vec3* position() override {
         return this->_position;
