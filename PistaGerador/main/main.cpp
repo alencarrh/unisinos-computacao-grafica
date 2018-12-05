@@ -2,6 +2,7 @@
 #include "utils.h"
 
 float CURVE_DISTANCE = 15.0f;
+float FATOR_T = 0.03f;
 
 
 GLuint VAO_CP, VBO_CP; //Control points
@@ -88,7 +89,7 @@ void update_bspline() {
     int size = control_points.size();
 
     for (int i = 0; i < size + 3; i += 3) {
-        for (float t = 0; t < 1; t += 0.03f) {
+        for (float t = 0; t < 1; t += FATOR_T) {
 
             float t_pow_3 = pow(t, 3);
             float t_pow_2 = pow(t, 2);
@@ -342,7 +343,10 @@ void to_obj() {
     material.close();
 
     ofstream curva(BSLINE);
-    for (int i = 0; i < bspline.size()-15; i += 3) {
+
+
+	float temp = (bspline.size() / ((float)control_points.size() / 3)) * 1;
+    for (int i = 0; i < bspline.size()-temp; i += 3) {
         curva << bspline[i] * GLOBAL_SCALE << " " << bspline[i + 2] * HEIGHT_SCALE << " " << bspline[i + 1] * GLOBAL_SCALE << endl;
     }
     curva.close();
