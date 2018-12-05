@@ -28,6 +28,7 @@
   <ItemGroup>
     <None Include="shaders\core\fragment.frag" />
     <None Include="shaders\core\vertex.vert" />
+    <None Include="shaders\core\cp_vertex.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4013A7B7-7518-4B78-B6DE-436789DF14FC}</ProjectGuid>

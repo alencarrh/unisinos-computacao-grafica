@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 #include <GLM/gtc/matrix_transform.hpp>
@@ -5,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <math.h>
 #include "../headers/ShaderHandler.h" //TODO mover para a mesma pasta
 
 #define EXIT_SUCCESS 0
@@ -21,11 +23,12 @@ glm::mat4 projection;
 
 // VAO, VBOs attributes
 GLuint VAO_PONTOS_CONTROLE, VBO_PONTOS_CONTROLE, VBO_COLOR; //ignorar VBO_COLOR por enquanto
-GLuint VAO_B_SLINES, VBO_B_SLINES;
+GLuint VAO_B_SLINES, VAO_B_SLINES_EX, VAO_B_SLINES_IN;
+GLuint VBO_B_SLINES, VBO_B_SLINES_EX, VBO_B_SLINES_IN;
 glm::vec3* control_points_color = new glm::vec3(1.0f, 0.0f, 0.0f); //RED
 
 // others attributes
-vector<float> control_points, b_splines;
+vector<float> control_points, b_splines, b_splines_interna, b_splines_externa;
 ShaderHandler* shader;
 
 //control attributes
@@ -42,6 +45,7 @@ void gen_and_configure_vbo_b_splines();
 void finish(GLFWwindow* window);
 void update_vbo_pontos_controle();
 void update_vbo_b_splines();
+void update_vbo_b_splines_external_internal();
 void draw();
 
 //control methods
@@ -141,10 +145,14 @@ void gen_and_configure_vbo_control_points() {
 
 void gen_and_bind_vao_b_splines() {
     glGenVertexArrays(1, &VAO_B_SLINES);
+    glGenVertexArrays(1, &VAO_B_SLINES_EX);
+    glGenVertexArrays(1, &VAO_B_SLINES_IN);
 }
 
 void gen_and_configure_vbo_b_splines() {
     glGenBuffers(1, &VBO_B_SLINES);
+    glGenBuffers(1, &VBO_B_SLINES_IN);
+    glGenBuffers(1, &VBO_B_SLINES_EX);
 }
 
 void update_vbo_pontos_controle() {
@@ -166,7 +174,7 @@ void update_vbo_b_splines() {
     b_splines.clear();
     int size = control_points.size();
 
-    for (int i = 0; i < size + 2; i += 2) {
+    for (int i = 0; i < size; i += 2) {
         for (float t = 0; t < 1; t += 0.05f) {
 
             float t_pow_3 = pow(t, 3);
@@ -195,6 +203,7 @@ void update_vbo_b_splines() {
 
             b_splines.push_back(x);
             b_splines.push_back(y);
+
         }
     }
 
@@ -206,17 +215,85 @@ void update_vbo_b_splines() {
     glEnableVertexAttribArray(0);
 }
 
+
+void update_vbo_b_splines_external_internal() {
+    b_splines_externa.clear();
+    b_splines_interna.clear();
+    int size = b_splines.size();
+
+    // if (control_points.size() < 7) {
+        // return;
+    // }
+
+    for (int i = 0; i < size; i +=2) {
+
+        double Ax = b_splines[(i + 0) % size];
+        double Ay = b_splines[(i + 1) % size];
+        double Bx = b_splines[(i + 2) % size];
+        double By = b_splines[(i + 3) % size];
+
+        double w = Bx - Ax;
+        double h = By - Ay;
+        double a = atan(h / w);
+
+        float internalAngle, externalAngle;
+
+        if (w < 0) {
+            internalAngle = a + M_PI / 2;
+            externalAngle = a - M_PI / 2;
+        } else {
+            internalAngle = a - M_PI / 2;
+            externalAngle = a + M_PI / 2;
+        }
+
+
+        float internalCx = cos(internalAngle) * 15 + Ax;
+        float internalCy = sin(internalAngle) * 15 + Ay;
+
+
+        b_splines_interna.push_back(internalCx);
+        b_splines_interna.push_back(internalCy);
+
+
+        float externalCx = cos(externalAngle) * 15 + Bx;
+        float externalCy = sin(externalAngle) * 15 + By;
+
+        b_splines_externa.push_back(externalCx);
+        b_splines_externa.push_back(externalCy);
+
+    }
+
+
+    glBindVertexArray(VAO_B_SLINES_EX);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO_B_SLINES_EX);
+    glBufferData(GL_ARRAY_BUFFER, b_splines_externa.size() * sizeof(float), b_splines_externa.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), NULL);
+    glEnableVertexAttribArray(0);
+
+
+    glBindVertexArray(VAO_B_SLINES_IN);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO_B_SLINES_IN);
+    glBufferData(GL_ARRAY_BUFFER, b_splines_interna.size() * sizeof(float), b_splines_interna.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), NULL);
+    glEnableVertexAttribArray(0);
+}
+
+
 void draw() {
     glBindVertexArray(VAO_PONTOS_CONTROLE);
-    //Control points
-
-    // glEnable(GL_POINT_SMOOTH);
     glPointSize(5);
     glDrawArrays(GL_POINTS, 0, (float)control_points.size() / 2);
-    // glDisable(GL_POINT_SMOOTH);
 
     // B-Splines
     glBindVertexArray(VAO_B_SLINES);
+    glDrawArrays(GL_LINE_STRIP, 0, (float)b_splines.size() / 2);
+
+    // B-Splines external
+    glBindVertexArray(VAO_B_SLINES_EX);
+    glDrawArrays(GL_LINE_STRIP, 0, (float)b_splines.size() / 2);
+
+    // B-Splines internal
+    glBindVertexArray(VAO_B_SLINES_IN);
     glDrawArrays(GL_LINE_STRIP, 0, (float)b_splines.size() / 2);
 
 
@@ -247,6 +324,8 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
         // if (control_points.size() > 7) {
         // cout << "update_vbo_b_splines" << endl;
         update_vbo_b_splines();
+        update_vbo_b_splines_external_internal();
+
         // }
 
 
