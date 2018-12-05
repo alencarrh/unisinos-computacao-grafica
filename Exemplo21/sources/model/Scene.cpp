@@ -81,8 +81,29 @@ void Scene::run(GLFWwindow* window) {
     this->shader->setVec3("light.specular", light->specular);
 
     for (Drawable* obj : this->objects) {
-		glm::mat4 model(1.0f);
-        model = translate(model, (*obj->position()));
+
+        glm::vec3* A = obj->position();
+        glm::mat4 model = translate(glm::mat4(1.0f), *A);
+
+        if (obj->should_rotate()) {
+            glm::vec3* B = obj->next_position();
+
+			float w = B->x - A->x;
+			float h = B->z - A->z;
+			float a = atan2f(w, h) - M_PI / 2;
+            glm::mat4 R1 = rotate(glm::mat4(1.0f), a, glm::vec3(0.0f, 1.0f, 0.0f));
+
+            // h = currentPosition->y - nextPosition->y;
+			// if (h < 0) {
+				// a = atan(w / h) - (M_PI_2);
+			// }
+			// else {
+				// a = atan(w / h) + (M_PI_2);
+			// }
+            // glm::mat4 R2 = rotate(glm::mat4(1.0f), a, glm::vec3(0.0f, 0.0f, 1.0f));
+            model = model * R1;
+        }
+
         this->shader->setMatrix4fv("model", model);
 
         for (Group* group : obj->mesh()->getGroups()) {
@@ -148,17 +169,17 @@ void Scene::process_input(GLFWwindow* window) {
         light->position = new glm::vec3(camera->position + camera->front);
     }
 
-	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-		for (Drawable* obj : this->objects) {
-			obj->action(FRENTE);
-		}
-	}
-	
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+        for (Drawable* obj : this->objects) {
+            obj->action(FRENTE);
+        }
+    }
+
     if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-		for (Drawable* obj : this->objects) {
-			obj->action(TRAS);
-		}
-	}
+        for (Drawable* obj : this->objects) {
+            obj->action(TRAS);
+        }
+    }
 }
 
 void Scene::mouse_callback(GLFWwindow* window, double xpos, double ypos) {

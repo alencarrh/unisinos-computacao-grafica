@@ -5,6 +5,7 @@ Car::Car(string objFile, string route) {
     this->objFile = objFile;
     this->current_position = 0;
     this->route = route;
+    this->lastAction = FRENTE;
 }
 
 Car::~Car() {}
@@ -44,11 +45,20 @@ glm::vec3* Car::position() {
     return positions[current_position % positions.size()];
 }
 
+glm::vec3* Car::next_position() {
+    if (lastAction == FRENTE) {
+        return positions[(current_position + 1) % positions.size()];
+    }
+    if (lastAction == TRAS) {
+        return positions[(current_position - 1) % positions.size()];
+    }
+}
+
 void Car::action(int action) {
     if (action == FRENTE) {
-        current_position++;
+		current_position++;
     }
     if (action == TRAS) {
-        current_position--;
+		current_position--;
     }
 }

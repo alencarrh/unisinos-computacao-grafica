@@ -11,6 +11,7 @@ class Car : public Drawable {
     string route;
     vector<glm::vec3*> positions;
     int current_position;
+	int lastAction;
 
 public:
     Car(string objFile, string route);
@@ -18,7 +19,12 @@ public:
     void prepare() override;
     Mesh* mesh() override;
     glm::vec3* position() override;
+    glm::vec3* next_position() override;
     void action(int action) override;
+
+    bool should_rotate() override {
+		return true;
+    }
 };
 
 

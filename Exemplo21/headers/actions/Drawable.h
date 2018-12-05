@@ -14,7 +14,9 @@ public:
     virtual void prepare() = 0;
     virtual Mesh* mesh() = 0;
     virtual glm::vec3* position() = 0;
+	virtual glm::vec3* next_position() = 0;
 	virtual void action(int action) = 0;
+	virtual bool should_rotate() = 0;
 
 };
 

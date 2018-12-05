@@ -21,9 +21,19 @@ public:
         return this->_position;
     }
 
+
+    glm::vec3* next_position() override {
+		return this->_position;
+    };
+
     Mesh* mesh() override {
         return this->_mesh;
     }
+
+
+    bool should_rotate() override {
+		return false;
+    };
 };
 
 #endif

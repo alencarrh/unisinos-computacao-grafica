@@ -1,7 +1,8 @@
 #ifndef SCENE_H
 #define SCENE_H
-
+#define _USE_MATH_DEFINES
 #include <vector>
+#include <math.h>
 #include "../actions/Runnable.h"
 #include "../handler/CameraHandler.h"
 #include "../handler/ShaderHandler.h"
