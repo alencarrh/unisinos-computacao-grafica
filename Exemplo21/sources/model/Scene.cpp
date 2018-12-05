@@ -31,7 +31,7 @@ int Scene::init(GLFWwindow* window) {
 
     glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
 
-    glm::ortho(0.0f, this->_width, 0.0f, this->_height, 0.1f, 100.0f);
+    glm::ortho(0.0f, this->_width, 0.0f, this->_height, -1.0f, 1.0f);
 
     return EXIT_SUCCESS;
 }

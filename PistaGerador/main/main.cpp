@@ -137,6 +137,8 @@ void update_bspline_in_ex() {
         float Bx = bspline[(i + 3) % size];
         float By = bspline[(i + 4) % size];
 
+        //->
+        //AB
         float w = Bx - Ax;
         float h = By - Ay;
         float a = atan(h / w);
@@ -248,45 +250,48 @@ void finish(GLFWwindow* window) {
     del_vbo(VBO_BSLINE_IN);
 }
 
-string MATERIAL_FILE = "pista.mtl";
+string OBJ_FILE = "../Exemplo21/pista.obj";
+string MATERIAL_FILE = "../Exemplo21/pista.mtl";
 string MATERIAL_NAME = "NOME_DO_MATERIAL_AQUI";
 string GROUP_NAME = "GRUPO";
 string TEXTURE_FILE = "pista.jpg";
 
 void to_obj() {
-	ofstream material(MATERIAL_FILE);
-	material << "newmtl " << MATERIAL_NAME << endl;
-	material << "Ka 0.15 0.15 0.15" << endl;
-	material << "Kd 0.5 0.5 0.5" << endl;
-	material << "Ks 1.0 1.0 1.0" << endl;
-	material << "Ns 64.0" << endl;
-	material << "map_Kd " << TEXTURE_FILE << endl;
-	material.close();
+    ofstream material(MATERIAL_FILE);
+    material << "newmtl " << MATERIAL_NAME << endl;
+    material << "Ka 0.7 0.7 0.7" << endl;
+    material << "Kd 0.9 0.9 0.9" << endl;
+    material << "Ks 1.0 1.0 1.0" << endl;
+    material << "Ns 64.0" << endl;
+    material << "map_Kd " << TEXTURE_FILE << endl;
+    material.close();
 
-    ofstream obj("pista.obj");
+    ofstream obj(OBJ_FILE);
     obj << "mtllib " << MATERIAL_FILE << endl;
     obj << "g " << GROUP_NAME << endl;
-	obj << "usemtl " << MATERIAL_NAME << endl;
-    
+    obj << "usemtl " << MATERIAL_NAME << endl;
+
     obj << "vt 0.0 0.0" << endl;
     obj << "vt 0.0 1.0" << endl;
     obj << "vt 1.0 0.0" << endl;
     obj << "vt 1.0 1.0" << endl;
 
     int size = bspline_in.size();
-	int vertices_size = size / 3;
+    float scale = 1;
+    int vertices_size = size / 3;
     for (int i = 0; i < size; i += 3) {
-        obj << "v " << bspline_in[i] << " " << bspline_in[i + 2] << " " << bspline_in[i + 1] << endl;
+        obj << "v " << (bspline_in[i] * scale) << " " << bspline_in[i + 2] << " " << (bspline_in[i + 1] * scale)
+            << endl;
     }
     for (int i = 0; i < size; i += 3) {
-        obj << "v " << bspline_ex[i] << " " << bspline_ex[i + 2] << " " << bspline_ex[i + 1] << endl;
+        obj << "v " << (bspline_in[i] * scale) << " " << bspline_ex[i + 2] << " " << (bspline_ex[i + 1] * scale)
+            << endl;
     }
 
-    for (int i = 1; i <= size/3 - 3; i ++) {
-		obj << "f " << i << "/1 " << (i + 1) << "/2 " << i + vertices_size << "/4" << endl;
-		obj << "f " << i + vertices_size << "/4 " << (i + 1) << "/2 " << i + 1 + vertices_size << "/3" << endl;
+    for (int i = 1; i <= size / 3 - 3; i ++) {
+        obj << "f " << i << "/1 " << (i + 1) << "/2 " << i + vertices_size << "/4" << endl;
+        obj << "f " << i + vertices_size << "/4 " << (i + 1) << "/2 " << i + 1 + vertices_size << "/3" << endl;
     }
 
-
-	obj.close();
+    obj.close();
 }
