@@ -277,14 +277,14 @@ void to_obj() {
     obj << "vt 1.0 1.0" << endl;
 
     int size = bspline_in.size();
-    float scale = 1;
+    float scale = 0.05f;
     int vertices_size = size / 3;
     for (int i = 0; i < size; i += 3) {
         obj << "v " << (bspline_in[i] * scale) << " " << bspline_in[i + 2] << " " << (bspline_in[i + 1] * scale)
             << endl;
     }
     for (int i = 0; i < size; i += 3) {
-        obj << "v " << (bspline_in[i] * scale) << " " << bspline_ex[i + 2] << " " << (bspline_ex[i + 1] * scale)
+        obj << "v " << (bspline_ex[i] * scale) << " " << bspline_ex[i + 2] << " " << (bspline_ex[i + 1] * scale)
             << endl;
     }
 

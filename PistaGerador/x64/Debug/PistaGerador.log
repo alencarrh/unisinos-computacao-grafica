@@ -1,0 +1,16 @@
+﻿  main.cpp
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\utils.h(48): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(87): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(130): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(149): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(150): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(152): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(153): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(182): warning C4244: 'argumento': conversão de 'float' para 'GLsizei', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(186): warning C4244: 'argumento': conversão de 'float' para 'GLsizei', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(190): warning C4244: 'argumento': conversão de 'float' para 'GLsizei', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(194): warning C4244: 'argumento': conversão de 'float' para 'GLsizei', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(211): warning C4244: 'argumento': conversão de 'double' para 'const float', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(212): warning C4244: 'argumento': conversão de 'double' para 'const float', possível perda de dados
+c:\users\saymonla\desktop\cg\unisinos-computacao-grafica-master\pistagerador\main\main.cpp(279): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+  PistaGerador.vcxproj -> C:\Users\saymonla\Desktop\cg\unisinos-computacao-grafica-master\x64\Debug\PistaGerador.exe
