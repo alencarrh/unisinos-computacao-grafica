@@ -19,7 +19,7 @@ int load_shaders();
 void setup_vao_vbos();
 void draw();
 void finish(GLFWwindow* window);
-
+void to_obj();
 //handlers
 void keyboard_input_handler(GLFWwindow* window);
 
@@ -86,7 +86,7 @@ void update_bspline() {
     bspline.clear();
     int size = control_points.size();
 
-    for (int i = 0; i < size+3; i += 3) {
+    for (int i = 0; i < size + 3; i += 3) {
         for (float t = 0; t < 1; t += 0.05f) {
 
             float t_pow_3 = pow(t, 3);
@@ -129,7 +129,7 @@ void update_bspline_in_ex() {
     bspline_in.clear();
     int size = bspline.size();
 
-    for (int i = 0; i < size - 3; i +=3) {
+    for (int i = 0; i < size - 3; i += 3) {
 
         float Ax = bspline[(i + 0) % size];
         float Ay = bspline[(i + 1) % size];
@@ -220,16 +220,21 @@ void keyboard_input_handler(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
-	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
-		control_points.clear();
-		bspline.clear();
-		bspline_in.clear();
-		bspline_ex.clear();
-		bind_vbo(VAO_CP, VBO_CP, control_points);
-		bind_vbo(VAO_BSLINE, VBO_BSLINE, bspline);
-		bind_vbo(VAO_BSLINE_IN, VBO_BSLINE_IN, bspline_in);
-		bind_vbo(VAO_BSLINE_EX, VBO_BSLINE_EX, bspline_ex);
-	}
+    if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
+        control_points.clear();
+        bspline.clear();
+        bspline_in.clear();
+        bspline_ex.clear();
+        bind_vbo(VAO_CP, VBO_CP, control_points);
+        bind_vbo(VAO_BSLINE, VBO_BSLINE, bspline);
+        bind_vbo(VAO_BSLINE_IN, VBO_BSLINE_IN, bspline_in);
+        bind_vbo(VAO_BSLINE_EX, VBO_BSLINE_EX, bspline_ex);
+    }
+
+
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+        to_obj();
+    }
 }
 
 void finish(GLFWwindow* window) {
@@ -241,4 +246,62 @@ void finish(GLFWwindow* window) {
     del_vbo(VBO_BSLINE);
     del_vbo(VBO_BSLINE_EX);
     del_vbo(VBO_BSLINE_IN);
+}
+
+string MATERIAL_FILE = "pista.mtl";
+string MATERIAL_NAME = "NOME_DO_MATERIAL_AQUI";
+string GROUP_NAME = "GRUPO";
+string TEXTURE_FILE = "pista.jpg";
+
+void to_obj() {
+	ofstream material(MATERIAL_FILE);
+	material << "newmtl " << MATERIAL_NAME << endl;
+	material << "Ka 0.15 0.15 0.15" << endl;
+	material << "Kd 0.5 0.5 0.5" << endl;
+	material << "Ks 1.0 1.0 1.0" << endl;
+	material << "Ns 64.0" << endl;
+	material << "map_Kd " << TEXTURE_FILE << endl;
+	material.close();
+
+    ofstream obj("pista.obj");
+    obj << "mtllib " << MATERIAL_FILE << endl;
+    obj << "g " << GROUP_NAME << endl;
+	obj << "usemtl " << MATERIAL_NAME << endl;
+    
+    obj << "vt 0.0 0.0" << endl;
+    obj << "vt 0.0 1.0" << endl;
+    obj << "vt 1.0 0.0" << endl;
+    obj << "vt 1.0 1.0" << endl;
+
+    int size = bspline_in.size();
+
+    for (int i = 0; i < size; i += 3) {
+        obj << "v " << bspline_in[i] << " " << bspline_in[i + 2] << " " << bspline_in[i + 1] << endl;
+    }
+    for (int i = 0; i < size; i += 3) {
+        obj << "v " << bspline_ex[i] << " " << bspline_ex[i + 2] << " " << bspline_ex[i + 1] << endl;
+    }
+
+    for (int i = 1; i <= size/3; i ++) {
+		obj << "f " << i << "/1 " << (i + size + 1) << "/4 " << i + size << "/3" << endl;
+		obj << "f " << i << "/1 " << (i + size + 1) << "/4 " << i + 1 << "/2" << endl;
+        
+        /*
+        |   |   |
+        Pi2 |  Pe2
+        |   |   |
+        |   |   |
+        |   |   |
+        Pi1 |  Pe1
+        |   |   |
+
+         f1 -> (i)/1 (i+n+1)/4 (i+n)/3
+         f2 -> (i)/1 (i+n+1)/4 (i+1)/2
+
+        */
+
+    }
+
+
+	obj.close();
 }
